@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Organizza Estúdio</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <style>
+        * {
+  font-size: 100%;
+}
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+body {
+  margin: 0.5em;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  height: 100%;
+  min-width: 800px;
+}
+@media (max-width: 800px) {
+  table .time {
+    display: none;
+  }
+}
+summary {
+  padding-bottom: 0.25em;
+  font-size: 1.5em;
+  font-weight: 100;
+  text-align: right;
+}
+tr {
+  position: relative;
+}
+th {
+  text-align: right;
+  color: #999;
+  font-weight: normal;
+  font-size: 0.85em;
+}
+td {
+  width: 14.285714286%;
+}
+.date {
+  text-align: right;
+  display: block;
+  height: 0;
+  font-size: 0.8em;
+  padding: 0.25em;
+  padding-bottom: 73%;
+  position: relative;
+  border-bottom: 1px solid #dedbdb;
+  margin-left: 0.25em;
+  margin-right: 0.25em;
+}
+tr:first-child:not(.current-week) .date {
+  border-top: 1px solid #dedbdb;
+}
+.date ul,
+.date li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: #333;
+}
+.date ul {
+  text-align: left;
+  font-size: 0.9em;
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+  font-weight: normal;
+}
+.date li {
+  color: #222;
+  width: 100%;
+  height: 1.4em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  position: relative;
+}
+.date li:before {
+  content: '\2022';
+  color: inherit;
+  display: inline-block;
+  padding-right: 0.25em;
+}
+.time {
+  float: right;
+  text-align: right;
+  color: #999;
+}
+.event {
+  color: #333;
+}
+.previous-week .date {
+  border: none;
+}
+.current-week {
+  border-top: 4px solid #4285f4;
+}
+.current-day {
+  background: #42d2f4;
+  border-top: 4px solid #4d90fe;
+}
+.current-day .date {
+  font-weight: bold;
+  color: #cb6c6b;
+}
+.weekend {
+  background-clop: padding-box;
+  background: #f5f5f5;
+}
+.date .different-calendar {
+  color: #00c800;
+}
+
+    </style>
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+                <!--
+(A Partir daqui vem a parte de navegação do site)
+-->
+               <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html"><i class="fa fa-camera-retro"></i>Organizza Estúdio</a>
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-tasks fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-tasks">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Contrato Fabio</strong>
+                                        <span class="pull-right text-muted">40% Completo</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                            <span class="sr-only">40% Completo (success)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Contrato Ana</strong>
+                                        <span class="pull-right text-muted">20% Completo</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                                            <span class="sr-only">20% Completo</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Contrato Paulo</strong>
+                                        <span class="pull-right text-muted">60% Completo</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                            <span class="sr-only">60% Completo (atenção)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Contrato Marcos</strong>
+                                        <span class="pull-right text-muted">80% Completo</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                                            <span class="sr-only">80% Completo (atenção)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>Ver mais Contratos</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-tasks -->
+                </li>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-alerts">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-comment fa-fw"></i> Novo ALerta
+                                    <span class="pull-right text-muted small">5 minutos atrás</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-user fa-fw"></i> 3 Novo Usuário
+                                    <span class="pull-right text-muted small">20 minutos atrás</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-shopping-cart"></i> Novo Serviço
+                                    <span class="pull-right text-muted small">40 minutos atrás</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-tasks fa-fw"></i> Novo Evento
+                                    <span class="pull-right text-muted small">1 dia atrás</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-upload fa-fw"></i> Upload de Arquivos
+                                    <span class="pull-right text-muted small">1 dia atrás</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>Ver mais Alertas</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-alerts -->
+                </li>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> Administrador</a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Configuações</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li class="sidebar-search">
+                            <div class="input-group custom-search-form">
+                                <input type="text" class="form-control" placeholder="Pesquisar...">
+                                <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                            </div>
+                            <!-- /input-group -->
+                        </li>
+                        <li>
+                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Área Administrativa</a>
+                        </li>
+                        <li>
+                            <a href="blank.html"><i class="fa fa-table fa-fw"></i>Agenda</a>
+                        </li>
+                        <li>
+                            <a href="contrato.html"><i class="fa fa-edit fa-fw"></i> Contratos</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-wrench fa-fw"></i> Gerenciar <span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="cliente.html">Clientes</a>
+                                </li>
+                                <li>
+                                    <a href="funcionarios.html">Funcionários</a>
+                                </li>
+                                <li>
+                                    <a href="servicos.html">Serviços</a>
+                                </li>
+                                <li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>                     
+                    </ul>
+                    
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+<!--
+(A Partir daqui vem o corpo do Site)
+-->
+
+        <!-- Page Content -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                    <h1 class="page-header">Agenda</h1>
+                    <div id="body">
+                        <table>
+                            <summary><strong>Maio</strong> 2018</summary>
+                              <thead>
+                                <tr>
+                                  <th>Seg</th>
+                                  <th>Ter</th>
+                                  <th>Qua</th>
+                                  <th>Qui</th>
+                                  <th>Sex</th>
+                                  <th>Sab</th>
+                                  <th>Dom</th>
+                                </tr>
+                              </thead>
+                              <tr>
+                                <td>
+                                  <span class="date">
+                                    27
+                                    <ul>
+                                      <li>
+                                        <span class="event">Bus Stop</span>
+                                        <span class="time">4 pm</span>
+                                      </li>
+                                    </ul>  
+                                  </span>
+                                </td>
+                                <td>
+                                  <span class="date">28</span>
+                                </td>
+                                <td>
+                                  <span class="date">29</span>
+                                </td>
+                                <td>
+                                  <span class="date">30</span>
+                                </td>
+                                <td>
+                                  <span class="date">31</span>
+                                </td>
+                                <td class="weekend">
+                                  <span class="date">February 1</span>
+                                </td>
+                                <td class="weekend">
+                                  <span class="date">
+                                    2
+                                    <ul>
+                                      <li>
+                                        <span class="event">Super Bowl</span>
+                                        <span class="time">6:30 pm</span>
+                                      </li>
+                                    </ul>  
+                                  </span>
+                                </td>
+                              </tr>
+                              <tr class="previous-week">
+                                <td>
+                                  <span class="date">3</span>
+                                </td>
+                                <td>
+                                  <span class="date">4</span>
+                                </td>
+                                <td>
+                                  <span class="date">5</span>
+                                </td>
+                                <td>
+                                  <span class="date">6</span>
+                                </td>
+                                <td>
+                                  <span class="date">7</span>
+                                </td>
+                                <td class="weekend">
+                                  <span class="date">8</span>
+                                </td>
+                                <td class="weekend">
+                                  <span class="date">9</span>
+                                </td>
+                              </tr>
+                              <tr class="current-week">
+                                <td>
+                                  <span class="date">10</span>
+                                </td>
+                                <td>
+                                  <span class="date">11</span>
+                                </td>
+                                <td>
+                                  <span class="date">12</span>
+                                </td>
+                                <td>
+                                  <span class="date">13</span>
+                                </td>
+                                <td class="current-day">
+                                  <span class="date">
+                                    14
+                                    <ul>
+                                      <li class="different-calendar"><span class="event">Valentines Day</span></li>
+                                    </ul>  
+                                  </span>
+                                </td>
+                                <td class="weekend">
+                                  <span class="date">15</span>
+                                </td>
+                                <td class="weekend">
+                                  <span class="date">16</span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <span class="date">17</span>
+                                </td>
+                                <td>
+                                  <span class="date">18</span>
+                                </td>
+                                <td>
+                                  <span class="date">19</span>
+                                </td>
+                                <td>
+                                  <span class="date">20</span>
+                                </td>
+                                <td>
+                                  <span class="date">21</span>
+                                </td>
+                                <td class="weekend">
+                                  <span class="date">22</span>
+                                </td>
+                                <td class="weekend">
+                                  <span class="date">23</span>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <span class="date">24</span>
+                                </td>
+                                <td>
+                                  <span class="date">
+                                    25
+                                    <ul>
+                                      <li class="different-calendar">
+                                        <span class="event">Breakfast with Joe Smchoe The Baker Man</span>
+                                        <span class="time">10 am</span>
+                                      </li>
+                                      <li>
+                                        <span class="event">Code Review</span>
+                                        <span class="time">Noon</span>
+                                      </li>
+                                      <li>
+                                        <span class="event">Project X Kickoff</span>
+                                        <span class="time">5 pm</span>
+                                      </li>
+                                    </ul>  
+                                  </span>
+                                </td>
+                                <td>
+                                  <span class="date">26</span>
+                                </td>
+                                <td>
+                                  <span class="date">27</span>
+                                </td>
+                                <td>
+                                  <span class="date">28</span>
+                                </td>
+                                <td class="weekend">
+                                  <span class="date">March 1</span>
+                                </td>
+                                <td class="weekend">
+                                  <span class="date">2</span>
+                                </td>
+                              </tr>
+                        </table>
+                        
+                    </div>
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../dist/js/sb-admin-2.js"></script>
+
+</body>
+
+</html>
