@@ -1,0 +1,21 @@
+.body{
+		margin: 0px;
+		padding: 0px;
+		background-image: url(../img/background1.jpg);
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		font-family:sans-serif;
+
+}
+.panel-default{
+	margin-top: 50px;
+	background-color: rgba(236, 240, 241,0.9);
+	border: 2px ;
+	border-radius: 15px;
+	border-color: rgb(124,130,151);
+}
+}
+
+
+}
