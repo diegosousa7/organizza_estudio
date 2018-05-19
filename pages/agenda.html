@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Full Calendar -->    
+    <link href='../organizza_estudio/fullcalendar-3.9.0/fullcalendar.min.css' rel='stylesheet' />
+    <link href='../organizza_estudio/fullcalendar-3.9.0/fullcalendar.print.min.css' rel='stylesheet' media='print' />
+    <script src='../organizza_estudio/fullcalendar-3.9.0/lib/moment.min.js'></script>
+    <script src='../organizza_estudio/fullcalendar-3.9.0/lib/jquery.min.js'></script>
+    <script src='../organizza_estudio/fullcalendar-3.9.0/fullcalendar.min.js'></script>
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+
+    <title>Organizza Estúdio</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+                <!--
+(A Partir daqui vem a parte de navegação do site)
+-->
+               <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html"><i class="fa fa-camera-retro"></i>Organizza Estúdio</a>
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-tasks fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-tasks">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Contrato Fabio</strong>
+                                        <span class="pull-right text-muted">40% Completo</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                            <span class="sr-only">40% Completo (success)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Contrato Ana</strong>
+                                        <span class="pull-right text-muted">20% Completo</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                                            <span class="sr-only">20% Completo</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Contrato Paulo</strong>
+                                        <span class="pull-right text-muted">60% Completo</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                            <span class="sr-only">60% Completo (atenção)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Contrato Marcos</strong>
+                                        <span class="pull-right text-muted">80% Completo</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                                            <span class="sr-only">80% Completo (atenção)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>Ver mais Contratos</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-tasks -->
+                </li>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-alerts">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-comment fa-fw"></i> Novo ALerta
+                                    <span class="pull-right text-muted small">5 minutos atrás</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-user fa-fw"></i> 3 Novo Usuário
+                                    <span class="pull-right text-muted small">20 minutos atrás</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-shopping-cart"></i> Novo Serviço
+                                    <span class="pull-right text-muted small">40 minutos atrás</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-tasks fa-fw"></i> Novo Evento
+                                    <span class="pull-right text-muted small">1 dia atrás</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-upload fa-fw"></i> Upload de Arquivos
+                                    <span class="pull-right text-muted small">1 dia atrás</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>Ver mais Alertas</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-alerts -->
+                </li>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> Administrador</a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Configuações</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li class="sidebar-search">
+                            <div class="input-group custom-search-form">
+                                <input type="text" class="form-control" placeholder="Pesquisar...">
+                                <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                            </div>
+                            <!-- /input-group -->
+                        </li>
+                        <li>
+                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Área Administrativa</a>
+                        </li>
+                        <li>
+                            <a href="blank.html"><i class="fa fa-table fa-fw"></i>Agenda</a>
+                        </li>
+                        <li>
+                            <a href="contrato.html"><i class="fa fa-edit fa-fw"></i> Contratos</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-wrench fa-fw"></i> Gerenciar <span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="cliente.html">Clientes</a>
+                                </li>
+                                <li>
+                                    <a href="funcionarios.html">Funcionários</a>
+                                </li>
+                                <li>
+                                    <a href="servicos.html">Serviços</a>
+                                </li>
+                                <li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>                     
+                    </ul>
+                    
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+<!--
+(A Partir daqui vem o corpo do Site)
+-->
+
+        <!-- Page Content -->
+        <head>
+
+<script>
+
+  $(document).ready(function() {
+
+    $('#calendar').fullCalendar({
+      defaultDate: '2018-03-12',
+      editable: true,
+      eventLimit: true, // allow "more" link when too many events
+      events: [
+        {
+          title: 'All Day Event',
+          start: '2018-03-01'
+        },
+        {
+          title: 'Long Event',
+          start: '2018-03-07',
+          end: '2018-03-10'
+        },
+        {
+          id: 999,
+          title: 'Repeating Event',
+          start: '2018-03-09T16:00:00'
+        },
+        {
+          id: 999,
+          title: 'Repeating Event',
+          start: '2018-03-16T16:00:00'
+        },
+        {
+          title: 'Conference',
+          start: '2018-03-11',
+          end: '2018-03-13'
+        },
+        {
+          title: 'Meeting',
+          start: '2018-03-12T10:30:00',
+          end: '2018-03-12T12:30:00'
+        },
+        {
+          title: 'Lunch',
+          start: '2018-03-12T12:00:00'
+        },
+        {
+          title: 'Meeting',
+          start: '2018-03-12T14:30:00'
+        },
+        {
+          title: 'Happy Hour',
+          start: '2018-03-12T17:30:00'
+        },
+        {
+          title: 'Dinner',
+          start: '2018-03-12T20:00:00'
+        },
+        {
+          title: 'Birthday Party',
+          start: '2018-03-13T07:00:00'
+        },
+        {
+          title: 'Click for Google',
+          url: 'http://google.com/',
+          start: '2018-03-28'
+        }
+      ]
+    });
+
+  });
+
+</script>
+<style>
+
+  body {
+    margin: 40px 10px;
+    padding: 0;
+    font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+    font-size: 14px;
+  }
+
+  #calendar {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+</style>
+</head>
+<body>
+
+  <div id='calendar'></div>
+
+</body>
+
+</html>
