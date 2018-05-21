@@ -677,31 +677,22 @@ function retira_mascara(cpf_cnpj) {
             </div>
             <!-- /.row -->
         <!-- /#page-wrapper -->
- <div class="row">
+            <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                        <span class="glyphicon glyphicon-user"></span>
+                            Informações Pessoais
                         </div>
-                        <!-- .panel-heading -->
                         <div class="panel-body">
-                            <div class="panel-group" id="accordion">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title">
-                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Cadastrar Cliente</a>
-                                        </h4>
-                                    </div>
-                                    <div id="collapseOne" class="panel-collapse collapse in">
-                                                                <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
+                                    <form role="form">
                                     <form method="get" action="." role="form">
-                                        <div class="form-group col-xs-4">
+                                        <div class="form-group col-xs-5">
                                             <label>CPF/CNPJ:</label>
                                             <input class="form-control" type="tel" placeholder="Só números" required="required" id="cpf-cnpj" name="cpf-cnpj" onkeydown="javascript:return aplica_mascara_cpfcnpj(this,18,event)" onkeyup="javascript:return aplica_mascara_cpfcnpj(this,18,event)">
                                         </div>
-                                        <div class="form-group col-xs-4">
+                                        <div class="form-group col-xs-5">
                                             <label>Ins.Estadual</label>
                                             <input class="form-control" type="tel" placeholder="Só números" maxlength="13">
                                         </div>
@@ -713,11 +704,11 @@ function retira_mascara(cpf_cnpj) {
                                             <label>Razão Social</label>
                                             <input class="form-control" placeholder="Razão Social">
                                         </div>
-                                        <div class="form-group col-xs-3">
+                                        <div class="form-group col-xs-4">
                                             <label>CEP</label>
                                             <input name="cep" id="cep" size="10" value="" class="form-control" type="tel" placeholder="71.100-000" maxlength="10" onkeyup="formatar(this,'##.###-###',event)">
                                         </div>
-                                         <div class="form-group col-xs-9">
+                                         <div class="form-group col-xs-8">
                                             <label>Endereço:</label>
                                             <input name="rua" id="rua" size="60" class="form-control" placeholder="Informe o seu Endereço:">
                                         </div>
@@ -747,21 +738,13 @@ function retira_mascara(cpf_cnpj) {
                                             <input class="form-control" placeholder="(99)99999-9999">
                                         </div>
                                         <div class="form-group col-xs-4">
-                                            <label for="date" >Data Nascimento:</label>
+                                            <label for="date" >Aniversário:</label>
                                             <input type="text" id="Data" size="11" name="data" class="form-control" placeholder="Ex.: dd/mm/aaaa" maxlength="10" value="" onkeyup="formatar(this,'##/##/####',event)">
                                         </div>
                                         <div class="form-group">
                                             </br></br></br></br></br></br></br></br></br></br></br></br></br></br></br><label>E-mail</label>
                                             <input class="form-control" placeholder="seu@email.com">
                                         </div>
-                                        <div class="form-group">
-                                                <label for="disabledSelect">Status do Cliente</label>
-                                                <select id="disabledSelect" class="form-control">
-                                                    <option>Ativo</option>
-                                                    <option>Inativo</option>
-                                                </select>
-                                            </div>
-                                        
                                         <div class="col-sm-12">
                                             <br>
                                             

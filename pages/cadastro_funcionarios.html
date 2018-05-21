@@ -33,8 +33,250 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+<!-- Adicionando Javascript -->
+    <script type="text/javascript" >
 
+        $(document).ready(function() {
+
+            function limpa_formulário_cep() {
+                // Limpa valores do formulário de cep.
+                $("#rua").val("");
+                $("#bairro").val("");
+                $("#cidade").val("");
+                $("#uf").val("");
+            }
+            
+            //Quando o campo cep perde o foco.
+            $("#cep").blur(function() {
+
+                //Nova variável "cep" somente com dígitos.
+                var cep = $(this).val().replace(/\D/g, '');
+
+                //Verifica se campo cep possui valor informado.
+                if (cep != "") {
+
+                    //Expressão regular para validar o CEP.
+                    var validacep = /^[0-9]{8}$/;
+
+                    //Valida o formato do CEP.
+                    if(validacep.test(cep)) {
+
+                        //Preenche os campos com "..." enquanto consulta webservice.
+                        $("#rua").val("...");
+                        $("#bairro").val("...");
+                        $("#cidade").val("...");
+                        $("#uf").val("...");
+
+                        //Consulta o webservice viacep.com.br/
+                        $.getJSON("https://viacep.com.br/ws/"+ cep +"/json/?callback=?", function(dados) {
+
+                            if (!("erro" in dados)) {
+                                //Atualiza os campos com os valores da consulta.
+                                $("#rua").val(dados.logradouro);
+                                $("#bairro").val(dados.bairro);
+                                $("#cidade").val(dados.localidade);
+                                $("#uf").val(dados.uf);
+                            } //end if.
+                            else {
+                                //CEP pesquisado não foi encontrado.
+                                limpa_formulário_cep();
+                                alert("CEP não encontrado.");
+                            }
+                        });
+                    } //end if.
+                    else {
+                        //cep é inválido.
+                        limpa_formulário_cep();
+                        alert("Formato de CEP inválido.");
+                    }
+                } //end if.
+                else {
+                    //cep sem valor, limpa formulário.
+                    limpa_formulário_cep();
+                }
+            });
+        });
+
+    </script>
+
+    <script type="text/javascript">
+        function formatar(src, mask,e) 
+{
+    var tecla =""
+    if (document.all) // Internet Explorer
+        tecla = event.keyCode;
+    else
+        tecla = e.which;
+    //code = evente.keyCode;
+    if(tecla != 8){
+
+
+    if (src.value.length == src.maxlength){
+    return;
+    }
+  var i = src.value.length;
+  var saida = mask.substring(0,1);
+  var texto = mask.substring(i);
+  if (texto.substring(0,1) != saida) 
+  {
+    src.value += texto.substring(0,1);
+  }
+      }
+}
+    </script>
+
+<script LANGUAGE="Javascript">
+<!--
+//Aplica a máscara no campo
+//Função para ser utilizada nos eventos do input para formatação dinâmica
+function aplica_mascara_cpfcnpj(campo,tammax,teclapres) {
+    var tecla = teclapres.keyCode;
+
+    if ((tecla < 48 || tecla > 57) && (tecla < 96 || tecla > 105) && tecla != 46 && tecla != 8) {
+        return false;
+    }
+
+    var vr = campo.value;
+    vr = vr.replace( /\//g, "" );
+    vr = vr.replace( /-/g, "" );
+    vr = vr.replace( /\./g, "" );
+    var tam = vr.length;
+
+    if ( tam <= 2 ) {
+        campo.value = vr;
+    }
+    if ( (tam > 2) && (tam <= 5) ) {
+        campo.value = vr.substr( 0, tam - 2 ) + '-' + vr.substr( tam - 2, tam );
+    }
+    if ( (tam >= 6) && (tam <= 8) ) {
+        campo.value = vr.substr( 0, tam - 5 ) + '.' + vr.substr( tam - 5, 3 ) + '-' + vr.substr( tam - 2, tam );
+    }
+    if ( (tam >= 9) && (tam <= 11) ) {
+        campo.value = vr.substr( 0, tam - 8 ) + '.' + vr.substr( tam - 8, 3 ) + '.' + vr.substr( tam - 5, 3 ) + '-' + vr.substr( tam - 2, tam );
+    }
+    if ( (tam == 12) ) {
+        campo.value = vr.substr( tam - 12, 3 ) + '.' + vr.substr( tam - 9, 3 ) + '/' + vr.substr( tam - 6, 4 ) + '-' + vr.substr( tam - 2, tam );
+    }
+    if ( (tam > 12) && (tam <= 14) ) {
+        campo.value = vr.substr( 0, tam - 12 ) + '.' + vr.substr( tam - 12, 3 ) + '.' + vr.substr( tam - 9, 3 ) + '/' + vr.substr( tam - 6, 4 ) + '-' + vr.substr( tam - 2, tam );
+    }
+}
+
+//Verifica se CPF ou CGC e encaminha para a devida função, no caso do cpf/cgc estar digitado sem mascara
+function verifica_cpf_cnpj(cpf_cnpj) {
+    if (cpf_cnpj.length == 11) {
+        return(verifica_cpf(cpf_cnpj));
+    } else if (cpf_cnpj.length == 14) {
+        return(verifica_cnpj(cpf_cnpj));
+    } else { 
+        return false;
+    }
+    return true;
+}
+
+//Verifica se o número de CPF informado é válido
+function verifica_cpf(sequencia) {
+    if ( Procura_Str(1,sequencia,'00000000000,11111111111,22222222222,33333333333,44444444444,55555555555,66666666666,77777777777,88888888888,99999999999,00000000191,19100000000') > 0 ) {
+        return false;
+    }
+    seq = sequencia;
+    soma = 0;
+    multiplicador = 2;
+    for (f = seq.length - 3;f >= 0;f--) {
+        soma += seq.substring(f,f + 1) * multiplicador;
+        multiplicador++;
+    }
+    resto = soma % 11;
+    if (resto == 1 || resto == 0) {
+        digito = 0;
+    } else {
+        digito = 11 - resto;
+    }
+    if (digito != seq.substring(seq.length - 2,seq.length - 1)) {
+        return false;
+    }
+    soma = 0;
+    multiplicador = 2;
+    for (f = seq.length - 2;f >= 0;f--) {
+        soma += seq.substring(f,f + 1) * multiplicador;
+        multiplicador++;
+    }
+    resto = soma % 11;
+    if (resto == 1 || resto == 0) {
+        digito = 0;
+    } else {
+        digito = 11 - resto;
+    }
+    if (digito != seq.substring(seq.length - 1,seq.length)) {
+        return false;
+    }
+    return true;
+}
+
+//Verifica se o número de CNPJ informado é válido
+function verifica_cnpj(sequencia) {
+    seq = sequencia;
+    soma = 0;
+    multiplicador = 2;
+    for (f = seq.length - 3;f >= 0;f-- ) {
+        soma += seq.substring(f,f + 1) * multiplicador;
+        if ( multiplicador < 9 ) {
+            multiplicador++;
+        } else {
+            multiplicador = 2;
+        }
+    }
+    resto = soma % 11;
+    if (resto == 1 || resto == 0) {
+        digito = 0;
+    } else {
+        digito = 11 - resto;
+    }
+    if (digito != seq.substring(seq.length - 2,seq.length - 1)) {
+        return false;
+    }
+
+    soma = 0;
+    multiplicador = 2;
+    for (f = seq.length - 2;f >= 0;f--) {
+        soma += seq.substring(f,f + 1) * multiplicador;
+        if (multiplicador < 9) {
+            multiplicador++;
+        } else {
+            multiplicador = 2;
+        }
+    }
+    resto = soma % 11;
+    if (resto == 1 || resto == 0) {
+        digito = 0;
+    } else {
+        digito = 11 - resto;
+    }
+    if (digito != seq.substring(seq.length - 1,seq.length)) {
+        return false;
+    }
+    return true;
+}
+
+//Procura uma string dentro de outra string
+function Procura_Str(param0,param1,param2) {
+    for (a = param0 - 1;a < param1.length;a++) {
+        for (b = 1;b < param1.length;b++) {
+            if (param2 == param1.substring(b - 1,b + param2.length - 1)) {
+                return a;
+            }
+        }
+    }
+    return 0;
+}
+
+//Retira a máscara do valor de cpf_cnpj
+function retira_mascara(cpf_cnpj) {
+    return cpf_cnpj.replace(/\./g,'').replace(/-/g,'').replace(/\//g,'')
+}
+</script>    
 </head>
+
 
 <body>
 
@@ -432,36 +674,64 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <form role="form">
+                                    <form method="get" action="." role="form">
+                                        <div class="form-group col-xs-5">
+                                            <label>CPF/CNPJ:</label>
+                                            <input class="form-control" type="tel" placeholder="Só números" required="required" id="cpf-cnpj" name="cpf-cnpj" onkeydown="javascript:return aplica_mascara_cpfcnpj(this,18,event)" onkeyup="javascript:return aplica_mascara_cpfcnpj(this,18,event)">
+                                        </div>
+                                        <div class="form-group col-xs-5">
+                                            <label>Ins.Estadual</label>
+                                            <input class="form-control" type="tel" placeholder="Só números" maxlength="13">
+                                        </div>
                                        <div class="form-group">
-                                            <label>Nome</label>
-                                            <input class="form-control" placeholder="Informe o seu primeiro nome">
+                                            </br></br></br></br><label class="control-label">Nome</label>
+                                            <input class="form-control" placeholder="Nome Completo ou Nome Fantasia" required="required">
                                         </div>
                                         <div class="form-group">
-                                            <label>E-mail</label>
-                                            <input class="form-control" placeholder="Informe o seu email">
+                                            <label>Razão Social</label>
+                                            <input class="form-control" placeholder="Razão Social">
                                         </div>
-                                        <div class="form-group">
-                                            <label>CPF:</label>
-                                            <input class="form-control" placeholder="Informe o seu CPF">
+                                        <div class="form-group col-xs-4">
+                                            <label>CEP</label>
+                                            <input name="cep" id="cep" size="10" value="" class="form-control" type="tel" placeholder="71.100-000" maxlength="10" onkeyup="formatar(this,'##.###-###',event)">
                                         </div>
-                                         <div class="form-group">
-                                            <label>Telefone Fixo:</label>
-                                            <input class="form-control" placeholder="Informe o seu Telefone Fixo">
-                                            <label>Telefone Celular:</label>
-                                            <input class="form-control" placeholder="Informe o seu Telefone Celular">
-                                        </div>
-                                         <div class="form-group">
+                                         <div class="form-group col-xs-8">
                                             <label>Endereço:</label>
-                                            <input class="form-control" placeholder="Informe o seu Endereço:">
+                                            <input name="rua" id="rua" size="60" class="form-control" placeholder="Informe o seu Endereço:">
+                                        </div>
+                                        <div class="form-group col-xs-3">
+                                            <label>Número</label>
+                                            <input class="form-control" placeholder="Número" maxlength="6">
+                                        </div>
+                                        <div class="form-group col-xs-2">
+                                            <label>UF:</label>
+                                            <input name="uf" id="uf" size="2" class="form-control" type="text" placeholder="UF" maxlength="2">
+                                        </div>
+                                        <div class="form-group col-xs-7">
+                                            <label>Cidade:</label>
+                                            <input name="cidade" id="cidade" size="40" class="form-control" type="text" placeholder="Cidade" maxlength="50">
+                                        </div>                                        
+                                        <div class="form-group col-xs-9">
+                                            <label>Bairro:</label>
+                                            <input name="bairro" id="bairro" size="40" class="form-control" type="text" placeholder="Bairro" maxlength="50">
+                                        </div>
+                                         <div class="form-group col-xs-4">
+                                            <label for="txttelefone">Telefone Fixo:</label>
+                                            <input class="form-control" placeholder="Fixo" type="tel" name="txttelefone" id="txttelefone" pattern="\([0-9]{2}\)[\s][0-9]{4}-[0-9]{4,5}"/>
+                                            <script type="text/javascript">$("#txttelefone").mask("(00) 0000-00009");</script>
+                                        </div>
+                                        <div class="form-group col-xs-4">
+                                            <label>Telefone Celular:</label>
+                                            <input class="form-control" placeholder="(99)99999-9999">
+                                        </div>
+                                        <div class="form-group col-xs-4">
+                                            <label for="date" >Aniversário:</label>
+                                            <input type="text" id="Data" size="11" name="data" class="form-control" placeholder="Ex.: dd/mm/aaaa" maxlength="10" value="" onkeyup="formatar(this,'##/##/####',event)">
                                         </div>
                                         <div class="form-group">
-                                                <label for="disabledSelect">Status do Cliente</label>
-                                                <select id="disabledSelect" class="form-control">
-                                                    <option>Ativo</option>
-                                                    <option>Inativo</option>
-                                                </select>
-                                            </div>
-                                        
+                                            </br></br></br></br></br></br></br></br></br></br></br></br></br></br></br><label>E-mail</label>
+                                            <input class="form-control" placeholder="seu@email.com">
+                                        </div>
                                         <div class="col-sm-12">
                                             <br>
                                             
@@ -482,30 +752,155 @@
                                                <label for="disabledSelect">Senha Cliente</label>
                                                 <input class="form-control" id="EnableInput" type="password" placeholder="Senha" enable>
                                             </div>
-                                            <div class="form-group">
-                                                <label for="disabledSelect">Perfil de Acesso</label>
-                                                <select id="disabledSelect" class="form-control">
-                                                    <option>Perfil 1</option>
-                                                    <option>Perfil 2</option>
-                                                </select>
-                                            </div>
+                                            
                                         </fieldset>
                                     </form> 
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->
                                     <button type="button" class="btn btn-primary btn-lg btn-block">Salvar</button>
                             </div>
-                        
-                        <!-- /.panel-body -->
+                                    </div>
+                                </div>
+
+                               <!-- <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Todos os clientes</a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseThree" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <table class="table">
+                                            <thead>
+                                            <tr>
+                                                <th>Nome</th>
+                                                <th>Sobrenome</th>
+                                                <th>Email</th>
+                                                <th>Telefone</th>
+                                                <th>Ações</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr class="info">
+                                                <td>Tomás</td>
+                                                <td>Costa Cardoso</td>
+                                                <td>tomasccardoso@jourrapide.com</td>
+                                                <td>(81) 6366-3856</td>
+                                                <td>
+                                                    <a href="" class="btn btn-primary">
+                                                        <span class="glyphicon glyphicon-pencil"></span>
+                                                    </a>
+                                                    <a href="#" name="Excluir" class="btn btn-danger">
+                                                        <span class="glyphicon glyphicon-remove"></span>
+                                                    </a>
+                                                    <a href="#" name="Excluir" class="btn btn-warning">
+                                                        <span class="glyphicon glyphicon-eye-open"></span>
+                                                    </a>
+                                                </td>
+                                            </tr>      
+                                            <tr class="active">
+                                                <td>Julia</td>
+                                                <td>Lima Almeida</td>
+                                                <td>julialalmeida@rhyta.com</td>
+                                                <td>(12) 4200-2531</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-primary">
+                                                        <span class="glyphicon glyphicon-pencil"></span>
+                                                    </a>
+                                                    <a href="#" name="Excluir" class="btn btn-danger">
+                                                        <span class="glyphicon glyphicon-remove"></span>
+                                                    </a>
+                                                    <a href="#" name="Excluir" class="btn btn-warning">
+                                                        <span class="glyphicon glyphicon-eye-open"></span>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr class="info">
+                                                <td>Pedro</td>
+                                                <td>Azevedo Santos</td>
+                                                <td>pedroazevedosantos@dayrep.com</td>
+                                                <td>(31) 7322-4279</td>
+                                                <td>
+                                                    <a href="typography.html" class="btn btn-primary">
+                                                        <span class="glyphicon glyphicon-pencil"></span>
+                                                    </a>
+                                                    <a href="#" name="Excluir" class="btn btn-danger">
+                                                        <span class="glyphicon glyphicon-remove"></span>
+                                                    </a>
+                                                    <a href="#" name="Excluir" class="btn btn-warning">
+                                                        <span class="glyphicon glyphicon-eye-open"></span>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr class="active">
+                                                <td>Julian</td>
+                                                <td>Rodrigues Carvalho</td>
+                                                <td>julianrcarvalho@dayrep.com</td>
+                                                <td>(19) 6871-6570</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-primary">
+                                                        <span class="glyphicon glyphicon-pencil"></span>
+                                                    </a>
+                                                    <a href="#" name="Excluir" class="btn btn-danger">
+                                                        <span class="glyphicon glyphicon-remove"></span>
+                                                    </a>
+                                                    <a href="#" name="Visualizar" class="btn btn-warning">
+                                                        <span class="glyphicon glyphicon-eye-open"></span>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr class="info">
+                                                <td>Gabriela</td>
+                                                <td>Cunha Cardoso</td>
+                                                <td>gabrielacunhacardoso@teleworm.com</td>
+                                                <td>(11) 6580-2496</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-primary">
+                                                        <span class="glyphicon glyphicon-pencil"></span>
+                                                    </a>
+                                                    <a href="#" name="Excluir" class="btn btn-danger">
+                                                        <span class="glyphicon glyphicon-remove"></span>
+                                                    </a>
+                                                    <a href="#" name="Excluir" class="btn btn-warning">
+                                                        <span class="glyphicon glyphicon-eye-open"></span>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr class="active">
+                                                <td>Marina</td>
+                                                <td>Dias Cavalcanti</td>
+                                                <td>marinadiascavalcanti@dayrep.com</td>
+                                                <td>(15) 9076-6890</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-primary">
+                                                        <span class="glyphicon glyphicon-pencil"></span>
+                                                    </a>
+                                                   <a href="#" name="Excluir" class="btn btn-danger">
+                                                        <span class="glyphicon glyphicon-remove"></span>
+                                                    </a>
+                                                    <a href="#" name="Excluir" class="btn btn-warning">
+                                                        <span class="glyphicon glyphicon-eye-open"></span>
+                                                    </a> 
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        </div>
+                                    </div>
+                                </div><br/>-->
+                                <div class="col-lg-16">
+                                   <!--<a href="cadastrar.html" class="btn btn-success">Adicionar
+                                        <span class="glyphicon glyphicon-plus"></span>
+                                    </a> -->
+                                </div>
+                             </div>
+                        <!-- .panel-body -->
                     </div>
                     <!-- /.panel -->
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
-            <!-- /.row -->
         </div>
-        <!-- /#page-wrapper -->
-
 
     </div>
     <!-- /#wrapper -->
