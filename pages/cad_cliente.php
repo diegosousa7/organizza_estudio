@@ -1,3 +1,86 @@
+<?php   
+    if (!empty($_POST )) {
+        require 'database.php';
+        
+        // rastreamento dos erros de validação
+        $NomeError = null;
+        $EnderecoError = null;
+        $EmailError = null;
+        $telefoneError = null;
+        $dtNascimento = null;
+        $CpfCnpjfError = null;
+        
+        
+        // rastreamento dos valores enviados via POST
+        CpfCnpj,Nome,RazaoSocial,InscricaoEstadual,Cep,Endereco,EnderecoNumero,Uf,Cidade,Bairro,Telefone,Celular,Email,DataNascimento,StatusAtivo
+        if(isset($_POST['CpfCnpj'])){$CpfCnpj = $_POST['CpfCnpj'];}
+        if(isset($_POST['Nome'])){$nome = $_POST['Nome'];}
+        if(isset($_POST['RazaoSocial'])){$RazaoSocial = $_POST['RazaoSocial'];}
+        if(isset($_POST['InscricaoEstadual'])){$InscricaoEstadual = $_POST['InscricaoEstadual'];}
+        if(isset($_POST['Cep'])){$Cep = $_POST['Cep'];}   
+        if(isset($_POST['Endereco'])){$Endereco = $_POST['Endereco'];}
+        if(isset($_POST['EnderecoNumero'])){$EnderecoNumero = $_POST['EnderecoNumero'];} 
+        if(isset($_POST['Uf'])){$Uf = $_POST['Uf'];}
+        if(isset($_POST['Email'])){$email = $_POST['Email'];}
+        if(isset($_POST['Cidade'])){$Cidade = $_POST['Cidade'];}
+        if(isset($_POST['Bairro'])){$Bairro = $_POST['Bairro'];}
+        if(isset($_POST['Telefone'])){$Telefone = $_POST['Telefone'];}
+        if(isset($_POST['Celular'])){$Celular = $_POST['Celular'];}
+        if(isset($_POST['Email'])){$Email = $_POST['Email'];}
+        if(isset($_POST['DataNascimento'])){$DataNascimento = $_POST['DataNascimento'];}
+        
+        // validação dos inputs
+        $valid = true;
+        if (empty ( $Nome )) {
+            $NomeErrore = 'Favor digitar o nome';
+            $valid = false;
+        }
+        
+        $valid = true;
+        if (empty ( $Endereco )) {
+            $EnderecoError = 'Favor digitar o endereço';
+            $valid = false;
+        }       
+        
+        $valid = true;
+        if (empty ( $Email )) {
+            $EmailError = 'Favor digitar o endereço de email';
+            $valid = false;
+        } else if (! filter_var ( $email, FILTER_VALIDATE_EMAIL )) {
+            $emailError = 'Favor digitar um endereço de email válido';
+            $valid = false;
+        }
+        
+        $valid = true;
+        if (empty ( $Telefone )) {
+            $TelefoneError = 'Favor digitar o telefone';
+            $valid = false;
+        }
+        
+        $valid = true;
+        if (empty ( $dtNascimento )) {
+            $dtNascimentoError = 'Favor digitar a data de nascimento';
+            $valid = false;
+        }
+        $valid = true;
+        if (empty ( $CpfCnpj )) {
+            $CpfCnpjfError = 'Favor digitar o CPF/CNPJ';
+            $valid = false;
+        }
+        
+        // insert data
+        
+        if ($valid) {           
+            $pdo = Database::conectar();
+            $pdo->setAttribute ( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+            $sql = "INSERT INTO cliente (CpfCnpj,Nome,RazaoSocial,InscricaoEstadual,Cep,Endereco,EnderecoNumero,Uf,Cidade,Bairro,Telefone,Celular,Email,DataNascimento,StatusAtivo) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)";
+            $q = $pdo->prepare ( $sql );
+            $q->execute ( array($CpfCnpj,$Nome,$RazaoSocial,$InscricaoEstadual,$Cep,$Endereco,$EnderecoNumero,$Uf,$Cidade,$Bairro,$Telefone,$Celular,$Email,$DataNascimento,$StatusAtivo));
+            Database::disconnect ();
+            print "<script>location.href='clientes.php';</script>";
+            //header ( "Location: clientes.php" );
+    }
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -683,64 +766,64 @@ function retira_mascara(cpf_cnpj) {
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <form role="form">
+                                    <form role="form" action="cad_cliente.php" method="post" autocomplete="on">
                                     <form method="get" action="." role="form">
                                         <div class="form-group col-xs-5">
                                             <label>CPF/CNPJ:</label>
-                                            <input class="form-control" type="tel" placeholder="Só números" required="required" id="cpf-cnpj" name="cpf-cnpj" onkeydown="javascript:return aplica_mascara_cpfcnpj(this,18,event)" onkeyup="javascript:return aplica_mascara_cpfcnpj(this,18,event)">
+                                            <input name="CpfCnpj" class="form-control" type="tel" placeholder="Só números" required="required" id="cpf-cnpj" name="cpf-cnpj" onkeydown="javascript:return aplica_mascara_cpfcnpj(this,18,event)" onkeyup="javascript:return aplica_mascara_cpfcnpj(this,18,event)">
                                         </div>
                                         <div class="form-group col-xs-5">
                                             <label>Ins.Estadual</label>
-                                            <input class="form-control" type="tel" placeholder="Só números" maxlength="13">
+                                            <input name="InscricaoEstadual" class="form-control" type="tel" placeholder="Só números" maxlength="13">
                                         </div>
                                        <div class="form-group">
                                             </br></br></br></br><label class="control-label">Nome</label>
-                                            <input class="form-control" placeholder="Nome Completo ou Nome Fantasia" required="required">
+                                            <input name="Nome" class="form-control" placeholder="Nome Completo ou Nome Fantasia" required="required">
                                         </div>
                                         <div class="form-group">
                                             <label>Razão Social</label>
-                                            <input class="form-control" placeholder="Razão Social">
+                                            <input name="RazaoSocial" class="form-control" placeholder="Razão Social">
                                         </div>
                                         <div class="form-group col-xs-4">
                                             <label>CEP</label>
-                                            <input name="cep" id="cep" size="10" value="" class="form-control" type="tel" placeholder="71.100-000" maxlength="10" onkeyup="formatar(this,'##.###-###',event)">
+                                            <input name="Cep" id="cep" size="10" value="" class="form-control" type="tel" placeholder="71.100-000" maxlength="10" onkeyup="formatar(this,'##.###-###',event)">
                                         </div>
                                          <div class="form-group col-xs-8">
                                             <label>Endereço:</label>
-                                            <input name="rua" id="rua" size="60" class="form-control" placeholder="Informe o seu Endereço:">
+                                            <input name="Endereco" id="rua" size="60" class="form-control" placeholder="Informe o seu Endereço:">
                                         </div>
                                         <div class="form-group col-xs-3">
                                             <label>Número</label>
-                                            <input class="form-control" placeholder="Número" maxlength="6">
+                                            <input name="EnderecoNumero" class="form-control" placeholder="Número" maxlength="6">
                                         </div>
                                         <div class="form-group col-xs-2">
                                             <label>UF:</label>
-                                            <input name="uf" id="uf" size="2" class="form-control" type="text" placeholder="UF" maxlength="2">
+                                            <input name="Uf" id="uf" size="2" class="form-control" type="text" placeholder="UF" maxlength="2">
                                         </div>
                                         <div class="form-group col-xs-7">
                                             <label>Cidade:</label>
-                                            <input name="cidade" id="cidade" size="40" class="form-control" type="text" placeholder="Cidade" maxlength="50">
+                                            <input name="Cidade" id="cidade" size="40" class="form-control" type="text" placeholder="Cidade" maxlength="50">
                                         </div>                                        
                                         <div class="form-group col-xs-9">
                                             <label>Bairro:</label>
-                                            <input name="bairro" id="bairro" size="40" class="form-control" type="text" placeholder="Bairro" maxlength="50">
+                                            <input name="Bairro" id="bairro" size="40" class="form-control" type="text" placeholder="Bairro" maxlength="50">
                                         </div>
                                          <div class="form-group col-xs-4">
                                             <label for="txttelefone">Telefone Fixo:</label>
-                                            <input class="form-control" placeholder="Fixo" type="tel" name="txttelefone" id="txttelefone" pattern="\([0-9]{2}\)[\s][0-9]{4}-[0-9]{4,5}"/>
+                                            <input name="Telefone" class="form-control" placeholder="Fixo" type="tel" name="txttelefone" id="txttelefone" pattern="\([0-9]{2}\)[\s][0-9]{4}-[0-9]{4,5}"/>
                                             <script type="text/javascript">$("#txttelefone").mask("(00) 0000-00009");</script>
                                         </div>
                                         <div class="form-group col-xs-4">
                                             <label>Telefone Celular:</label>
-                                            <input class="form-control" placeholder="(99)99999-9999">
+                                            <input name="Celular" class="form-control" placeholder="(99)99999-9999">
                                         </div>
                                         <div class="form-group col-xs-4">
                                             <label for="date" >Aniversário:</label>
-                                            <input type="text" id="Data" size="11" name="data" class="form-control" placeholder="Ex.: dd/mm/aaaa" maxlength="10" value="" onkeyup="formatar(this,'##/##/####',event)">
+                                            <input type="text" id="Data" size="11" name="DataNascimento" class="form-control" placeholder="Ex.: dd/mm/aaaa" maxlength="10" value="" onkeyup="formatar(this,'##/##/####',event)">
                                         </div>
                                         <div class="form-group">
                                             </br></br></br></br></br></br></br></br></br></br></br></br></br></br></br><label>E-mail</label>
-                                            <input class="form-control" placeholder="seu@email.com">
+                                            <input name="Email" class="form-control" placeholder="seu@email.com">
                                         </div>
                                         <div class="col-sm-12">
                                             <br>
