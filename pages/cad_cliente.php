@@ -12,7 +12,7 @@
         
         
         // rastreamento dos valores enviados via POST
-        CpfCnpj,Nome,RazaoSocial,InscricaoEstadual,Cep,Endereco,EnderecoNumero,Uf,Cidade,Bairro,Telefone,Celular,Email,DataNascimento,StatusAtivo
+
         if(isset($_POST['CpfCnpj'])){$CpfCnpj = $_POST['CpfCnpj'];}
         if(isset($_POST['Nome'])){$nome = $_POST['Nome'];}
         if(isset($_POST['RazaoSocial'])){$RazaoSocial = $_POST['RazaoSocial'];}
@@ -28,6 +28,7 @@
         if(isset($_POST['Celular'])){$Celular = $_POST['Celular'];}
         if(isset($_POST['Email'])){$Email = $_POST['Email'];}
         if(isset($_POST['DataNascimento'])){$DataNascimento = $_POST['DataNascimento'];}
+        if(isset($_POST['StatusAtivo'])){$StatusAtivo = $_POST['StatusAtivo'];}
         
         // validação dos inputs
         $valid = true;
@@ -73,7 +74,7 @@
         if ($valid) {           
             $pdo = Database::conectar();
             $pdo->setAttribute ( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-            $sql = "INSERT INTO cliente (CpfCnpj,Nome,RazaoSocial,InscricaoEstadual,Cep,Endereco,EnderecoNumero,Uf,Cidade,Bairro,Telefone,Celular,Email,DataNascimento,StatusAtivo) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)";
+            $sql = "INSERT INTO cliente (CpfCnpj,Nome,RazaoSocial,InscricaoEstadual,Cep,Endereco,EnderecoNumero,Uf,Cidade,Bairro,Telefone,Celular,Email,DataNascimento,StatusAtivo) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             $q = $pdo->prepare ( $sql );
             $q->execute ( array($CpfCnpj,$Nome,$RazaoSocial,$InscricaoEstadual,$Cep,$Endereco,$EnderecoNumero,$Uf,$Cidade,$Bairro,$Telefone,$Celular,$Email,$DataNascimento,$StatusAtivo));
             Database::disconnect ();
@@ -810,8 +811,7 @@ function retira_mascara(cpf_cnpj) {
                                         </div>
                                          <div class="form-group col-xs-4">
                                             <label for="txttelefone">Telefone Fixo:</label>
-                                            <input name="Telefone" class="form-control" placeholder="Fixo" type="tel" name="txttelefone" id="txttelefone" pattern="\([0-9]{2}\)[\s][0-9]{4}-[0-9]{4,5}"/>
-                                            <script type="text/javascript">$("#txttelefone").mask("(00) 0000-00009");</script>
+                                            <input name="Telefone" class="form-control" placeholder="Fixo" type="tel">
                                         </div>
                                         <div class="form-group col-xs-4">
                                             <label>Telefone Celular:</label>
@@ -834,14 +834,14 @@ function retira_mascara(cpf_cnpj) {
                                 </div>
                                   <!-- /.col-lg-6 (nested) -->
                                 <div class="col-lg-6">
-                                    <h3>Dados de Acesso:</h3>
+                                    <h3>Dados de Acesso:</h3>                                    
                                     <form role="form">
                                         <fieldset enable>
-                                            <div class="form-group">
-                                               <label for="disabledSelect">Login Cliente</label>
-                                                <input class="form-control" id="EnableInput" type="text" placeholder="Login" enable>
-                                            </div>
-                                            <div class="form-group">
+                                        <div class="form-group input-group">
+                                            <span class="input-group-addon">@</span>
+                                            <input id="EnableInput" type="text" class="form-control" placeholder="Login" enable>
+                                        </div>
+                                        <div class="form-group">
                                                <label for="disabledSelect">Senha Cliente</label>
                                                 <input class="form-control" id="EnableInput" type="password" placeholder="Senha" enable>
                                             </div>

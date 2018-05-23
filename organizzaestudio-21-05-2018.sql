@@ -80,7 +80,6 @@ CREATE TABLE IF NOT EXISTS `organizzaestudio`.`CLIENTE` (
   `Celular` VARCHAR(14) NULL DEFAULT NULL,
   `Email` VARCHAR(100) NULL DEFAULT NULL,
   `DataNascimento` DATE NULL DEFAULT NULL,
-  `StatusAtivo` CHAR NOT NULL,
   PRIMARY KEY (`CdCliente`),
   UNIQUE INDEX `CpfCnpj_UNIQUE` (`CpfCnpj` ASC),
   INDEX `fk_CLIENTE_USUARIO1_idx` (`CdUsuario` ASC),
@@ -114,7 +113,6 @@ CREATE TABLE IF NOT EXISTS `organizzaestudio`.`FUNCIONARIO` (
   `Celular` VARCHAR(14) NULL DEFAULT NULL,
   `Email` VARCHAR(100) NULL DEFAULT NULL,
   `DataNascimento` DATE NULL DEFAULT NULL,
-  `StatuAtivo` CHAR NULL DEFAULT NULL,
   PRIMARY KEY (`CdCliente`),
   UNIQUE INDEX `CpfCnpj_UNIQUE` (`Cpf` ASC),
   UNIQUE INDEX `Usuario_UNIQUE` (`CdUsuario` ASC),
@@ -154,7 +152,7 @@ CREATE TABLE IF NOT EXISTS `organizzaestudio`.`MIDIA` (
   `NormeArquivo` VARCHAR(128) NULL DEFAULT NULL,
   `Caminho` VARCHAR(200) NULL DEFAULT NULL,
   `TipoArquivo` VARCHAR(100) NULL DEFAULT NULL,
-  `DataCriacao` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  `DataCriacao` TIMESTAMP NULL CURRENT_TIMESTAMP,
   PRIMARY KEY (`CdMidia`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 11
@@ -169,7 +167,7 @@ CREATE TABLE IF NOT EXISTS `organizzaestudio`.`CONTRATO` (
   `CdContrato` INT NOT NULL AUTO_INCREMENT,
   `Cliente` INT NOT NULL,
   `DescricaoEvento` VARCHAR(255) NULL DEFAULT NULL,
-  `DataCriacao` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  `DataCriacao` TIMESTAMP NULL CURRENT_TIMESTAMP,
   `DataEvento` DATETIME NULL DEFAULT NULL,
   `DataAceite` DATETIME NULL DEFAULT NULL,
   `Documento` BLOB NULL DEFAULT NULL,
@@ -243,3 +241,24 @@ COLLATE = latin1_general_ci;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+-- -----------------------------------------------------
+-- Data for table `organizzaestudio`.`TIPO_USUARIO`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `organizzaestudio`;
+INSERT INTO `organizzaestudio`.`TIPO_USUARIO` (`CdTipoUsuario`, `Descricao`) VALUES (1, 'Administrador');
+INSERT INTO `organizzaestudio`.`TIPO_USUARIO` (`CdTipoUsuario`, `Descricao`) VALUES (2, 'Funcionario');
+INSERT INTO `organizzaestudio`.`TIPO_USUARIO` (`CdTipoUsuario`, `Descricao`) VALUES (3, 'Cliente');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `organizzaestudio`.`USUARIO`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `organizzaestudio`;
+INSERT INTO `organizzaestudio`.`USUARIO` (`CdUsuario`, `NomeUsuario`, `Email`, `Senha`, `CdTipoUsuario`, `StatusAtivo`) VALUES (1, 'Admin', 'admin@organnizaestudio.com', 'Admin', 1, 1);
+
+COMMIT;
