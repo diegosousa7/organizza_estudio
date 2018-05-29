@@ -42,4 +42,24 @@
   background-color: rgba(248, 248, 248,0.5);
   border-color: rgba(226, 226, 226,1);
 }
+.navbar, .navbar-default, .navbar-static-top{
+   position:relative;
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+.navbar:before, .navbar-default:before, .navbar-static-top:before, .navbar:after, .navbar-default:after, .navbar-static-top:after{
+   content:"";
+    position:absolute; 
+    z-index:-1;
+    box-shadow:0 0 20px rgba(0,0,0,0.8);
+    top:0;
+    bottom:0;
+    left:10px;
+    right:10px;
+    border-radius:100px / 10px;
+}
+.navbar:after, .navbar-default:after, .navbar-static-top:after{
+   right:10px; 
+    left:auto; 
+    transform:skew(8deg) rotate(3deg);
+}
 }
