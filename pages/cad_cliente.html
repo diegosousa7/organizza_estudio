@@ -36,7 +36,7 @@
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-    <script type="text/javascript" src="js/jquery.mask.min.js"/></script>
+    <script type="text/javascript" src="js/jquery.mask.min.js"></script>
 
     <!-- Adicionando JQuery -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"
@@ -55,7 +55,7 @@
                 $("#cidade").val("");
                 $("#uf").val("");
             }
-            
+
             //Quando o campo cep perde o foco.
             $("#cep").blur(function() {
 
@@ -110,9 +110,9 @@
     </script>
 
     <script type="text/javascript">
-        function formatar(src, mask,e) 
+        function formatar(src, mask,e)
 {
-    var tecla =""
+    var tecla ="";
     if (document.all) // Internet Explorer
         tecla = event.keyCode;
     else
@@ -127,7 +127,7 @@
   var i = src.value.length;
   var saida = mask.substring(0,1);
   var texto = mask.substring(i);
-  if (texto.substring(0,1) != saida) 
+  if (texto.substring(0,1) != saida)
   {
     src.value += texto.substring(0,1);
   }
@@ -170,7 +170,7 @@ function aplica_mascara_cpfcnpj(campo,tammax,teclapres) {
     if ( (tam > 12) && (tam <= 14) ) {
         campo.value = vr.substr( 0, tam - 12 ) + '.' + vr.substr( tam - 12, 3 ) + '.' + vr.substr( tam - 9, 3 ) + '/' + vr.substr( tam - 6, 4 ) + '-' + vr.substr( tam - 2, tam );
     }
-}
+};
 
 //Verifica se CPF ou CGC e encaminha para a devida função, no caso do cpf/cgc estar digitado sem mascara
 function verifica_cpf_cnpj(cpf_cnpj) {
@@ -178,7 +178,7 @@ function verifica_cpf_cnpj(cpf_cnpj) {
         return(verifica_cpf(cpf_cnpj));
     } else if (cpf_cnpj.length == 14) {
         return(verifica_cnpj(cpf_cnpj));
-    } else { 
+    } else {
         return false;
     }
     return true;
@@ -284,7 +284,8 @@ function Procura_Str(param0,param1,param2) {
 function retira_mascara(cpf_cnpj) {
     return cpf_cnpj.replace(/\./g,'').replace(/-/g,'').replace(/\//g,'')
 }
-</script>    
+</script>
+    <script src="../js/jquery.min.js"></script>
 </head>
 
 <body>
@@ -687,7 +688,7 @@ function retira_mascara(cpf_cnpj) {
                                     <form method="get" action="." role="form">
                                         <div class="form-group col-xs-5">
                                             <label>CPF/CNPJ:</label>
-                                            <input class="form-control" type="tel" placeholder="Só números" required="required" id="cpf-cnpj" name="cpf-cnpj" onkeydown="javascript:return aplica_mascara_cpfcnpj(this,18,event)" onkeyup="javascript:return aplica_mascara_cpfcnpj(this,18,event)">
+                                            <input class="form-control" type="tel" placeholder="Só números" required="required" id="cpf-cnpj" name="cpf-cnpj" onkeydown="return aplica_mascara_cpfcnpj(this,18,event)" onkeyup="return aplica_mascara_cpfcnpj(this,18,event)">
                                         </div>
                                         <div class="form-group col-xs-5">
                                             <label>Ins.Estadual</label>
@@ -695,7 +696,7 @@ function retira_mascara(cpf_cnpj) {
                                         </div>
                                        <div class="form-group">
                                             </br></br></br></br><label class="control-label">Nome</label>
-                                            <input class="form-control" placeholder="Nome Completo ou Nome Fantasia" required="required">
+                                            <input class="form-control" placeholder="Nome Completo ou Nome Fantasia" required="required" value="Tomás   ">
                                         </div>
                                         <div class="form-group">
                                             <label>Razão Social</label>

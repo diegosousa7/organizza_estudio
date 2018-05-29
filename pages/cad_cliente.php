@@ -8,7 +8,29 @@
         $EmailError = null;
         $telefoneError = null;
         $dtNascimento = null;
-        $CpfCnpjfError = null;
+        $CpfCnpjError = null;
+
+        $CpfCnpj = null;
+        $Nome = null;
+        $RazaoSocial = null;
+        $InscricaoEstadual = null;
+        $Cep = null;
+        $Endereco = null;
+        $EnderecoNumero = null;
+        $Uf = null;
+        $Cidade = null;
+        $Bairro = null;
+        $Telefone = null;
+        $Celular = null;
+        $Email = null;
+        $DataNascimento = null;
+        $StatusAtivo = null;
+        $CdTipoUsuario = null;
+        $NomeUsuario = null;
+        $Senha = null;
+        $DataCriacao = null;
+
+
         
         
         // rastreamento dos valores enviados via POST
@@ -73,8 +95,12 @@
         
         if ($valid) {           
             $pdo = Database::conectar();
-            $pdo->setAttribute ( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-            $sql = "INSERT INTO cliente (CpfCnpj,Nome,RazaoSocial,InscricaoEstadual,Cep,Endereco,EnderecoNumero,Uf,Cidade,Bairro,Telefone,Celular,Email,DataNascimento,StatusAtivo) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            $pdo->setAttribute ( PDO::ERRMODE_EXCEPTION, PDO::ATTR_ERRMODE );
+            $sql = "INSERT INTO usuario (CdTipoUsuario, NomeUsuario, Email, Senha, DataCriacao, StatusAtivo) VALUES (3,?,?,?,current_timestamp,1)";
+            $q = $pdo->prepare($sql);
+            $q->execute(array($CdTipoUsuario,$NomeUsuario,$Email,$Senha,$DataCriacao,$StatusAtivo));
+            $q->execute()
+            $sql = "INSERT INTO organizzaestudio.`cliente` (CdUsuario, CpfCnpj, Nome, RazaoSocial, InscricaoEstadual, Cep, Endereco, EnderecoNumero, Uf, Cidade, Bairro, Telefone, Celular, Email, DataNascimento) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             $q = $pdo->prepare ( $sql );
             $q->execute ( array($CpfCnpj,$Nome,$RazaoSocial,$InscricaoEstadual,$Cep,$Endereco,$EnderecoNumero,$Uf,$Cidade,$Bairro,$Telefone,$Celular,$Email,$DataNascimento,$StatusAtivo));
             Database::disconnect ();
@@ -123,8 +149,8 @@
     <script type="text/javascript" src="js/jquery.mask.min.js"/></script>
 
     <!-- Adicionando JQuery -->
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
-            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    <script; src="https://code.jquery.com/jquery-3.2.1.min.js";
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=";
             crossorigin="anonymous"></script>
 
     <!-- Adicionando Javascript -->
@@ -196,7 +222,7 @@
     <script type="text/javascript">
         function formatar(src, mask,e) 
 {
-    var tecla =""
+    var tecla ="";
     if (document.all) // Internet Explorer
         tecla = event.keyCode;
     else
@@ -254,7 +280,7 @@ function aplica_mascara_cpfcnpj(campo,tammax,teclapres) {
     if ( (tam > 12) && (tam <= 14) ) {
         campo.value = vr.substr( 0, tam - 12 ) + '.' + vr.substr( tam - 12, 3 ) + '.' + vr.substr( tam - 9, 3 ) + '/' + vr.substr( tam - 6, 4 ) + '-' + vr.substr( tam - 2, tam );
     }
-}
+};
 
 //Verifica se CPF ou CGC e encaminha para a devida função, no caso do cpf/cgc estar digitado sem mascara
 function verifica_cpf_cnpj(cpf_cnpj) {
@@ -771,7 +797,7 @@ function retira_mascara(cpf_cnpj) {
                                     <form method="get" action="." role="form">
                                         <div class="form-group col-xs-5">
                                             <label>CPF/CNPJ:</label>
-                                            <input name="CpfCnpj" class="form-control" type="tel" placeholder="Só números" required="required" id="cpf-cnpj" name="cpf-cnpj" onkeydown="javascript:return aplica_mascara_cpfcnpj(this,18,event)" onkeyup="javascript:return aplica_mascara_cpfcnpj(this,18,event)">
+                                            <input name="CpfCnpj" class="form-control" type="tel" placeholder="Só números" required="required" id="cpf-cnpj" name="cpf-cnpj" onkeydown="return aplica_mascara_cpfcnpj(this,18,event)" onkeyup="return aplica_mascara_cpfcnpj(this,18,event)">
                                         </div>
                                         <div class="form-group col-xs-5">
                                             <label>Ins.Estadual</label>
