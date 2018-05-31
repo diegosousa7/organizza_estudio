@@ -30,8 +30,8 @@
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -46,9 +46,9 @@
             integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 
     <!-- Adicionando Javascript -->
-    <script type="text/javascript" >
+    <script type="text/javascript">
 
-        $(document).ready(function() {
+        $(document).ready(function () {
 
             function limpa_formulário_cep() {
                 // Limpa valores do formulário de cep.
@@ -59,7 +59,7 @@
             }
 
             //Quando o campo cep perde o foco.
-            $("#cep").blur(function() {
+            $("#cep").blur(function () {
 
                 //Nova variável "cep" somente com dígitos.
                 var cep = $(this).val().replace(/\D/g, '');
@@ -71,7 +71,7 @@
                     var validacep = /^[0-9]{8}$/;
 
                     //Valida o formato do CEP.
-                    if(validacep.test(cep)) {
+                    if (validacep.test(cep)) {
 
                         //Preenche os campos com "..." enquanto consulta webservice.
                         $("#rua").val("...");
@@ -80,7 +80,7 @@
                         $("#uf").val("...");
 
                         //Consulta o webservice viacep.com.br/
-                        $.getJSON("https://viacep.com.br/ws/"+ cep +"/json/?callback=?", function(dados) {
+                        $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", function (dados) {
 
                             if (!("erro" in dados)) {
                                 //Atualiza os campos com os valores da consulta.
@@ -318,16 +318,19 @@
                     <li>
                         <a href="contrato.html"><i class="fa fa-edit fa-fw"></i> Contratos</a>
                     </li>
+
                     <li>
                         <a href="#"><i class="fa fa-wrench fa-fw"></i> Gerenciar Cadastros<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="cadastro-cliente.html">Cadastro de Clientes</a>
+                                <a href="cliente.html">Cadastro de Clientes</a>
                             </li>
                             <li>
                                 <a href="funcionarios.html">Cadastro de Funcionários</a>
                             </li>
                             <li>
+                                <a href="servicos.html">Serviços</a>
+                            </li>
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
@@ -361,7 +364,7 @@
                                     <form method="get" action="." role="form">
                                         <div class="form-group col-xs-5">
                                             <label>CPF/CNPJ:</label>
-                                            <input maxlength="18" class="form-control" type="tel"
+                                            <input value="999.888.777-66" maxlength="18" class="form-control" type="tel"
                                                    placeholder="Só números" required="required" id="cpf-cnpj"
                                                    name="cpf-cnpj"
                                                    onkeydown="return aplica_mascara_cpfcnpj(this,18,event)"
@@ -369,11 +372,13 @@
                                         </div>
                                         <div class="form-group col-xs-5">
                                             <label>Ins.Estadual</label>
-                                            <input class="form-control" type="tel" placeholder="Só números" maxlength="13">
+                                            <input class="form-control" type="tel" placeholder="Só números"
+                                                   maxlength="13">
                                         </div>
                                         <div class="form-group">
                                             </br></br></br></br><label class="control-label">Nome</label>
-                                            <input class="form-control" placeholder="Nome Completo ou Nome Fantasia" required="required">
+                                            <input value="Tomás Costa Cardoso" class="form-control"
+                                                   placeholder="Nome Completo ou Nome Fantasia" required="required">
                                         </div>
                                         <div class="form-group">
                                             <label>Razão Social</label>
@@ -381,45 +386,56 @@
                                         </div>
                                         <div class="form-group col-xs-4">
                                             <label for="Cep">cep</label>
-                                            <input name="Cep" id="cep" size="10" value="" class="form-control"
+                                            <input name="Cep" id="cep" size="10" value="72015912" class="form-control"
                                                    type="tel" placeholder="71.100-000" maxlength="10">
                                         </div>
                                         <div class="form-group col-xs-8">
                                             <label>Endereço:</label>
-                                            <input name="rua" id="rua" size="60" class="form-control" placeholder="Informe o seu Endereço:">
+                                            <input value="CSA 2 Lote 12/14" name="rua" id="rua" size="60"
+                                                   class="form-control" placeholder="Informe o seu Endereço:">
                                         </div>
                                         <div class="form-group col-xs-3">
                                             <label>Número</label>
-                                            <input class="form-control" placeholder="Número" maxlength="6">
+                                            <input value="12/14" class="form-control" placeholder="Número"
+                                                   maxlength="6">
                                         </div>
                                         <div class="form-group col-xs-2">
                                             <label>UF:</label>
-                                            <input name="uf" id="uf" size="2" class="form-control" type="text" placeholder="UF" maxlength="2">
+                                            <input value="DF" name="uf" id="uf" size="2" class="form-control"
+                                                   type="text" placeholder="UF" maxlength="2">
                                         </div>
                                         <div class="form-group col-xs-7">
                                             <label>Cidade:</label>
-                                            <input name="cidade" id="cidade" size="40" class="form-control" type="text" placeholder="Cidade" maxlength="50">
+                                            <input value="Brasilia" name="cidade" id="cidade" size="40"
+                                                   class="form-control" type="text" placeholder="Cidade" maxlength="50">
                                         </div>
                                         <div class="form-group col-xs-9">
                                             <label>Bairro:</label>
-                                            <input name="bairro" id="bairro" size="40" class="form-control" type="text" placeholder="Bairro" maxlength="50">
+                                            <input value="Taguatinga Sul (Taguatinga)" name="bairro" id="bairro"
+                                                   size="40" class="form-control" type="text" placeholder="Bairro"
+                                                   maxlength="50">
                                         </div>
                                         <div class="form-group col-xs-4">
                                             <label>Telefone Fixo:</label>
-                                            <input class="form-control" id="telefone" placeholder="Fixo" type="tel"/>
+                                            <input value="8163663856" class="form-control" id="telefone"
+                                                   placeholder="Fixo"/>
                                         </div>
                                         <div class="form-group col-xs-4">
                                             <label>Telefone Celular:</label>
-                                            <input type="tel" class="form-control" id="celular" placeholder="Celular">
+                                            <input value="81989654120" class="form-control" id="celular"
+                                                   placeholder="Celular">
                                         </div>
                                         <div class="form-group col-xs-4">
                                             <label>Aniversário:</label>
-                                            <input type="date" id="niver" size="11" name="data" class="form-control"
+                                            <input value="12121976" id="niver" size="11" name="data"
+                                                   class="form-control"
                                                    placeholder="Ex.: dd/mm/aaaa" maxlength="10">
                                         </div>
                                         <div class="form-group">
-                                            </br></br></br></br></br></br></br></br></br></br></br></br></br></br></br><label>E-mail</label>
-                                            <input class="form-control" placeholder="seu@email.com">
+                                            </br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+                                            <label>E-mail</label>
+                                            <input value="tomasccardoso@jourrapide.com" type="email"
+                                                   class="form-control" placeholder="seu@email.com">
                                         </div>
                                     </form>
                                 </form>
@@ -428,11 +444,13 @@
                             <form role="form">
                                 <div class="form-group input-group col-xs-4">
                                     <span class="input-group-addon">Usuário</span>
-                                    <input type="text" class="form-control" placeholder="Digite o nome de usuário">
+                                    <input value="tomascc" type="text" class="form-control"
+                                           placeholder="Digite o nome de usuário">
                                 </div>
                                 <div class="form-group input-group col-xs-4">
                                     <span class="input-group-addon">Senha</span>
-                                    <input type="password" class="form-control" placeholder="Digite a senha">
+                                    <input value="123" type="password" class="form-control"
+                                           placeholder="Digite a senha">
                                 </div>
                             </form>
 

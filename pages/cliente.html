@@ -21,6 +21,12 @@
     <!-- Custom CSS -->
     <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
 
+    <!-- DataTables CSS -->
+    <link href="../vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
+
+    <!-- DataTables Responsive CSS -->
+    <link href="../vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
+
     <!-- Custom Fonts -->
     <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -344,13 +350,14 @@
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Clientes
-                                            Ativos</a>
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Lista de
+                                            Clientes</a>
                                     </h4>
                                 </div>
                                 <div id="collapseOne" class="panel-collapse collapse in">
                                     <div class="panel-body">
-                                        <table class="table table-striped table-bordered table-hover" id="dataTable">
+                                        <table data class="table table-striped table-bordered table-hover"
+                                               id="dataTables-example">
                                             <thead>
                                             <tr>
                                                 <th>Nome</th>
@@ -361,140 +368,51 @@
                                             </tr>
                                             </thead>
                                             <tbody id="myTable">
-                                            <tr class="info" id=tomas name=tomas>
+                                            <tr class="table-responsive" id="tomas" style="display: table-row">
                                                 <td>Tomás</td>
                                                 <td>Costa Cardoso</td>
                                                 <td>tomasccardoso@jourrapide.com</td>
                                                 <td>(81) 6366-3856</td>
                                                 <td>
-                                                    <a href="cad_cliente_Tomas.html" title="Editar"
+                                                    <a href="cad_cliente_tomas.html" title="Editar"
                                                        class="btn btn-primary">
                                                         <span class="glyphicon glyphicon-pencil"></span>
                                                     </a>
-                                                    <a href="cad_cliente.html" title="Excluir"
+                                                    <a href="#" onClick="toggle(tomas)" title="Excluir"
                                                        name="Excluir" class="btn btn-danger">
                                                         <span class="glyphicon glyphicon-remove"></span>
                                                     </a>
-                                                    <a href="cad_cliente.html" title="Visualizar"
-                                                       name="Excluir" class="btn btn-warning">
-                                                        <span class="glyphicon glyphicon-eye-open"></span>
-                                                    </a>
                                                 </td>
                                             </tr>
-                                            <tr class="active">
+                                            <tr class="table-responsive" id="julia" style="display: table-row">
                                                 <td>Julia</td>
                                                 <td>Lima Almeida</td>
                                                 <td>julialalmeida@rhyta.com</td>
                                                 <td>(12) 4200-2531</td>
                                                 <td>
-                                                    <a href="#" target="blank" title="Editar"
+                                                    <a href="cad_cliente_julia.html" title="Editar"
                                                        class="btn btn-primary">
                                                         <span class="glyphicon glyphicon-pencil"></span>
                                                     </a>
-                                                    <a href="#" target="blank" title="Excluir" name="Excluir"
-                                                       class="btn btn-danger">
+                                                    <a href="#" onClick="toggle(julia);" title="Excluir"
+                                                       name="Excluir" class="btn btn-danger">
                                                         <span class="glyphicon glyphicon-remove"></span>
-                                                    </a>
-                                                    <a href="#" target="blank" title="Visualizar" name="Excluir"
-                                                       class="btn btn-warning">
-                                                        <span class="glyphicon glyphicon-eye-open"></span>
                                                     </a>
                                                 </td>
                                             </tr>
-                                            <tr class="info">
+                                            <tr class="table-responsive" id="pedro" style="display: table-row">
                                                 <td>Pedro</td>
                                                 <td>Azevedo Santos</td>
                                                 <td>pedroazevedosantos@dayrep.com</td>
                                                 <td>(31) 7322-4279</td>
                                                 <td>
-                                                    <a href="#" target="blank" title="Editar"
+                                                    <a href="cad_cliente_pedro.html" title="Editar"
                                                        class="btn btn-primary">
                                                         <span class="glyphicon glyphicon-pencil"></span>
                                                     </a>
-                                                    <a href="#" target="blank" title="Excluir" name="Excluir"
-                                                       class="btn btn-danger">
+                                                    <a onClick="toggle(pedro)" title="Excluir"
+                                                       name="Excluir" class="btn btn-danger">
                                                         <span class="glyphicon glyphicon-remove"></span>
-                                                    </a>
-                                                    <a href="#" target="blank" title="Visualizar" name="Excluir"
-                                                       class="btn btn-warning">
-                                                        <span class="glyphicon glyphicon-eye-open"></span>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-
-                                    </div>
-                                </div>
-
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Clientes
-                                            Inativos</a>
-                                    </h4>
-                                </div>
-                                <div id="collapseTwo" class="panel-collapse collapse">
-                                    <div class="panel-body">
-                                        <table class="table">
-                                            <thead>
-                                            <tr>
-                                                <th>Nome</th>
-                                                <th>Sobrenome</th>
-                                                <th>Email</th>
-                                                <th>Telefone</th>
-                                                <th>Ações</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody id="myTable">
-                                            <tr class="info">
-                                            <tr class="active">
-                                                <td>Julian</td>
-                                                <td>Rodrigues Carvalho</td>
-                                                <td>julianrcarvalho@dayrep.com</td>
-                                                <td>(19) 6871-6570</td>
-                                                <td>
-                                                    <a href="#" class="btn btn-primary">
-                                                        <span class="glyphicon glyphicon-pencil"></span>
-                                                    </a>
-                                                    <a href="#" name="Excluir" class="btn btn-danger">
-                                                        <span class="glyphicon glyphicon-remove"></span>
-                                                    </a>
-                                                    <a href="#" name="Visualizar" class="btn btn-warning">
-                                                        <span class="glyphicon glyphicon-eye-open"></span>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <tr class="info">
-                                                <td>Gabriela</td>
-                                                <td>Cunha Cardoso</td>
-                                                <td>gabrielacunhacardoso@teleworm.com</td>
-                                                <td>(11) 6580-2496</td>
-                                                <td>
-                                                    <a href="#" class="btn btn-primary">
-                                                        <span class="glyphicon glyphicon-pencil"></span>
-                                                    </a>
-                                                    <a href="#" name="Excluir" class="btn btn-danger">
-                                                        <span class="glyphicon glyphicon-remove"></span>
-                                                    </a>
-                                                    <a href="#" name="Excluir" class="btn btn-warning">
-                                                        <span class="glyphicon glyphicon-eye-open"></span>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <tr class="active">
-                                                <td>Marina</td>
-                                                <td>Dias Cavalcanti</td>
-                                                <td>marinadiascavalcanti@dayrep.com</td>
-                                                <td>(15) 9076-6890</td>
-                                                <td>
-                                                    <a href="#" class="btn btn-primary">
-                                                        <span class="glyphicon glyphicon-pencil"></span>
-                                                    </a>
-                                                    <a href="#" name="Excluir" class="btn btn-danger">
-                                                        <span class="glyphicon glyphicon-remove"></span>
-                                                    </a>
-                                                    <a href="#" name="Excluir" class="btn btn-warning">
-                                                        <span class="glyphicon glyphicon-eye-open"></span>
                                                     </a>
                                                 </td>
                                             </tr>
@@ -532,6 +450,16 @@
                 });
             });
         });
+    </script>
+    <script>
+        function toggle(el_id) {
+            var el = document.getElementById(el_id);
+            if (el_id.style.display != "none") {
+                el_id.style.display = "none";
+            } else {
+                el_id.style.display = "";
+            }
+        }
     </script>
 
     <!-- Bootstrap Core JavaScript -->
