@@ -27,490 +27,459 @@
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
 </head>
 
 <body>
 
-    <div id="wrapper">
+<div id="wrapper">
 
-<!--(A Partir daqui vem a parte de navegação do site)
--->
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.html"><i class="fa fa-camera-retro"></i>Organizza Estúdio</a>
-            </div>
-            <!-- /.navbar-header -->
+    <!--(A Partir daqui vem a parte de navegação do site)
+    -->
+    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html"><i class="fa fa-camera-retro"></i>Organizza Estúdio</a>
+        </div>
+        <!-- /.navbar-header -->
 
-            <ul class="nav navbar-top-links navbar-right">
-                <li class="dropdown">
-                  <!--   <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                   <ul class="dropdown-menu dropdown-messages">
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <strong>John Smith</strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                                </div>
-                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <strong>John Smith</strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                                </div>
-                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <strong>John Smith</strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                                </div>
-                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a class="text-center" href="#">
-                                <strong>Read All Messages</strong>
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        </li>
-                    </ul>-->
-                    <!-- /.dropdown-messages -->
-                </li>
-                <!-- /.dropdown -->
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-tasks fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-tasks">
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <p>
-                                        <strong>Contrato Fabio</strong>
-                                        <span class="pull-right text-muted">40% Completo</span>
-                                    </p>
-                                    <div class="progress progress-striped active">
-                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                                            <span class="sr-only">40% Completo (success)</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <p>
-                                        <strong>Contrato Ana</strong>
-                                        <span class="pull-right text-muted">20% Completo</span>
-                                    </p>
-                                    <div class="progress progress-striped active">
-                                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
-                                            <span class="sr-only">20% Completo</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <p>
-                                        <strong>Contrato Paulo</strong>
-                                        <span class="pull-right text-muted">60% Completo</span>
-                                    </p>
-                                    <div class="progress progress-striped active">
-                                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                                            <span class="sr-only">60% Completo (atenção)</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <p>
-                                        <strong>Contrato Marcos</strong>
-                                        <span class="pull-right text-muted">80% Completo</span>
-                                    </p>
-                                    <div class="progress progress-striped active">
-                                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-                                            <span class="sr-only">80% Completo (atenção)</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a class="text-center" href="#">
-                                <strong>Ver mais Contratos</strong>
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-tasks -->
-                </li>
-                <!-- /.dropdown -->
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-alerts">
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-comment fa-fw"></i> Novo ALerta
-                                    <span class="pull-right text-muted small">5 minutos atrás</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-user fa-fw"></i> 3 Novo Usuário
-                                    <span class="pull-right text-muted small">20 minutos atrás</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-shopping-cart"></i> Novo Serviço
-                                    <span class="pull-right text-muted small">40 minutos atrás</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-tasks fa-fw"></i> Novo Evento
-                                    <span class="pull-right text-muted small">1 dia atrás</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-upload fa-fw"></i> Upload de Arquivos
-                                    <span class="pull-right text-muted small">1 dia atrás</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a class="text-center" href="#">
-                                <strong>Ver mais Alertas</strong>
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-alerts -->
-                </li>
-                <!-- /.dropdown -->
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> Administrador</a>
-                        </li>
-                        <li><a href="config.html"><i class="fa fa-gear fa-fw"></i> Configuações</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-user -->
-                </li>
-                <!-- /.dropdown -->
-            </ul>
-            <!-- /.navbar-top-links -->
+        <ul class="nav navbar-top-links navbar-right">
+            <li class="dropdown">
 
-            <div class="navbar-default sidebar" role="navigation">
-                <div class="sidebar-nav navbar-collapse">
-                    <ul class="nav" id="side-menu">
-                        <li class="sidebar-search">
-                            <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Pesquisar...">
-                                <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
+                <!-- /.dropdown-messages -->
+            </li>
+            <!-- /.dropdown -->
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-tasks fa-fw"></i> <i class="fa fa-caret-down"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-tasks">
+                    <li>
+                        <a href="#">
+                            <div>
+                                <p>
+                                    <strong>Contrato Fabio</strong>
+                                    <span class="pull-right text-muted">40% Completo</span>
+                                </p>
+                                <div class="progress progress-striped active">
+                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
+                                         aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                        <span class="sr-only">40% Completo (success)</span>
+                                    </div>
+                                </div>
                             </div>
-                            <!-- /input-group -->
-                        </li>
-                        <li>
-                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Área Administrativa</a>
-                        </li>
-                        <li>
-                            <a href="agenda.html"><i class="fa fa-table fa-fw"></i>Agenda</a>
-                        </li>
-                        <li>
-                            <a href="contrato.html"><i class="fa fa-edit fa-fw"></i> Contratos</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-wrench fa-fw"></i> Gerenciar <span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="cliente.html">Clientes</a>
-                                </li>
-                                <li>
-                                    <a href="funcionarios.html">Funcionários</a>
-                                </li>
-                                <li>
-                                    <a href="servicos.html">Serviços</a>
-                                </li>
-                                <li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>                     
-                    </ul>
-                    
-                </div>
-                <!-- /.sidebar-collapse -->
-            </div>
-            <!-- /.navbar-static-side -->
-        </nav>
-<!--
-(A Partir daqui vem o corpo do Site)
--->
-<!-- /.nav-end-->
-        <div id="page-wrapper">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header">Serviços</h1>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <p>
+                                    <strong>Contrato Ana</strong>
+                                    <span class="pull-right text-muted">20% Completo</span>
+                                </p>
+                                <div class="progress progress-striped active">
+                                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20"
+                                         aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                                        <span class="sr-only">20% Completo</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <p>
+                                    <strong>Contrato Paulo</strong>
+                                    <span class="pull-right text-muted">60% Completo</span>
+                                </p>
+                                <div class="progress progress-striped active">
+                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60"
+                                         aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                        <span class="sr-only">60% Completo (atenção)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <p>
+                                    <strong>Contrato Marcos</strong>
+                                    <span class="pull-right text-muted">80% Completo</span>
+                                </p>
+                                <div class="progress progress-striped active">
+                                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80"
+                                         aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                                        <span class="sr-only">80% Completo (atenção)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a class="text-center" href="#">
+                            <strong>Ver mais Contratos</strong>
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    </li>
+                </ul>
+                <!-- /.dropdown-tasks -->
+            </li>
+            <!-- /.dropdown -->
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-alerts">
+                    <li>
+                        <a href="#">
+                            <div>
+                                <i class="fa fa-comment fa-fw"></i> Novo ALerta
+                                <span class="pull-right text-muted small">5 minutos atrás</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <i class="fa fa-user fa-fw"></i> 3 Novo Usuário
+                                <span class="pull-right text-muted small">20 minutos atrás</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <i class="fa fa-shopping-cart"></i> Novo Serviço
+                                <span class="pull-right text-muted small">40 minutos atrás</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <i class="fa fa-tasks fa-fw"></i> Novo Evento
+                                <span class="pull-right text-muted small">1 dia atrás</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <i class="fa fa-upload fa-fw"></i> Upload de Arquivos
+                                <span class="pull-right text-muted small">1 dia atrás</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a class="text-center" href="#">
+                            <strong>Ver mais Alertas</strong>
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    </li>
+                </ul>
+                <!-- /.dropdown-alerts -->
+            </li>
+            <!-- /.dropdown -->
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-user">
+                    <li><a href="#"><i class="fa fa-user fa-fw"></i> Administrador</a>
+                    </li>
+                    <li><a href="config.html"><i class="fa fa-gear fa-fw"></i> Configuações</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
+                    </li>
+                </ul>
+                <!-- /.dropdown-user -->
+            </li>
+            <!-- /.dropdown -->
+        </ul>
+        <!-- /.navbar-top-links -->
 
-                </div>
-                <!-- /.col-lg-12 -->
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav navbar-collapse">
+                <ul class="nav" id="side-menu">
+
+                    <li>
+                        <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Área Administrativa</a>
+                    </li>
+                    <li>
+                        <a href="agenda.html"><i class="fa fa-table fa-fw"></i>Agenda</a>
+                    </li>
+                    <li>
+                        <a href="contrato.html"><i class="fa fa-edit fa-fw"></i> Contratos</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-wrench fa-fw"></i> Gerenciar <span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="cliente.html">Clientes</a>
+                            </li>
+                            <li>
+                                <a href="funcionarios.html">Funcionários</a>
+                            </li>
+                            <li>
+                                <a href="servicos.html">Serviços</a>
+                            </li>
+                            <li>
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
+                </ul>
+
             </div>
-            <!-- /.row -->
+            <!-- /.sidebar-collapse -->
+        </div>
+        <!-- /.navbar-static-side -->
+    </nav>
+    <!--
+    (A Partir daqui vem o corpo do Site)
+    -->
+    <!-- /.nav-end-->
+    <div id="page-wrapper">
+        <div class="row">
             <div class="col-lg-12">
-            </a><br/><br/>
+                <h1 class="page-header">Serviços</h1>
+
             </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+        <div class="col-lg-12">
+            <div style="position: relative" class="form-group col-xs-4">
+                <label class="sidebar-search"><input role="myTable" id="myInput"
+                                                     class=" form-group form-control col-xs-4" type="search"
+                                                     name="search" placeholder="Pesquisar"/></label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
                         <span class="glyphicon glyphicon-shopping-cart"></span>
+                    </div>
+                    <!-- .panel-heading -->
+                    <div class="panel-body">
+                        <div class="panel-group" id="accordion">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Serviços
+                                            Ativos</a>
+                                    </h4>
+                                </div>
+                                <div id="collapseOne" class="panel-collapse collapse in">
+                                    <div class="panel-body">
+                                        <!--Inínio Table-->
+                                        <table class="table">
+                                            <thead>
+                                            <tr>
+                                                <th>Código</th>
+                                                <th>Nome</th>
+                                                <th>Descrição</th>
+                                                <th>Preço (R$)</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody id="myTable">
+                                            <tr class="info">
+                                                <td>001</td>
+                                                <td class="text-justify col-xs-3">Ensaio Casal e Família 2hs</td>
+                                                <td class="text-justify col-xs-4">- Ensaio ao ar livre e/ou locação
+                                                    - Entrega das fotos online em alta resolução
+                                                    - 1 porta-retrato de madeira 10 x 15 cm
+                                                    - 1 porta retrato magnético 10 x 15 cm
+                                                    Escolha o seu brinde no Kit Entrega:
+                                                    Brinde A: 1 Caixinha com Pendrive 8 GB
+                                                    Brinde B: 1 Porta-Retrato 15 x 21 cm
+                                                </td>
+                                                <td>790,00</td>
+                                                <td>
+                                                    <a href="#" target="blank" title="Editar" class="btn btn-primary">
+                                                        <span class="glyphicon glyphicon-pencil"></span>
+                                                    </a>
+                                                    <a href="#" target="blank" title="Desativar" name="Excluir"
+                                                       class="btn btn-warning">
+                                                        <span class="glyphicon glyphicon-minus"></span>
+                                                    </a>
+                                                    <a href="#" target="blank" title="Excluir" name="Excluir"
+                                                       class="btn btn-danger">
+                                                        <span class="glyphicon glyphicon-remove"></span>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr class="active">
+                                                <td>002</td>
+                                                <td class="text-justify col-xs-3">Pacote Fotografia de Casamento</td>
+                                                <td class="text-justify col-xs-4">- 2 fotógrafos profissionais
+                                                    - Cobertura do Making Of dos Noivos
+                                                    - Cobertura da Cerimônia
+                                                    - Ensaio Fotográfico logo após cerimônia
+                                                    - Cobertura da Recepção e Jantar
+                                                    - Cobertura da Festa
+                                                    - Tempo aproximado da cobertura: 10 horas
+                                                    - Todas as fotos em alta resolução
+                                                    - 1 Caixinha com Pendrive
+                                                    - 1 porta-retrato de madeira 15 x 21 cm
+                                                    - 2 porta-retratos de madeira 10 x 15 cm
+                                                    - 2 porta-retratos magnéticos 10 x 15 cm
+                                                    - Disponibilização das fotos para acesso online
+                                                </td>
+                                                <td>4.500,00</td>
+                                                <td>
+                                                    <a href="#" target="blank" title="Editar" class="btn btn-primary">
+                                                        <span class="glyphicon glyphicon-pencil"></span>
+                                                    </a>
+                                                    <a href="#" target="blank" title="Desativar" name="Excluir"
+                                                       class="btn btn-warning">
+                                                        <span class="glyphicon glyphicon-minus"></span>
+                                                    </a>
+                                                    <a href="#" target="blank" title="Excluir" name="Excluir"
+                                                       class="btn btn-danger">
+                                                        <span class="glyphicon glyphicon-remove"></span>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr class="info">
+                                                <td>003</td>
+                                                <td class="text-justify col-xs-3">Pacote Fotografia Festa Infantil</td>
+                                                <td class="text-justify col-xs-4">- 1 fotógrafo profissional
+                                                    - Cobertura de até 3 horas
+                                                    - Entrega das fotos online em alta resolução
+                                                    - 1 porta-retrato de madeira 10 x 15 cm
+                                                    - 1 porta retrato magnético 10 x 15 cm
+                                                    Escolha o seu brinde no Kit Entrega:
+                                                    Brinde A: 1 Caixinha com Pendrive 8 GB
+                                                    Brinde B: 1 Porta-Retrato 15 x 21 cm
+                                                </td>
+                                                <td>900,00</td>
+                                                <td>
+                                                    <a href="#" target="blank" title="Editar" class="btn btn-primary">
+                                                        <span class="glyphicon glyphicon-pencil"></span>
+                                                    </a>
+                                                    <a href="#" target="blank" title="Desativar" name="Excluir"
+                                                       class="btn btn-warning">
+                                                        <span class="glyphicon glyphicon-minus"></span>
+                                                    </a>
+                                                    <a href="#" target="blank" title="Excluir" name="Excluir"
+                                                       class="btn btn-danger">
+                                                        <span class="glyphicon glyphicon-remove"></span>
+                                                    </a>
+                                                </td>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <!--Fim Table-->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Serviços
+                                            Inativos</a>
+                                    </h4>
+                                </div>
+                                <div id="collapseTwo" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <table class="table">
+                                            <thead>
+                                            <tr>
+                                                <th>Código</th>
+                                                <th>Nome</th>
+                                                <th>Preço</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody id="myTable">
+                                            <tr class="info">
+                                                <td>004</td>
+
+                                                <td>Foto 3X4</td>
+                                                <td>R$ 20,00</td>
+                                                <td>
+                                                    <a href="#" target="blank" title="Editar" class="btn btn-primary">
+                                                        <span class="glyphicon glyphicon-pencil"></span>
+                                                    </a>
+                                                    <a href="#" target="blank" title="Ativar" name="Excluir"
+                                                       class="btn btn-success">
+                                                        <span class="glyphicon glyphicon-plus"></span>
+                                                    </a>
+                                                    <a href="#" target="blank" title="Excluir" name="Excluir"
+                                                       class="btn btn-danger">
+                                                        <span class="glyphicon glyphicon-remove"></span>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr class="active">
+                                                <td>005</td>
+                                                <td>Cabine Fotográfica</td>
+                                                <td>R$250,00</td>
+                                                <td>
+                                                    <a href="#" target="blank" title="Editar" class="btn btn-primary">
+                                                        <span class="glyphicon glyphicon-pencil"></span>
+                                                    </a>
+                                                    <a href="#" target="blank" title="Ativar" name="Excluir"
+                                                       class="btn btn-success">
+                                                        <span class="glyphicon glyphicon-plus"></span>
+                                                    </a>
+                                                    <a href="#" target="blank" title="Excluir" name="Excluir"
+                                                       class="btn btn-danger">
+                                                        <span class="glyphicon glyphicon-remove"></span>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr class="info">
+                                                <td>006</td>
+                                                <td>Festa Infantil</td>
+                                                <td>R$ 180,00</td>
+                                                <td>
+                                                    <a href="#" target="blank" title="Editar" class="btn btn-primary">
+                                                        <span class="glyphicon glyphicon-pencil"></span>
+                                                    </a>
+                                                    <a href="#" target="blank" title="Ativar" name="Excluir"
+                                                       class="btn btn-success">
+                                                        <span class="glyphicon glyphicon-plus"></span>
+                                                    </a>
+                                                    <a href="#" target="blank" title="Excluir" name="Excluir"
+                                                       class="btn btn-danger">
+                                                        <span class="glyphicon glyphicon-remove"></span>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-16">
+                                <a href="cadastro_servicos.html" class="btn btn-success">Adicionar
+                                    <span class="glyphicon glyphicon-plus"></span>
+                                </a>
+                            </div>
                         </div>
-                        <!-- .panel-heading -->
-                        <div class="panel-body">
-                            <div class="panel-group" id="accordion">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title">
-                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Serviços Ativos</a>
-                                        </h4>
-                                    </div>
-                                    <div id="collapseOne" class="panel-collapse collapse in">
-                                        <div class="panel-body">
-                                            <!--Inínio Table-->
-                                            <table class="table">
-                                                    <thead>
-                                                    <tr>
-                                                        <th>Código </th>
-                                                        <th>Nome </th>
-                                                        <th>Descrição</th>
-                                                        <th>Preço (R$)</th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                    <tr class="info">
-                                                        <td>001</td>                                                    
-                                                        <td class="text-justify col-xs-3">Ensaio Casal e Família 2hs</td>
-                                                        <td class="text-justify col-xs-4">- Ensaio ao ar livre e/ou locação
-- Entrega das fotos online em alta resolução
-- 1 porta-retrato de madeira 10 x 15 cm
-- 1 porta retrato magnético 10 x 15 cm
-Escolha o seu brinde no Kit Entrega: 
-Brinde A: 1 Caixinha com Pendrive 8 GB
-Brinde B: 1 Porta-Retrato 15 x 21 cm</td>
-                                                        <td>790,00</td>
-                                                        <td>
-                                                            <a href="#" target="blank" title="Editar" class="btn btn-primary">
-                                                                <span class="glyphicon glyphicon-pencil"></span>
-                                                            </a>
-                                                            <a href="#"  target="blank" title="Desativar" name="Excluir" class="btn btn-warning">
-                                                                <span class="glyphicon glyphicon-minus"></span>
-                                                            </a>
-                                                            <a href="#"  target="blank" title="Excluir" name="Excluir" class="btn btn-danger">
-                                                                <span class="glyphicon glyphicon-remove"></span>
-                                                            </a>
-                                                        </td>
-                                                    </tr>      
-                                                    <tr class="active">
-                                                        <td>002</td>
-                                                        <td class="text-justify col-xs-3">Pacote Fotografia de Casamento</td>
-                                                        <td class="text-justify col-xs-4">- 2 fotógrafos profissionais
-- Cobertura do Making Of dos Noivos
-- Cobertura da Cerimônia
-- Ensaio Fotográfico logo após cerimônia
-- Cobertura da Recepção e Jantar
-- Cobertura da Festa
-- Tempo aproximado da cobertura: 10 horas
-- Todas as fotos em alta resolução
-- 1 Caixinha com Pendrive
-- 1 porta-retrato de madeira 15 x 21 cm
-- 2 porta-retratos de madeira 10 x 15 cm
-- 2 porta-retratos magnéticos 10 x 15 cm
-- Disponibilização das fotos para acesso online</td>
-                                                        <td>4.500,00</td>
-                                                       <td>
-                                                            <a href="#" target="blank" title="Editar" class="btn btn-primary">
-                                                                <span class="glyphicon glyphicon-pencil"></span>
-                                                            </a>
-                                                            <a href="#"  target="blank" title="Desativar" name="Excluir" class="btn btn-warning">
-                                                                <span class="glyphicon glyphicon-minus"></span>
-                                                            </a>
-                                                            <a href="#"  target="blank" title="Excluir" name="Excluir" class="btn btn-danger">
-                                                                <span class="glyphicon glyphicon-remove"></span>
-                                                            </a>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="info">
-                                                        <td>003</td>
-                                                        <td class="text-justify col-xs-3">Pacote Fotografia Festa Infantil</td>
-                                                        <td class="text-justify col-xs-4">- 1 fotógrafo profissional
-- Cobertura de até 3 horas
-- Entrega das fotos online em alta resolução
-- 1 porta-retrato de madeira 10 x 15 cm
-- 1 porta retrato magnético 10 x 15 cm
-Escolha o seu brinde no Kit Entrega: 
-Brinde A: 1 Caixinha com Pendrive 8 GB
-Brinde B: 1 Porta-Retrato 15 x 21 cm</td>
-                                                        <td>900,00</td>
-                                                        <td>
-                                                            <a href="#" target="blank" title="Editar" class="btn btn-primary">
-                                                                <span class="glyphicon glyphicon-pencil"></span>
-                                                            </a>
-                                                            <a href="#"  target="blank" title="Desativar" name="Excluir" class="btn btn-warning">
-                                                                <span class="glyphicon glyphicon-minus"></span>
-                                                            </a>
-                                                            <a href="#"  target="blank" title="Excluir" name="Excluir" class="btn btn-danger">
-                                                                <span class="glyphicon glyphicon-remove"></span>
-                                                            </a>
-                                                        </td>
-                                                        </td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                                <!--Fim Table-->                                                      
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title">
-                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Serviços Inativos</a>
-                                        </h4>
-                                    </div>
-                                    <div id="collapseTwo" class="panel-collapse collapse">
-                                        <div class="panel-body">
-                                            <table class="table">
-                                                    <thead>
-                                                    <tr>
-                                                        <th>Código </th>
-                                                        <th>Nome </th>
-                                                        <th>Preço</th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                    <tr class="info">
-                                                        <td>004</td>
-                                                        
-                                                        <td>Foto 3X4</td>
-                                                        <td>R$ 20,00</td>
-                                                        <td>
-                                                            <a href="#" target="blank" title="Editar" class="btn btn-primary">
-                                                                <span class="glyphicon glyphicon-pencil"></span>
-                                                            </a>
-                                                            <a href="#"  target="blank" title="Ativar" name="Excluir" class="btn btn-success">
-                                                                <span class="glyphicon glyphicon-plus"></span>
-                                                            </a>
-                                                            <a href="#"  target="blank" title="Excluir" name="Excluir" class="btn btn-danger">
-                                                                <span class="glyphicon glyphicon-remove"></span>
-                                                            </a>
-                                                        </td>
-                                                    </tr>      
-                                                    <tr class="active">
-                                                        <td>005</td>
-                                                        <td>Cabine Fotográfica</td>
-                                                        <td>R$250,00</td>
-                                                        <td>
-                                                            <a href="#" target="blank" title="Editar" class="btn btn-primary">
-                                                                <span class="glyphicon glyphicon-pencil"></span>
-                                                            </a>
-                                                            <a href="#"  target="blank" title="Ativar" name="Excluir" class="btn btn-success">
-                                                                <span class="glyphicon glyphicon-plus"></span>
-                                                            </a>
-                                                            <a href="#"  target="blank" title="Excluir" name="Excluir" class="btn btn-danger">
-                                                                <span class="glyphicon glyphicon-remove"></span>
-                                                            </a>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="info">
-                                                        <td>006</td>
-                                                        <td>Festa Infantil</td>
-                                                        <td>R$ 180,00</td>
-                                                         <td>
-                                                            <a href="#" target="blank" title="Editar" class="btn btn-primary">
-                                                                <span class="glyphicon glyphicon-pencil"></span>
-                                                            </a>
-                                                            <a href="#"  target="blank" title="Ativar" name="Excluir" class="btn btn-success">
-                                                                <span class="glyphicon glyphicon-plus"></span>
-                                                            </a>
-                                                            <a href="#"  target="blank" title="Excluir" name="Excluir" class="btn btn-danger">
-                                                                <span class="glyphicon glyphicon-remove"></span>
-                                                            </a>
-                                                        </td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-16">
-                                    <a href="cadastro_servicos.html" class="btn btn-success">Adicionar
-                                        <span class="glyphicon glyphicon-plus"></span>
-                                    </a>
-                                </div>
-                             </div>
                         <!-- .panel-body -->
                     </div>
                     <!-- /.panel -->
@@ -525,6 +494,16 @@ Brinde B: 1 Porta-Retrato 15 x 21 cm</td>
 
     <!-- jQuery -->
     <script src="../vendor/jquery/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#myInput").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
