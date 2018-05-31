@@ -31,6 +31,17 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <style>
+        input[type=text] {
+            -webkit-transition: width 0.4s ease-in-out;
+            transition: width 0.4s ease-in-out;
+        }
+
+        input[type=text]:focus {
+            width: 100%;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -453,152 +464,168 @@
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
                                         <h4 class="panel-title">
-                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Clientes Ativos</a>
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Clientes
+                                                Ativos</a>
                                         </h4>
                                     </div>
                                     <div id="collapseOne" class="panel-collapse collapse in">
                                         <div class="panel-body">
-                                                <table class="table">
-                                                    <thead>
-                                                    <tr>
-                                                        <th>Nome</th>
-                                                        <th>Sobrenome</th>
-                                                        <th>Email</th>
-                                                        <th>Telefone</th>
-                                                        <th>Ações</th>
+                                            <table class="table">
+                                                <thead>
+                                                <tr>
+                                                    <form role="form" class="form-control" method="get">
+                                                        <input class="glyphicon-search sidebar-search" type="text"
+                                                               name="search" placeholder="Pesquisar..">
+                                                    </form>
                                                     </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                    <tr class="info">
-                                                        <td>Tomás</td>
-                                                        <td>Costa Cardoso</td>
-                                                        <td>tomasccardoso@jourrapide.com</td>
-                                                        <td>(81) 6366-3856</td>
-                                                        <td>
-                                                            <a href="cad_cliente.html" target="blank" title="Editar" class="btn btn-primary">
-                                                                <span class="glyphicon glyphicon-pencil"></span>
-                                                            </a>
-                                                            <a href="cad_cliente.html"  target="blank" title="Excluir" name="Excluir" class="btn btn-danger">
-                                                                <span class="glyphicon glyphicon-remove"></span>
-                                                            </a>
-                                                            <a href="cad_cliente.html" target="blank" title="Visualizar" name="Excluir" class="btn btn-warning">
-                                                                <span class="glyphicon glyphicon-eye-open"></span>
-                                                            </a>
-                                                        </td>
-                                                    </tr>      
-                                                    <tr class="active">
-                                                        <td>Julia</td>
-                                                        <td>Lima Almeida</td>
-                                                        <td>julialalmeida@rhyta.com</td>
-                                                        <td>(12) 4200-2531</td>
-                                                        <td>
-                                                            <a href="#" target="blank" title="Editar" class="btn btn-primary">
-                                                                <span class="glyphicon glyphicon-pencil"></span>
-                                                            </a>
-                                                            <a href="#"  target="blank" title="Excluir" name="Excluir" class="btn btn-danger">
-                                                                <span class="glyphicon glyphicon-remove"></span>
-                                                            </a>
-                                                            <a href="#" target="blank" title="Visualizar" name="Excluir" class="btn btn-warning">
-                                                                <span class="glyphicon glyphicon-eye-open"></span>
-                                                            </a>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="info">
-                                                        <td>Pedro</td>
-                                                        <td>Azevedo Santos</td>
-                                                        <td>pedroazevedosantos@dayrep.com</td>
-                                                        <td>(31) 7322-4279</td>
-                                                        <td>
-                                                            <a href="#" target="blank" title="Editar" class="btn btn-primary">
-                                                                <span class="glyphicon glyphicon-pencil"></span>
-                                                            </a>
-                                                            <a href="#"  target="blank" title="Excluir" name="Excluir" class="btn btn-danger">
-                                                                <span class="glyphicon glyphicon-remove"></span>
-                                                            </a>
-                                                             <a href="#" target="blank" title="Visualizar" name="Excluir" class="btn btn-warning">
-                                                                <span class="glyphicon glyphicon-eye-open"></span>
-                                                            </a>
-                                                        </td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                                        
+                                                <tr>
+                                                    <th>Nome</th>
+                                                    <th>Sobrenome</th>
+                                                    <th>Email</th>
+                                                    <th>Telefone</th>
+                                                    <th>Ações</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr class="info" id=tomas name=tomas>
+                                                    <td>Tomás</td>
+                                                    <td>Costa Cardoso</td>
+                                                    <td>tomasccardoso@jourrapide.com</td>
+                                                    <td>(81) 6366-3856</td>
+                                                    <td>
+                                                        <a href="cad_cliente_Tomas.html" title="Editar"
+                                                           class="btn btn-primary">
+                                                            <span class="glyphicon glyphicon-pencil"></span>
+                                                        </a>
+                                                        <a href="cad_cliente.html" title="Excluir"
+                                                           name="Excluir" class="btn btn-danger">
+                                                            <span class="glyphicon glyphicon-remove"></span>
+                                                        </a>
+                                                        <a href="cad_cliente.html" title="Visualizar"
+                                                           name="Excluir" class="btn btn-warning">
+                                                            <span class="glyphicon glyphicon-eye-open"></span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr class="active">
+                                                    <td>Julia</td>
+                                                    <td>Lima Almeida</td>
+                                                    <td>julialalmeida@rhyta.com</td>
+                                                    <td>(12) 4200-2531</td>
+                                                    <td>
+                                                        <a href="#" target="blank" title="Editar"
+                                                           class="btn btn-primary">
+                                                            <span class="glyphicon glyphicon-pencil"></span>
+                                                        </a>
+                                                        <a href="#" target="blank" title="Excluir" name="Excluir"
+                                                           class="btn btn-danger">
+                                                            <span class="glyphicon glyphicon-remove"></span>
+                                                        </a>
+                                                        <a href="#" target="blank" title="Visualizar" name="Excluir"
+                                                           class="btn btn-warning">
+                                                            <span class="glyphicon glyphicon-eye-open"></span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr class="info">
+                                                    <td>Pedro</td>
+                                                    <td>Azevedo Santos</td>
+                                                    <td>pedroazevedosantos@dayrep.com</td>
+                                                    <td>(31) 7322-4279</td>
+                                                    <td>
+                                                        <a href="#" target="blank" title="Editar"
+                                                           class="btn btn-primary">
+                                                            <span class="glyphicon glyphicon-pencil"></span>
+                                                        </a>
+                                                        <a href="#" target="blank" title="Excluir" name="Excluir"
+                                                           class="btn btn-danger">
+                                                            <span class="glyphicon glyphicon-remove"></span>
+                                                        </a>
+                                                        <a href="#" target="blank" title="Visualizar" name="Excluir"
+                                                           class="btn btn-warning">
+                                                            <span class="glyphicon glyphicon-eye-open"></span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+
                                         </div>
                                     </div>
-                                </div>
-                                <div class="panel panel-default">
+
                                     <div class="panel-heading">
                                         <h4 class="panel-title">
-                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Clientes Inativos</a>
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Clientes
+                                                Inativos</a>
                                         </h4>
                                     </div>
                                     <div id="collapseTwo" class="panel-collapse collapse">
                                         <div class="panel-body">
                                             <table class="table">
-                                            <thead>
-                                            <tr>
-                                                <th>Nome</th>
-                                                <th>Sobrenome</th>
-                                                <th>Email</th>
-                                                <th>Telefone</th>
-                                                <th>Ações</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr class="info">
-                                              <tr class="active">
-                                                <td>Julian</td>
-                                                <td>Rodrigues Carvalho</td>
-                                                <td>julianrcarvalho@dayrep.com</td>
-                                                <td>(19) 6871-6570</td>
-                                                <td>
-                                                    <a href="#" class="btn btn-primary">
-                                                        <span class="glyphicon glyphicon-pencil"></span>
-                                                    </a>
-                                                    <a href="#" name="Excluir" class="btn btn-danger">
-                                                        <span class="glyphicon glyphicon-remove"></span>
-                                                    </a>
-                                                    <a href="#" name="Visualizar" class="btn btn-warning">
-                                                        <span class="glyphicon glyphicon-eye-open"></span>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <tr class="info">
-                                                <td>Gabriela</td>
-                                                <td>Cunha Cardoso</td>
-                                                <td>gabrielacunhacardoso@teleworm.com</td>
-                                                <td>(11) 6580-2496</td>
-                                                <td>
-                                                    <a href="#" class="btn btn-primary">
-                                                        <span class="glyphicon glyphicon-pencil"></span>
-                                                    </a>
-                                                    <a href="#" name="Excluir" class="btn btn-danger">
-                                                        <span class="glyphicon glyphicon-remove"></span>
-                                                    </a>
-                                                    <a href="#" name="Excluir" class="btn btn-warning">
-                                                        <span class="glyphicon glyphicon-eye-open"></span>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <tr class="active">
-                                                <td>Marina</td>
-                                                <td>Dias Cavalcanti</td>
-                                                <td>marinadiascavalcanti@dayrep.com</td>
-                                                <td>(15) 9076-6890</td>
-                                                <td>
-                                                    <a href="#" class="btn btn-primary">
-                                                        <span class="glyphicon glyphicon-pencil"></span>
-                                                    </a>
-                                                    <a href="#" name="Excluir" class="btn btn-danger">
-                                                        <span class="glyphicon glyphicon-remove"></span>
-                                                    </a>
-                                                    <a href="#" name="Excluir" class="btn btn-warning">
-                                                        <span class="glyphicon glyphicon-eye-open"></span>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
+                                                <thead>
+                                                <tr>
+                                                    <th>Nome</th>
+                                                    <th>Sobrenome</th>
+                                                    <th>Email</th>
+                                                    <th>Telefone</th>
+                                                    <th>Ações</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr class="info">
+                                                <tr class="active">
+                                                    <td>Julian</td>
+                                                    <td>Rodrigues Carvalho</td>
+                                                    <td>julianrcarvalho@dayrep.com</td>
+                                                    <td>(19) 6871-6570</td>
+                                                    <td>
+                                                        <a href="#" class="btn btn-primary">
+                                                            <span class="glyphicon glyphicon-pencil"></span>
+                                                        </a>
+                                                        <a href="#" name="Excluir" class="btn btn-danger">
+                                                            <span class="glyphicon glyphicon-remove"></span>
+                                                        </a>
+                                                        <a href="#" name="Visualizar" class="btn btn-warning">
+                                                            <span class="glyphicon glyphicon-eye-open"></span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr class="info">
+                                                    <td>Gabriela</td>
+                                                    <td>Cunha Cardoso</td>
+                                                    <td>gabrielacunhacardoso@teleworm.com</td>
+                                                    <td>(11) 6580-2496</td>
+                                                    <td>
+                                                        <a href="#" class="btn btn-primary">
+                                                            <span class="glyphicon glyphicon-pencil"></span>
+                                                        </a>
+                                                        <a href="#" name="Excluir" class="btn btn-danger">
+                                                            <span class="glyphicon glyphicon-remove"></span>
+                                                        </a>
+                                                        <a href="#" name="Excluir" class="btn btn-warning">
+                                                            <span class="glyphicon glyphicon-eye-open"></span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr class="active">
+                                                    <td>Marina</td>
+                                                    <td>Dias Cavalcanti</td>
+                                                    <td>marinadiascavalcanti@dayrep.com</td>
+                                                    <td>(15) 9076-6890</td>
+                                                    <td>
+                                                        <a href="#" class="btn btn-primary">
+                                                            <span class="glyphicon glyphicon-pencil"></span>
+                                                        </a>
+                                                        <a href="#" name="Excluir" class="btn btn-danger">
+                                                            <span class="glyphicon glyphicon-remove"></span>
+                                                        </a>
+                                                        <a href="#" name="Excluir" class="btn btn-warning">
+                                                            <span class="glyphicon glyphicon-eye-open"></span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
                                 </div>
