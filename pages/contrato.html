@@ -20,347 +20,287 @@
 
     <!-- Custom CSS -->
     <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+    <!-- DataTables CSS -->
+    <link href="../vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
+
+    <!-- DataTables Responsive CSS -->
+    <link href="../vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
+    <!-- Custom Fonts -->
+    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i"
+          rel="stylesheet">
 </head>
 
 <body>
 
-    <div id="wrapper">
+<div id="wrapper">
 
-        <!-- Navigation -->
-                <!--
+    <!-- Navigation -->
+    <!--
 (A Partir daqui vem a parte de navegação do site)
 -->
-               <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.html"><i class="fa fa-camera-retro"></i>Organizza Estúdio</a>
+    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="index-adm.html"> <img src="../img/Logo_peq.png"> </a>
+        </div>
+        <!-- /.navbar-header -->
+
+        <ul class="nav navbar-top-links navbar-right">
+            <li class="dropdown">
+                <!-- /.dropdown-messages -->
+            </li>
+            <!-- /.dropdown -->
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-tasks fa-fw"></i> <i class="fa fa-caret-down"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-tasks">
+                    <li>
+                        <a href="#">
+                            <div>
+                                <p>
+                                    <strong>Contrato Fabio</strong>
+                                    <span class="pull-right text-muted">40% Completo</span>
+                                </p>
+                                <div class="progress progress-striped active">
+                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
+                                         aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                        <span class="sr-only">40% Completo (success)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <p>
+                                    <strong>Contrato Ana</strong>
+                                    <span class="pull-right text-muted">20% Completo</span>
+                                </p>
+                                <div class="progress progress-striped active">
+                                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20"
+                                         aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                                        <span class="sr-only">20% Completo</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <p>
+                                    <strong>Contrato Paulo</strong>
+                                    <span class="pull-right text-muted">60% Completo</span>
+                                </p>
+                                <div class="progress progress-striped active">
+                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60"
+                                         aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                        <span class="sr-only">60% Completo (atenção)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <p>
+                                    <strong>Contrato Marcos</strong>
+                                    <span class="pull-right text-muted">80% Completo</span>
+                                </p>
+                                <div class="progress progress-striped active">
+                                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80"
+                                         aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                                        <span class="sr-only">80% Completo (atenção)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a class="text-center" href="#">
+                            <strong>Ver mais Contratos</strong>
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    </li>
+                </ul>
+                <!-- /.dropdown-tasks -->
+            </li>
+            <!-- /.dropdown -->
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-alerts">
+                    <li>
+                        <a href="#">
+                            <div>
+                                <i class="fa fa-comment fa-fw"></i> Novo ALerta
+                                <span class="pull-right text-muted small">5 minutos atrás</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <i class="fa fa-user fa-fw"></i> 3 Novo Usuário
+                                <span class="pull-right text-muted small">20 minutos atrás</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <i class="fa fa-shopping-cart"></i> Novo Serviço
+                                <span class="pull-right text-muted small">40 minutos atrás</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <i class="fa fa-tasks fa-fw"></i> Novo Evento
+                                <span class="pull-right text-muted small">1 dia atrás</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <i class="fa fa-upload fa-fw"></i> Upload de Arquivos
+                                <span class="pull-right text-muted small">1 dia atrás</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a class="text-center" href="#">
+                            <strong>Ver mais Alertas</strong>
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    </li>
+                </ul>
+                <!-- /.dropdown-alerts -->
+            </li>
+            <!-- /.dropdown -->
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-user">
+                    <li><a href="#"><i class="fa fa-user fa-fw"></i> Administrador</a>
+                    </li>
+                    <li><a href="#"><i class="fa fa-gear fa-fw"></i> Configuações</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
+                    </li>
+                </ul>
+                <!-- /.dropdown-user -->
+            </li>
+            <!-- /.dropdown -->
+        </ul>
+        <!-- /.navbar-top-links -->
+
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav navbar-collapse">
+                <ul class="nav" id="side-menu">
+
+                    <li>
+                        <a href="index-adm.html"><i class="fa fa-dashboard fa-fw"></i> Área Administrativa</a>
+                    </li>
+                    <li>
+                        <a href="agenda.html"><i class="fa fa-table fa-fw"></i>Agenda</a>
+                    </li>
+                    <li>
+                        <a href="contrato.html"><i class="fa fa-edit fa-fw"></i> Contratos</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-wrench fa-fw"></i> Gerenciar <span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="cliente.html">Clientes</a>
+                            </li>
+                            <li>
+                                <a href="funcionarios.html">Funcionários</a>
+                            </li>
+                            <li>
+                                <a href="servicos.html">Serviços</a>
+                            </li>
+                            <li>
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
+                </ul>
+
             </div>
-            <!-- /.navbar-header -->
-
-            <ul class="nav navbar-top-links navbar-right">
-                <li class="dropdown">
-                    <!-- /.dropdown-messages -->
-                </li>
-                <!-- /.dropdown -->
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-tasks fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-tasks">
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <p>
-                                        <strong>Contrato Fabio</strong>
-                                        <span class="pull-right text-muted">40% Completo</span>
-                                    </p>
-                                    <div class="progress progress-striped active">
-                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                                            <span class="sr-only">40% Completo (success)</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <p>
-                                        <strong>Contrato Ana</strong>
-                                        <span class="pull-right text-muted">20% Completo</span>
-                                    </p>
-                                    <div class="progress progress-striped active">
-                                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
-                                            <span class="sr-only">20% Completo</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <p>
-                                        <strong>Contrato Paulo</strong>
-                                        <span class="pull-right text-muted">60% Completo</span>
-                                    </p>
-                                    <div class="progress progress-striped active">
-                                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                                            <span class="sr-only">60% Completo (atenção)</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <p>
-                                        <strong>Contrato Marcos</strong>
-                                        <span class="pull-right text-muted">80% Completo</span>
-                                    </p>
-                                    <div class="progress progress-striped active">
-                                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-                                            <span class="sr-only">80% Completo (atenção)</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a class="text-center" href="#">
-                                <strong>Ver mais Contratos</strong>
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-tasks -->
-                </li>
-                <!-- /.dropdown -->
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-alerts">
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-comment fa-fw"></i> Novo ALerta
-                                    <span class="pull-right text-muted small">5 minutos atrás</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-user fa-fw"></i> 3 Novo Usuário
-                                    <span class="pull-right text-muted small">20 minutos atrás</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-shopping-cart"></i> Novo Serviço
-                                    <span class="pull-right text-muted small">40 minutos atrás</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-tasks fa-fw"></i> Novo Evento
-                                    <span class="pull-right text-muted small">1 dia atrás</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-upload fa-fw"></i> Upload de Arquivos
-                                    <span class="pull-right text-muted small">1 dia atrás</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a class="text-center" href="#">
-                                <strong>Ver mais Alertas</strong>
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-alerts -->
-                </li>
-                <!-- /.dropdown -->
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> Administrador</a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Configuações</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-user -->
-                </li>
-                <!-- /.dropdown -->
-            </ul>
-            <!-- /.navbar-top-links -->
-
-            <div class="navbar-default sidebar" role="navigation">
-                <div class="sidebar-nav navbar-collapse">
-                    <ul class="nav" id="side-menu">
-
-                        <li>
-                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Área Administrativa</a>
-                        </li>
-                        <li>
-                            <a href="agenda.html"><i class="fa fa-table fa-fw"></i>Agenda</a>
-                        </li>
-                        <li>
-                            <a href="contrato.html"><i class="fa fa-edit fa-fw"></i> Contratos</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-wrench fa-fw"></i> Gerenciar <span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="cliente.html">Clientes</a>
-                                </li>
-                                <li>
-                                    <a href="funcionarios.html">Funcionários</a>
-                                </li>
-                                <li>
-                                    <a href="servicos.html">Serviços</a>
-                                </li>
-                                <li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>                     
-                    </ul>
-                    
-                </div>
-                <!-- /.sidebar-collapse -->
-            </div>
-            <!-- /.navbar-static-side -->
-        </nav>
-<!--
-(A Partir daqui vem o corpo do Site)
--->
-        <div id="page-wrapper">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header">Contratos</h1>
-
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
-            <!-- /.row -->
+            <!-- /.sidebar-collapse -->
+        </div>
+        <!-- /.navbar-static-side -->
+    </nav>
+    <!--
+    (A Partir daqui vem o corpo do Site)
+    -->
+    <div id="page-wrapper">
+        <div class="row">
             <div class="col-lg-12">
-                <div style="position: relative" class="form-group col-xs-4">
-                    <label class="sidebar-search"><input id="myInput" class=" form-group form-control col-xs-4"
-                                                         type="search" name="search" placeholder="Pesquisar"/></label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                        <span class="glyphicon glyphicon-user "></span>
-                        </div>
-                        <!-- .panel-heading -->
-                        <div class="panel-body">
-                            <div class="panel-group" id="accordion">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title">
-                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Contratos Ativos</a>
-                                        </h4>
-                                    </div>
-                                    <div id="collapseOne" class="panel-collapse collapse in">
-                                        <div class="panel-body">
-                                                <table class="table">
-                                                    <thead>
-                                                    <tr>
-                                                        <th>Código</th>
-                                                        <th>Cliente</th>
-                                                        <th>Descrição</th>
-                                                        <th>Telefone</th>
-                                                        <th>Data/Hora Evento</th>
-                                                        <th>Ações</th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody id="myTable">
-                                                    <tr class="info">
-                                                        <td>001</td>
-                                                        <td>Tomás Costa Cardoso</td>
-                                                        <td>Festa de Casamento</td>
-                                                        <td>(81) 6366-3856</td>
-                                                        <td>07/06/2018 20:00:00</td>
-                                                        <td>
-                                                            <a href="#" target="blank" title="Editar" class="btn btn-primary">
-                                                                <span class="glyphicon glyphicon-pencil"></span>
-                                                            </a>
-                                                            <a href="#"  target="blank" title="Excluir" name="Excluir" class="btn btn-danger">
-                                                                <span class="glyphicon glyphicon-remove"></span>
-                                                            </a>
-                                                             <a href="#" target="blank" title="Visualizar" name="Excluir" class="btn btn-warning">
-                                                                <span class="glyphicon glyphicon-eye-open"></span>
-                                                            </a>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="active">
-                                                        <td>002</td>
-                                                        <td>Julia Lima Almeida</td>
-                                                        <td>Festa de 15 Anos</td>
-                                                        <td>(12) 4200-2531</td>
-                                                        <td>15/06/2018 19:00:00</td>
-                                                        <td>
-                                                            <a href="#" target="blank" title="Editar" class="btn btn-primary">
-                                                                <span class="glyphicon glyphicon-pencil"></span>
-                                                            </a>
-                                                              <a href="#"  target="blank" title="Excluir" name="Excluir" class="btn btn-danger">
-                                                                <span class="glyphicon glyphicon-remove"></span>
-                                                            </a>
-                                                             <a href="#" target="blank" title="Visualizar" name="Excluir" class="btn btn-warning">
-                                                                <span class="glyphicon glyphicon-eye-open"></span>
-                                                            </a>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="info">
-                                                        <td>003</td>
-                                                        <td>Pedro Azevedo Santos</td>
-                                                        <td>Prévia de Noivos</td>
-                                                        <td>(31) 7322-4279</td>
-                                                        <td>18/07/2018 15:00:00</td>
-                                                        <td>
-                                                            <a href="#" target="blank" title="Editar" class="btn btn-primary">
-                                                                <span class="glyphicon glyphicon-pencil"></span>
-                                                            </a>
-                                                            <a href="#"  target="blank" title="Excluir" name="Excluir" class="btn btn-danger">
-                                                                <span class="glyphicon glyphicon-remove"></span>
-                                                            </a>
-                                                            <a href="#" target="blank" title="Visualizar" name="Excluir" class="btn btn-warning">
-                                                                <span class="glyphicon glyphicon-eye-open"></span>
-                                                            </a>
-                                                        </td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
+                <h1 class="page-header">Contratos</h1>
 
-                                        </div>
-                                    </div>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+        <div class="col-lg-12">
+            <div style="position: relative" class="form-group col-xs-4">
+                <label class="sidebar-search"><input id="myInput" class=" form-group form-control col-xs-4"
+                                                     type="search" name="search" placeholder="Pesquisar"/></label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <span class="glyphicon glyphicon-user "></span>
+                    </div>
+                    <!-- .panel-heading -->
+                    <div class="panel-body">
+                        <div class="panel-group" id="accordion">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Contratos
+                                            Ativos</a>
+                                    </h4>
                                 </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title">
-                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Contratos Finalizados</a>
-                                        </h4>
-                                    </div>
-                                    <div id="collapseThree" class="panel-collapse collapse">
-                                        <div class="panel-body">
-                                            <table class="table">
+                                <div id="collapseOne" class="panel-collapse collapse in">
+                                    <div class="panel-body">
+                                        <table class="table table-striped table-bordered table-hover">
                                             <thead>
                                             <tr>
                                                 <th>Código</th>
@@ -371,8 +311,97 @@
                                                 <th>Ações</th>
                                             </tr>
                                             </thead>
-                                                <tbody id="myTable">
-                                            <tr class="info">
+                                            <tbody id="myTable">
+                                            <tr class="table-responsive info">
+                                                <td>001</td>
+                                                <td>Tomás Costa Cardoso</td>
+                                                <td>Festa de Casamento</td>
+                                                <td>(81) 6366-3856</td>
+                                                <td>07/06/2018 20:00:00</td>
+                                                <td>
+                                                    <a href="#" target="blank" title="Editar"
+                                                       class="btn btn-primary">
+                                                        <span class="glyphicon glyphicon-pencil"></span>
+                                                    </a>
+                                                    <a href="#" target="blank" title="Excluir" name="Excluir"
+                                                       class="btn btn-danger">
+                                                        <span class="glyphicon glyphicon-remove"></span>
+                                                    </a>
+                                                    <a href="#" target="blank" title="Visualizar" name="Excluir"
+                                                       class="btn btn-warning">
+                                                        <span class="glyphicon glyphicon-eye-open"></span>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr class="table-responsive">
+                                                <td>002</td>
+                                                <td>Julia Lima Almeida</td>
+                                                <td>Festa de 15 Anos</td>
+                                                <td>(12) 4200-2531</td>
+                                                <td>15/06/2018 19:00:00</td>
+                                                <td>
+                                                    <a href="#" target="blank" title="Editar"
+                                                       class="btn btn-primary">
+                                                        <span class="glyphicon glyphicon-pencil"></span>
+                                                    </a>
+                                                    <a href="#" target="blank" title="Excluir" name="Excluir"
+                                                       class="btn btn-danger">
+                                                        <span class="glyphicon glyphicon-remove"></span>
+                                                    </a>
+                                                    <a href="#" target="blank" title="Visualizar" name="Excluir"
+                                                       class="btn btn-warning">
+                                                        <span class="glyphicon glyphicon-eye-open"></span>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr class="table-responsive info">
+                                                <td>003</td>
+                                                <td>Pedro Azevedo Santos</td>
+                                                <td>Prévia de Noivos</td>
+                                                <td>(31) 7322-4279</td>
+                                                <td>18/07/2018 15:00:00</td>
+                                                <td>
+                                                    <a href="#" target="blank" title="Editar"
+                                                       class="btn btn-primary">
+                                                        <span class="glyphicon glyphicon-pencil"></span>
+                                                    </a>
+                                                    <a href="#" target="blank" title="Excluir" name="Excluir"
+                                                       class="btn btn-danger">
+                                                        <span class="glyphicon glyphicon-remove"></span>
+                                                    </a>
+                                                    <a href="#" target="blank" title="Visualizar" name="Excluir"
+                                                       class="btn btn-warning">
+                                                        <span class="glyphicon glyphicon-eye-open"></span>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                </div>
+
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Contratos
+                                            Finalizados</a>
+                                    </h4>
+                                </div>
+                                <div id="collapseThree" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <table class="table table-striped table-bordered table-hover">
+                                            <thead>
+                                            <tr>
+                                                <th>Código</th>
+                                                <th>Cliente</th>
+                                                <th>Descrição</th>
+                                                <th>Telefone</th>
+                                                <th>Data/Hora Evento</th>
+                                                <th>Ações</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody id="myTable">
+                                            <tr class="table-responsive info">
                                                 <td>04</td>
                                                 <td>Marcos Oliveira</td>
                                                 <td>Prévia de Noivos</td>
@@ -390,10 +419,10 @@
                                                     </a>
                                                 </td>
                                             </tr>
-                                            <tr class="active">
+                                            <tr class="table-responsive">
                                                 <td>05</td>
                                                 <td>Linda Asssunção</td>
-                                                <td>Aniversário 5 anos Ana Julia</td>
+                                                <td>Aniversário 5 anos Julia</td>
                                                 <td>(12) 4200-2531</td>
                                                 <td>12/04/2018 17:00:00</td>
                                                 <td>
@@ -408,7 +437,7 @@
                                                     </a>
                                                 </td>
                                             </tr>
-                                            <tr class="info">
+                                            <tr class="table-responsive info">
                                                 <td>06</td>
                                                 <td>Pietro Houssen</td>
                                                 <td>Conferência Global</td>
@@ -426,7 +455,7 @@
                                                     </a>
                                                 </td>
                                             </tr>
-                                            <tr class="active">
+                                            <tr class="table-responsive">
                                                 <td>07</td>
                                                 <td>Julian Rodrigues Carvalho</td>
                                                 <td>Bodas de Ouro Casal Klein</td>
@@ -444,7 +473,7 @@
                                                     </a>
                                                 </td>
                                             </tr>
-                                            <tr class="info">
+                                            <tr class="table-responsive info">
                                                 <td>08</td>
                                                 <td>Julio Cunha Strauss</td>
                                                 <td>Reveilon Strauss</td>
@@ -462,7 +491,7 @@
                                                     </a>
                                                 </td>
                                             </tr>
-                                            <tr class="active">
+                                            <tr class="table-responsive">
                                                 <td>09</td>
                                                 <td>Marina Dias Cavalcanti</td>
                                                 <td>Lançamento loja DiCavalcanti</td>
@@ -482,20 +511,20 @@
                                             </tr>
                                             </tbody>
                                         </table>
-                                        </div>
                                     </div>
-                                                                    <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title">
-                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Upload de Arquivos</a>
-                                        </h4>
-                                    </div>
-                                    <div id="collapseTwo" class="panel-collapse collapse">
-                                        <div class="panel-body">
-                                            <table class="table">
+                                </div>
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Upload de
+                                            arquivos</a>
+                                    </h4>
+                                </div>
+                                <div id="collapse2" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <table class="table table-striped table-bordered table-hover">
                                             <thead>
                                             <tr>
-                                                <th>Código Contrato</th>
+                                                <th>Código</th>
                                                 <th>Profissional</th>
                                                 <th>Evento</th>
                                                 <th>Último Upload</th>
@@ -506,9 +535,8 @@
                                                 <th>Ações</th>
                                             </tr>
                                             </thead>
-                                                <tbody id="myTable">
-                                            <tr class="info">
-                                              <tr class="active">
+                                            <tbody id="myTable">
+                                            <tr class="table-responsive info">
                                                 <td>001</td>
                                                 <td>Joao da Silva</td>
                                                 <td>Festa de Casamento</td>
@@ -521,15 +549,9 @@
                                                     <a href="Upload-Marina.html" class="btn btn-success">
                                                         <span class="glyphicon glyphicon-open"></span>
                                                     </a>
-                                                <!--<a href="#" name="Excluir" class="btn btn-danger">
-                                                        <span class="glyphicon glyphicon-remove"></span>
-                                                    </a>
-                                                    <a href="#" name="Visualizar" class="btn btn-warning">
-                                                        <span class="glyphicon glyphicon-eye-open"></span>
-                                                    </a>-->
                                                 </td>
                                             </tr>
-                                            <tr class="info">
+                                            <tr class="table-responsive">
                                                 <td>002</td>
                                                 <td>Ana Maria Lima</td>
                                                 <td>Festa de 15 anos</td>
@@ -542,15 +564,9 @@
                                                     <a href="Upload-Marina.html" class="btn btn-success">
                                                         <span class="glyphicon glyphicon-open"></span>
                                                     </a>
-                                                  <!--<a href="#" name="Excluir" class="btn btn-danger">
-                                                        <span class="glyphicon glyphicon-remove"></span>
-                                                    </a>
-                                                    <a href="#" name="Excluir" class="btn btn-warning">
-                                                        <span class="glyphicon glyphicon-eye-open"></span>
-                                                    </a>-->
                                                 </td>
                                             </tr>
-                                            <tr class="active">
+                                            <tr class="table-responsive info">
                                                 <td>003</td>
                                                 <td>Vinicius Pereira Junior</td>
                                                 <td>Prévia Noivos</td>
@@ -563,63 +579,54 @@
                                                     <a href="Upload-Marina.html" class="btn btn-success">
                                                         <span class="glyphicon glyphicon-open"></span>
                                                     </a>
-                                                <!--<a href="#" name="Excluir" class="btn btn-danger">
-                                                        <span class="glyphicon glyphicon-remove"></span>
-                                                    </a>
-                                                    <a href="#" name="Excluir" class="btn btn-warning">
-                                                        <span class="glyphicon glyphicon-eye-open"></span>
-                                                    </a>-->
                                                 </td>
                                             </tr>
                                             </tbody>
                                         </table>
-                                        </div>
                                     </div>
                                 </div>
-                                </div><br/>
-                                <div class="col-lg-16">
-                                    <a href="cad_contrato.html" class="btn btn-success">Novo
-                                        <span class="glyphicon glyphicon-plus"></span>
-                                    </a>
-                                    <a href="#" class="btn btn-success">Pesquisar
-                                        <span class="glyphicon glyphicon-search"></span>
-                                    </a>
-                                </div>
-
-                             </div>
-                        <!-- .panel-body -->
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="col-lg-16">
+                            <a href="cad_contrato.html" class="btn btn-success">Novo
+                                <span class="glyphicon glyphicon-plus"></span>
+                            </a>
+                        </div>
                     </div>
-                    <!-- /.panel -->
+                    <!-- .panel-body -->
                 </div>
-                <!-- /.col-lg-12 -->
+                <!-- /.panel -->
             </div>
+            <!-- /.col-lg-12 -->
         </div>
-        <!-- /#page-wrapper -->
-
     </div>
-    <!-- /#wrapper -->
+    <!-- /#page-wrapper -->
 
-    <!-- jQuery -->
-    <script src="../vendor/jquery/jquery.min.js"></script>
-        <script>
-            $(document).ready(function () {
-                $("#myInput").on("keyup", function () {
-                    var value = $(this).val().toLowerCase();
-                    $("#myTable tr").filter(function () {
-                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                    });
-                });
+</div>
+<!-- /#wrapper -->
+
+<!-- jQuery -->
+<script src="../vendor/jquery/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#myInput").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
             });
-        </script>
+        });
+    });
+</script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
 
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
+<!-- Metis Menu Plugin JavaScript -->
+<script src="../vendor/metisMenu/metisMenu.min.js"></script>
 
-    <!-- Custom Theme JavaScript -->
-    <script src="../dist/js/sb-admin-2.js"></script>
+<!-- Custom Theme JavaScript -->
+<script src="../dist/js/sb-admin-2.js"></script>
 
 </body>
 

@@ -21,6 +21,12 @@
     <!-- Custom CSS -->
     <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
 
+    <!-- DataTables CSS -->
+    <link href="../vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
+
+    <!-- DataTables Responsive CSS -->
+    <link href="../vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
+
     <!-- Custom Fonts -->
     <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -31,6 +37,16 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <style>
+        input[type=text] {
+            -webkit-transition: width 0.4s ease-in-out;
+            transition: width 0.4s ease-in-out;
+        }
+
+        input[type=text]:focus {
+            width: 100%;
+        }
+    </style>
 </head>
 
 <body>
@@ -47,7 +63,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html"><i class="fa fa-camera-retro"></i>Organizza Estúdio</a>
+            <a href="index-adm.html"> <img src="../img/Logo_peq.png"> </a>
         </div>
         <!-- /.navbar-header -->
 
@@ -224,7 +240,7 @@
                 <ul class="nav" id="side-menu">
 
                     <li>
-                        <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Área Administrativa</a>
+                        <a href="index-adm.html"><i class="fa fa-dashboard fa-fw"></i> Área Administrativa</a>
                     </li>
                     <li>
                         <a href="agenda.html"><i class="fa fa-table fa-fw"></i>Agenda</a>
@@ -269,10 +285,12 @@
         </div>
         <!-- /.row -->
         <div class="col-lg-12">
-            <div style="position: relative" class="form-group col-xs-4">
-                <label class="sidebar-search"><input role="myTable" id="myInput"
-                                                     class=" form-group form-control col-xs-4" type="search"
-                                                     name="search" placeholder="Pesquisar"/></label>
+            <div style="position: relative" class="form-group"><label class="sidebar-search"><input role="myTable"
+                                                                                                    id="myInput"
+                                                                                                    class=" form-group form-control"
+                                                                                                    type="search"
+                                                                                                    name="search"
+                                                                                                    placeholder="Pesquisar"/></label>
             </div>
         </div>
         <div class="row">
@@ -294,20 +312,26 @@
                                 <div id="collapseOne" class="panel-collapse collapse in">
                                     <div class="panel-body">
                                         <!--Inínio Table-->
-                                        <table class="table">
+                                        <table class="table table-striped table-bordered table-hover"
+                                               id="dataTables-example">
                                             <thead>
                                             <tr>
-                                                <th>Código</th>
-                                                <th>Nome</th>
-                                                <th>Descrição</th>
-                                                <th>Preço (R$)</th>
+                                                <th style="text-align: center">Código</th>
+                                                <th style="text-align: center">Nome</th>
+                                                <th style="text-align: center">Descrição</th>
+                                                <th style="text-align: center">Preço (R$)</th>
+                                                <th style="text-align: center">Ações</th>
                                             </tr>
                                             </thead>
                                             <tbody id="myTable">
-                                            <tr class="info">
-                                                <td>001</td>
-                                                <td class="text-justify col-xs-3">Ensaio Casal e Família 2hs</td>
-                                                <td class="text-justify col-xs-4">- Ensaio ao ar livre e/ou locação
+                                            <tr style="text-align: center" class="table-responsive info" id="casal"
+                                                style="display: table-row">
+                                                <td style="vertical-align: middle">006</td>
+                                                <td style="vertical-align: middle; text-align: center"
+                                                    class="text-justify col-xs-3">Ensaio Casal e Família 2hs
+                                                </td>
+                                                <td style="vertical-align: middle" class="text-justify col-xs-4">-
+                                                    Ensaio ao ar livre e/ou locação
                                                     - Entrega das fotos online em alta resolução
                                                     - 1 porta-retrato de madeira 10 x 15 cm
                                                     - 1 porta retrato magnético 10 x 15 cm
@@ -315,25 +339,29 @@
                                                     Brinde A: 1 Caixinha com Pendrive 8 GB
                                                     Brinde B: 1 Porta-Retrato 15 x 21 cm
                                                 </td>
-                                                <td>790,00</td>
-                                                <td>
-                                                    <a href="#" target="blank" title="Editar" class="btn btn-primary">
+                                                <td style="vertical-align: middle">790,00</td>
+                                                <td style="vertical-align: middle">
+                                                    <a href="cadastro_servicos_006.html" title="Editar"
+                                                       class="btn btn-primary">
                                                         <span class="glyphicon glyphicon-pencil"></span>
                                                     </a>
-                                                    <a href="#" target="blank" title="Desativar" name="Excluir"
+                                                    <a href="#" onclick="toggle(casal)" title="Desativar" name="Excluir"
                                                        class="btn btn-warning">
                                                         <span class="glyphicon glyphicon-minus"></span>
                                                     </a>
-                                                    <a href="#" target="blank" title="Excluir" name="Excluir"
+                                                    <a href="#" onclick="toggle(casal)" title="Excluir" name="Excluir"
                                                        class="btn btn-danger">
                                                         <span class="glyphicon glyphicon-remove"></span>
                                                     </a>
                                                 </td>
                                             </tr>
-                                            <tr class="active">
-                                                <td>002</td>
-                                                <td class="text-justify col-xs-3">Pacote Fotografia de Casamento</td>
-                                                <td class="text-justify col-xs-4">- 2 fotógrafos profissionais
+                                            <tr style="text-align: center" class="table-responsive" id="casamento">
+                                                <td style="vertical-align: middle; text-align: center">005</td>
+                                                <td style="vertical-align: middle; text-align: center"
+                                                    class="text-justify col-xs-3">Pacote Fotografia de Casamento
+                                                </td>
+                                                <td style="vertical-align: middle" class="text-justify col-xs-4">- 2
+                                                    fotógrafos profissionais
                                                     - Cobertura do Making Of dos Noivos
                                                     - Cobertura da Cerimônia
                                                     - Ensaio Fotográfico logo após cerimônia
@@ -347,25 +375,32 @@
                                                     - 2 porta-retratos magnéticos 10 x 15 cm
                                                     - Disponibilização das fotos para acesso online
                                                 </td>
-                                                <td>4.500,00</td>
-                                                <td>
-                                                    <a href="#" target="blank" title="Editar" class="btn btn-primary">
+                                                <td style="vertical-align: middle; text-align: center">4.500,00</td>
+                                                <td style="vertical-align: middle; text-align: center">
+                                                    <a href="cadastro_servicos_005.html" title="Editar"
+                                                       class="btn btn-primary">
                                                         <span class="glyphicon glyphicon-pencil"></span>
                                                     </a>
-                                                    <a href="#" target="blank" title="Desativar" name="Excluir"
+                                                    <a href="#" onclick="toggle(casamento)" title="Desativar"
+                                                       name="Excluir"
                                                        class="btn btn-warning">
                                                         <span class="glyphicon glyphicon-minus"></span>
                                                     </a>
-                                                    <a href="#" target="blank" title="Excluir" name="Excluir"
+                                                    <a href="#" onclick="toggle(casamento)" title="Excluir"
+                                                       name="Excluir"
                                                        class="btn btn-danger">
                                                         <span class="glyphicon glyphicon-remove"></span>
                                                     </a>
                                                 </td>
                                             </tr>
-                                            <tr class="info">
-                                                <td>003</td>
-                                                <td class="text-justify col-xs-3">Pacote Fotografia Festa Infantil</td>
-                                                <td class="text-justify col-xs-4">- 1 fotógrafo profissional
+                                            <tr style="vertical-align: middle; text-align: center" id="infantil"
+                                                class="table-responsive info">
+                                                <td style="vertical-align: middle; text-align: center">004</td>
+                                                <td style="vertical-align: middle; text-align: center"
+                                                    class="text-justify col-xs-3">Pacote Fotografia Festa Infantil
+                                                </td>
+                                                <td style="vertical-align: middle" class="text-justify col-xs-4">- 1
+                                                    fotógrafo profissional
                                                     - Cobertura de até 3 horas
                                                     - Entrega das fotos online em alta resolução
                                                     - 1 porta-retrato de madeira 10 x 15 cm
@@ -374,20 +409,22 @@
                                                     Brinde A: 1 Caixinha com Pendrive 8 GB
                                                     Brinde B: 1 Porta-Retrato 15 x 21 cm
                                                 </td>
-                                                <td>900,00</td>
-                                                <td>
-                                                    <a href="#" target="blank" title="Editar" class="btn btn-primary">
+                                                <td style="vertical-align: middle; text-align: center">900,00</td>
+                                                <td style="vertical-align: middle; text-align: center">
+                                                    <a href="cadastro_servicos_004.html" title="Editar"
+                                                       class="btn btn-primary">
                                                         <span class="glyphicon glyphicon-pencil"></span>
                                                     </a>
-                                                    <a href="#" target="blank" title="Desativar" name="Excluir"
+                                                    <a href="#" onclick="toggle(infantil)" title="Desativar"
+                                                       name="Excluir"
                                                        class="btn btn-warning">
                                                         <span class="glyphicon glyphicon-minus"></span>
                                                     </a>
-                                                    <a href="#" target="blank" title="Excluir" name="Excluir"
+                                                    <a href="#" onclick="toggle(infantil)" title="Excluir"
+                                                       name="Excluir"
                                                        class="btn btn-danger">
                                                         <span class="glyphicon glyphicon-remove"></span>
                                                     </a>
-                                                </td>
                                                 </td>
                                             </tr>
                                             </tbody>
@@ -405,67 +442,53 @@
                                 </div>
                                 <div id="collapseTwo" class="panel-collapse collapse">
                                     <div class="panel-body">
-                                        <table class="table">
+                                        <table class="table table-striped table-bordered table-hover"
+                                               id="dataTables-example2">
                                             <thead>
-                                            <tr>
-                                                <th>Código</th>
-                                                <th>Nome</th>
-                                                <th>Preço</th>
+                                            <tr style="vertical-align: middle; text-align: center">
+                                                <th style="text-align: center">Código</th>
+                                                <th style="text-align: center">Nome</th>
+                                                <th style="text-align: center">Descrição</th>
+                                                <th style="text-align: center">Preço (R$)</th>
+                                                <th style="text-align: center">Ações</th>
                                             </tr>
                                             </thead>
                                             <tbody id="myTable">
-                                            <tr class="info">
-                                                <td>004</td>
-
+                                            <tr style="vertical-align: middle; text-align: center" id="foto"
+                                                class="table-responsive info">
+                                                <td>003</td>
                                                 <td>Foto 3X4</td>
+                                                <td>teste</td>
                                                 <td>R$ 20,00</td>
-                                                <td>
-                                                    <a href="#" target="blank" title="Editar" class="btn btn-primary">
-                                                        <span class="glyphicon glyphicon-pencil"></span>
-                                                    </a>
-                                                    <a href="#" target="blank" title="Ativar" name="Excluir"
-                                                       class="btn btn-success">
+                                                <td style="vertical-align: middle; text-align: center">
+                                                    <a href="#" onclick="toggle(foto)" title="Ativar" name="Ativar"
+                                                       class="btn btn-circle btn-success">
                                                         <span class="glyphicon glyphicon-plus"></span>
-                                                    </a>
-                                                    <a href="#" target="blank" title="Excluir" name="Excluir"
-                                                       class="btn btn-danger">
-                                                        <span class="glyphicon glyphicon-remove"></span>
                                                     </a>
                                                 </td>
                                             </tr>
-                                            <tr class="active">
-                                                <td>005</td>
+                                            <tr style="vertical-align: middle; text-align: center" id="cabine"
+                                                class="table-responsive">
+                                                <td>002</td>
                                                 <td>Cabine Fotográfica</td>
+                                                <td>100 fotos</td>
                                                 <td>R$250,00</td>
-                                                <td>
-                                                    <a href="#" target="blank" title="Editar" class="btn btn-primary">
-                                                        <span class="glyphicon glyphicon-pencil"></span>
-                                                    </a>
-                                                    <a href="#" target="blank" title="Ativar" name="Excluir"
-                                                       class="btn btn-success">
+                                                <td style="vertical-align: middle; text-align: center">
+                                                    <a href="#" onclick="toggle(cabine)" title="Ativar" name="Ativar"
+                                                       class="btn btn-circle btn-success">
                                                         <span class="glyphicon glyphicon-plus"></span>
-                                                    </a>
-                                                    <a href="#" target="blank" title="Excluir" name="Excluir"
-                                                       class="btn btn-danger">
-                                                        <span class="glyphicon glyphicon-remove"></span>
                                                     </a>
                                                 </td>
                                             </tr>
-                                            <tr class="info">
-                                                <td>006</td>
+                                            <tr style="vertical-align: middle; text-align: center" class="info">
+                                                <td>001</td>
                                                 <td>Festa Infantil</td>
+                                                <td>2hs 1 fotógrafo</td>
                                                 <td>R$ 180,00</td>
-                                                <td>
-                                                    <a href="#" target="blank" title="Editar" class="btn btn-primary">
-                                                        <span class="glyphicon glyphicon-pencil"></span>
-                                                    </a>
-                                                    <a href="#" target="blank" title="Ativar" name="Excluir"
-                                                       class="btn btn-success">
+                                                <td style="vertical-align: middle; text-align: center">
+                                                    <a href="#" onclick="toggle(foto)" title="Ativar" name="Ativar"
+                                                       class="btn btn-circle btn-success">
                                                         <span class="glyphicon glyphicon-plus"></span>
-                                                    </a>
-                                                    <a href="#" target="blank" title="Excluir" name="Excluir"
-                                                       class="btn btn-danger">
-                                                        <span class="glyphicon glyphicon-remove"></span>
                                                     </a>
                                                 </td>
                                             </tr>
@@ -503,6 +526,16 @@
                 });
             });
         });
+    </script>
+    <script>
+        function toggle(el_id) {
+            var el = document.getElementById(el_id);
+            if (el_id.style.display != "none") {
+                el_id.style.display = "none";
+            } else {
+                el_id.style.display = "";
+            }
+        }
     </script>
 
     <!-- Bootstrap Core JavaScript -->
