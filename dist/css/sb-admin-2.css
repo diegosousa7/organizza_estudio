@@ -4,7 +4,7 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
 body {
-  background-color: #f8f8f8;
+    background-image: url("https://www.colorhexa.com/static/i/bg-pattern.min.svg"), none, linear-gradient(-90deg, #e2e2e2 0%, #f8f8f8 100%);
 }
 #wrapper {
   width: 100%;
@@ -13,7 +13,6 @@ body {
   padding: 0 15px;
   min-height: 568px;
     background-image: url("https://www.colorhexa.com/static/i/bg-pattern.min.svg"), none, linear-gradient(-90deg, #e2e2e2 0%, #f8f8f8 100%);
-
 }
 @media (min-width: 768px) {
   #page-wrapper {
@@ -77,9 +76,21 @@ body {
 }
 .sidebar ul li {
   border-bottom: 1px solid #e7e7e7;
+    position: relative;
+    left: 0;
+    -webkit-transition: left 0.3s ease;
+    -moz-transition: left 0.3s ease;
+    -o-transition: left 0.3s ease;
+    transition: left 0.3s ease;
+}
+
+.sidebar ul li:hover {
+    left: 18%;
+
 }
 .sidebar ul li a.active {
   background-color: #eeeeee;
+
 }
 .sidebar .arrow {
   float: right;
