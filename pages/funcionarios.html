@@ -21,6 +21,12 @@
     <!-- Custom CSS -->
     <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
 
+    <!-- DataTables CSS -->
+    <link href="../vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
+
+    <!-- DataTables Responsive CSS -->
+    <link href="../vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
+
     <!-- Custom Fonts -->
     <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -31,14 +37,27 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <style>
+        input[type=text] {
+            -webkit-transition: width 0.4s ease-in-out;
+            transition: width 0.4s ease-in-out;
+        }
+
+        input[type=text]:focus {
+            width: 100%;
+        }
+    </style>
+
 </head>
 
 <body>
 
 <div id="wrapper">
 
-    <!--(A Partir daqui vem a parte de navegação do site)
-    -->
+    <!-- Navigation -->
+    <!--
+(A Partir daqui vem a parte de navegação do site)
+-->
     <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -47,13 +66,12 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html"><i class="fa fa-camera-retro"></i>Organizza Estúdio</a>
+            <a href="index-adm.html"> <img src="../img/Logo_peq.png"> </a>
         </div>
         <!-- /.navbar-header -->
 
         <ul class="nav navbar-top-links navbar-right">
             <li class="dropdown">
-
                 <!-- /.dropdown-messages -->
             </li>
             <!-- /.dropdown -->
@@ -207,7 +225,7 @@
                 <ul class="dropdown-menu dropdown-user">
                     <li><a href="#"><i class="fa fa-user fa-fw"></i> Administrador</a>
                     </li>
-                    <li><a href="config.html"><i class="fa fa-gear fa-fw"></i> Configuações</a>
+                    <li><a href="#"><i class="fa fa-gear fa-fw"></i> Configuações</a>
                     </li>
                     <li class="divider"></li>
                     <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
@@ -218,15 +236,15 @@
             <!-- /.dropdown -->
         </ul>
         <!-- /.navbar-top-links -->
-
+        <!-- /fim da navegação do TOPO-->
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
                     <li>
-                        <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Área Administrativa</a>
+                        <a href="index-adm.html"><i class="fa fa-dashboard fa-fw"></i> Área Administrativa</a>
                     </li>
                     <li>
-                        <a href="blank.html"><i class="fa fa-table fa-fw"></i>Agenda</a>
+                        <a href="agenda.html"><i class="fa fa-table fa-fw"></i>Agenda</a>
                     </li>
                     <li>
                         <a href="contrato.html"><i class="fa fa-edit fa-fw"></i> Contratos</a>
@@ -257,7 +275,6 @@
     <!--
     (A Partir daqui vem o corpo do Site)
     -->
-    <!-- /.nav-end-->
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
@@ -268,9 +285,9 @@
         </div>
         <!-- /.row -->
         <div class="col-lg-12">
-            <div style="position: relative" class="form-group col-xs-4">
+            <div style="position: relative" class="form-group">
                 <label class="sidebar-search"><input role="myTable" id="myInput"
-                                                     class=" form-group form-control col-xs-4" type="search"
+                                                     class=" form-group form-control" type="search"
                                                      name="search" placeholder="Pesquisar"/></label>
             </div>
         </div>
@@ -286,13 +303,14 @@
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Funcionários
-                                            Ativos</a>
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Lista de
+                                            funcionários</a>
                                     </h4>
                                 </div>
                                 <div id="collapseOne" class="panel-collapse collapse in">
                                     <div class="panel-body">
-                                        <table class="table">
+                                        <table class="table table-striped table-bordered table-hover"
+                                               id="dataTables-example">
                                             <thead>
                                             <tr>
                                                 <th>Nome</th>
@@ -303,144 +321,51 @@
                                             </tr>
                                             </thead>
                                             <tbody id="myTable">
-                                            <tr class="info">
-                                                <td>Tomás</td>
-                                                <td>Costa Cardoso</td>
-                                                <td>tomasccardoso@jourrapide.com</td>
-                                                <td>(81) 6366-3856</td>
+                                            <tr class="table-responsive info" id="joao" style="display: table-row">
+                                                <td>Joao</td>
+                                                <td>da Silva</td>
+                                                <td>jsilva@email.com</td>
+                                                <td>(61) 98227-5356</td>
                                                 <td>
-                                                    <a href="#" target="blank" title="Editar" class="btn btn-primary">
+                                                    <a href="cadastro_funcionarios_joao.html" title="Editar"
+                                                       class="btn btn-primary">
                                                         <span class="glyphicon glyphicon-pencil"></span>
                                                     </a>
-                                                    <a href="#" target="blank" title="Excluir" name="Excluir"
-                                                       class="btn btn-danger">
+                                                    <a href="#" onClick="toggle(joao)" title="Excluir"
+                                                       name="Excluir" class="btn btn-danger">
                                                         <span class="glyphicon glyphicon-remove"></span>
-                                                    </a>
-                                                    <a href="#" target="blank" title="Visualizar" name="Excluir"
-                                                       class="btn btn-warning">
-                                                        <span class="glyphicon glyphicon-eye-open"></span>
                                                     </a>
                                                 </td>
                                             </tr>
-                                            <tr class="active">
-                                                <td>Julia</td>
-                                                <td>Lima Almeida</td>
-                                                <td>julialalmeida@rhyta.com</td>
-                                                <td>(12) 4200-2531</td>
+                                            <tr class="table-responsive" id="ana" style="display: table-row">
+                                                <td>Ana</td>
+                                                <td>Maria Lima</td>
+                                                <td>limaanamaria@organizzaestudio.com</td>
+                                                <td>(61) 3037-6333</td>
                                                 <td>
-                                                    <a href="#" target="blank" title="Editar" class="btn btn-primary">
+                                                    <a href="cadastro_funcionarios_ana.html" title="Editar"
+                                                       class="btn btn-primary">
                                                         <span class="glyphicon glyphicon-pencil"></span>
                                                     </a>
-                                                    <a href="#" target="blank" title="Excluir" name="Excluir"
-                                                       class="btn btn-danger">
+                                                    <a href="#" onClick="toggle(ana);" title="Excluir"
+                                                       name="Excluir" class="btn btn-danger">
                                                         <span class="glyphicon glyphicon-remove"></span>
-                                                    </a>
-                                                    <a href="#" target="blank" title="Visualizar" name="Excluir"
-                                                       class="btn btn-warning">
-                                                        <span class="glyphicon glyphicon-eye-open"></span>
                                                     </a>
                                                 </td>
                                             </tr>
-                                            <tr class="info">
-                                                <td>Pedro</td>
-                                                <td>Azevedo Santos</td>
-                                                <td>pedroazevedosantos@dayrep.com</td>
-                                                <td>(31) 7322-4279</td>
+                                            <tr class="table-responsive info" id="vini" style="display: table-row">
+                                                <td>Vinicius</td>
+                                                <td>Pereira Junior</td>
+                                                <td>vinipjr@blendestudios.com</td>
+                                                <td>(61) 98253-2835</td>
                                                 <td>
-                                                    <a href="#" target="blank" title="Editar" class="btn btn-primary">
+                                                    <a href="cadastro_funcionarios_vinicius.html" title="Editar"
+                                                       class="btn btn-primary">
                                                         <span class="glyphicon glyphicon-pencil"></span>
                                                     </a>
-                                                    <a href="#" target="blank" title="Excluir" name="Excluir"
-                                                       class="btn btn-danger">
+                                                    <a onClick="toggle(vini)" title="Excluir"
+                                                       name="Excluir" class="btn btn-danger">
                                                         <span class="glyphicon glyphicon-remove"></span>
-                                                    </a>
-                                                    <a href="#" target="blank" title="Visualizar" name="Excluir"
-                                                       class="btn btn-warning">
-                                                        <span class="glyphicon glyphicon-eye-open"></span>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Funcionários
-                                            Inativos</a>
-                                    </h4>
-                                </div>
-                                <div id="collapseTwo" class="panel-collapse collapse">
-                                    <div class="panel-body">
-                                        <table class="table">
-                                            <thead>
-                                            <tr>
-                                                <th>Nome</th>
-                                                <th>Sobrenome</th>
-                                                <th>Email</th>
-                                                <th>Telefone</th>
-                                                <th>Ações</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody id="myTable">
-                                            <tr class="info">
-                                            <tr class="active">
-                                                <td>Julian</td>
-                                                <td>Rodrigues Carvalho</td>
-                                                <td>julianrcarvalho@dayrep.com</td>
-                                                <td>(19) 6871-6570</td>
-                                                <td>
-                                                    <a href="#" target="blank" title="Editar" class="btn btn-primary">
-                                                        <span class="glyphicon glyphicon-pencil"></span>
-                                                    </a>
-                                                    <a href="#" target="blank" title="Excluir" name="Excluir"
-                                                       class="btn btn-danger">
-                                                        <span class="glyphicon glyphicon-remove"></span>
-                                                    </a>
-                                                    <a href="#" target="blank" title="Visualizar" name="Excluir"
-                                                       class="btn btn-warning">
-                                                        <span class="glyphicon glyphicon-eye-open"></span>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <tr class="info">
-                                                <td>Gabriela</td>
-                                                <td>Cunha Cardoso</td>
-                                                <td>gabrielacunhacardoso@teleworm.com</td>
-                                                <td>(11) 6580-2496</td>
-                                                <td>
-                                                    <a href="#" target="blank" title="Editar" class="btn btn-primary">
-                                                        <span class="glyphicon glyphicon-pencil"></span>
-                                                    </a>
-                                                    <a href="#" target="blank" title="Excluir" name="Excluir"
-                                                       class="btn btn-danger">
-                                                        <span class="glyphicon glyphicon-remove"></span>
-                                                    </a>
-                                                    <a href="#" target="blank" title="Visualizar" name="Excluir"
-                                                       class="btn btn-warning">
-                                                        <span class="glyphicon glyphicon-eye-open"></span>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <tr class="active">
-                                                <td>Marina</td>
-                                                <td>Dias Cavalcanti</td>
-                                                <td>marinadiascavalcanti@dayrep.com</td>
-                                                <td>(15) 9076-6890</td>
-                                                <td>
-                                                    <a href="#" target="blank" title="Editar" class="btn btn-primary">
-                                                        <span class="glyphicon glyphicon-pencil"></span>
-                                                    </a>
-                                                    <a href="#" target="blank" title="Excluir" name="Excluir"
-                                                       class="btn btn-danger">
-                                                        <span class="glyphicon glyphicon-remove"></span>
-                                                    </a>
-                                                    <a href="#" target="blank" title="Visualizar" name="Excluir"
-                                                       class="btn btn-warning">
-                                                        <span class="glyphicon glyphicon-eye-open"></span>
                                                     </a>
                                                 </td>
                                             </tr>
@@ -450,7 +375,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-16">
-                                <a href="cadastrar.html" class="btn btn-success">Adicionar
+                                <a href="cadastro_funcionarios.html" class="btn btn-success">Adicionar
                                     <span class="glyphicon glyphicon-plus"></span>
                                 </a>
                             </div>
@@ -478,6 +403,16 @@
                 });
             });
         });
+    </script>
+    <script>
+        function toggle(el_id) {
+            var el = document.getElementById(el_id);
+            if (el_id.style.display != "none") {
+                el_id.style.display = "none";
+            } else {
+                el_id.style.display = "";
+            }
+        }
     </script>
 
     <!-- Bootstrap Core JavaScript -->
