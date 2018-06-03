@@ -26,13 +26,91 @@
 
     <!-- Custom Fonts -->
     <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- Jquery UI -->
+    <link rel="stylesheet" href="../css/jquery-ui.css">
+    <script src="../js/jquery.js"></script>
+    <script src="../js/jquery-ui.js"></script>
+    <style>
+  #zoom-button {
+      width: 55px;
+    }
+    #fontname-button,
+    #fontsize-button {
+      width: 45px;
+    }
+    #forecolor-button {
+      width: 50px;
+    }
+    #hilitecolor-button {
+      width: 70px;
+    }
+    #bold {
+      font-weight: bold;
+    }
+    #italic {
+      font-style: italic;
+    }
+    #underline {
+      text-decoration: underline;
+    }
+    .toolbar {
+      font-size: .75em;
+    }
+    #page {
+      width: 440px;
+      left: 50%;
+      position: relative;
+      margin-left: -226px;
+      height: 450px;
+      border: 1px solid #888;
+      box-shadow: 7px 7px 3px #ccc;
+      font-size: 11px;
+      font-family: "Lucida Grande";
+      zoom: 100%;
+      padding: 5px;
+      white-space: pre-line;
+      overflow: scroll;
+    }
+    .wrap {
+      width: 588px;
+    }
+  </style>
+  <script>
+  $( function() {
+    var page = $( "#page" );
+    var basicControls = [ "#print", "#bold", "#italic", "#undo", "#redo" ];
+    var valueControls = [ "#fontsize", "#forecolor", "#hilitecolor", "#backcolor", "fontname" ];
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    $( "#print" ).button({
+      "icon": "ui-icon-print",
+      "showLabel": false
+    });
+    $( "#redo" ).button({
+      "icon": "ui-icon-arrowreturnthick-1-e",
+      "showLabel": false
+    });
+    $( "#undo" ).button({
+      "icon": "ui-icon-arrowreturnthick-1-w",
+      "showLabel": false
+    });
+
+    $( ".toolbar" ).controlgroup();
+    $( "#zoom" ).on( "selectmenuchange", function() {
+      page.css({ "zoom": $( this ).val() });
+    })
+    $( basicControls.concat( valueControls ).join( ", " ) ).on( "click change selectmenuchange",
+      function() {
+        document.execCommand(
+          this.id,
+          false,
+          $( this ).val()
+        );
+      } );
+    $( "form" ).on( "submit", function( event ) {
+      event.preventDefault();
+    });
+  } );
+  </script>
 
 </head>
 
@@ -41,6 +119,9 @@
     <div id="wrapper">
 
         <!-- Navigation -->
+        <!--
+(A Partir daqui vem a parte de navegação do site)
+-->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -49,14 +130,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="index-adm.html"> <img src="../img/Logo_peq.png"> </a>
+                <a  href="index-adm.html"><img src="../img/Logo_peq.png"></a>
             </div>
             <!-- /.navbar-header -->
 
             <ul class="nav navbar-top-links navbar-right">
                 <li class="dropdown">
 
-                    <!-- /.dropdown-messages -->
                 </li>
                 <!-- /.dropdown -->
                 <li class="dropdown">
@@ -68,7 +148,7 @@
                             <a href="#">
                                 <div>
                                     <p>
-                                        <strong>Task 1</strong>
+                                        <strong>Contrato Fabio</strong>
                                         <span class="pull-right text-muted">40% Completo</span>
                                     </p>
                                     <div class="progress progress-striped active">
@@ -84,7 +164,7 @@
                             <a href="#">
                                 <div>
                                     <p>
-                                        <strong>Task 2</strong>
+                                        <strong>Contrato Ana</strong>
                                         <span class="pull-right text-muted">20% Completo</span>
                                     </p>
                                     <div class="progress progress-striped active">
@@ -100,7 +180,7 @@
                             <a href="#">
                                 <div>
                                     <p>
-                                        <strong>Task 3</strong>
+                                        <strong>Contrato Paulo</strong>
                                         <span class="pull-right text-muted">60% Completo</span>
                                     </p>
                                     <div class="progress progress-striped active">
@@ -116,7 +196,7 @@
                             <a href="#">
                                 <div>
                                     <p>
-                                        <strong>Task 4</strong>
+                                        <strong>Contrato Marcos</strong>
                                         <span class="pull-right text-muted">80% Completo</span>
                                     </p>
                                     <div class="progress progress-striped active">
@@ -130,7 +210,7 @@
                         <li class="divider"></li>
                         <li>
                             <a class="text-center" href="#">
-                                <strong>See All Tasks</strong>
+                                <strong>Ver mais Contratos</strong>
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         </li>
@@ -205,7 +285,7 @@
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="#"><i class="fa fa-user fa-fw"></i> Administrador</a>
                         </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Configuações</a>
+                        <li><a href="config.html"><i class="fa fa-gear fa-fw"></i> Configuações</a>
                         </li>
                         <li class="divider"></li>
                         <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
@@ -220,7 +300,17 @@
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
-
+                        <li class="sidebar-search">
+                            <div class="input-group custom-search-form">
+                                <input type="text" class="form-control" placeholder="Pesquisar...">
+                                <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                            </div>
+                            <!-- /input-group -->
+                        </li>
                         <li>
                             <a href="index-adm.html"><i class="fa fa-dashboard fa-fw"></i> Área Administrativa</a>
                         </li>
@@ -253,108 +343,6 @@
             </div>
             <!-- /.navbar-static-side -->
         </nav>
-
-       <!-- <div id="page-wrapper">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header">Visão Geral</h1>
-                </div>
-                
-            </div>
-           
-            <div class="row">
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-comments fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge">10</div>
-                                    <div>Lembretes!</div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">Ver Detalhes</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-green">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-tasks fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge">5</div>
-                                    <div>Contratos!</div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">Ver Detalhes</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-yellow">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-shopping-cart fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge">10</div>
-                                    <div>Serviços!</div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">Ver Detalhes</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-red">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-support fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge">8</div>
-                                    <div>Alertas</div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">Ver Detalhes</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            </div>-->
-        </nav>
----
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
@@ -385,36 +373,26 @@
                                 <div class="col-lg-12">
                                     <h3 align="center">Contrato de Prestação de Serviços</h3><br/>
                                     <p>Contratatante</p></div><br/>
-                                </div>
+                            </div>
                                 
                                 <div class="col-lg-6">
                                     <form role="form">
                                        <div class="form-group">
                                             <label>Nome</label>
-                                            <input class="form-control" placeholder="Informe o seu primeiro nome">
+                                            <select class="form-control">
+                                                <option value="volvo">Tomás Costa Cardoso</option>
+                                                <option value="saab">Julia Lima Almeida</option>
+                                                <option value="mercedes">Pedro Azevedo Santos</option>
+                                            </select>
                                         </div>
-                                        <div class="form-group">
-                                            <label class="">CPF</label>
-                                            <input class="form-control" placeholder="Informe o seu email">
+                                        <div class="fform-group">
+                                            <label class="">Serviços</label><br/>
+                                            <select  class="form-group" name="servicos" multiple>
+                                                <option value="volvo">Ensaio Casal e Família 2hs</option>
+                                                <option value="saab">Pacote Fotografia de Casamento</option>
+                                                <option value="opel">Pacote Fotografia Festa Infantil</option>
+                                            </select>
                                         </div>
-                                        <div class="form-group">
-                                            <label>Endereço</label>
-                                            <input class="form-control" placeholder="Informe o seu CPF">
-                                        </div>
-
-                                        <p>Contratada</p>
-                                         <div class="form-group">
-                                            <label>Nome:</label>
-                                            <input class="form-control" placeholder="Informe o seu Telefone Fixo">
-                                        </div>
-                                         <div class="form-group">
-                                            <label>CPJ</label>
-                                            <input class="form-control" placeholder="Informe o seu Endereço:">
-                                        </div>
-                                        <div class="form-group">
-                                                <label>Endereço</label>
-                                                <input class="form-control" placeholder="Informe o seu CPF">
-                                            </div>
                                         <div class="col-lg-12">
 
                                         </div>
@@ -425,289 +403,115 @@
                                     <p></p>
                                     <form role="form">
                                         <fieldset enable>
-                                            <div class="form-group">
-                                               <label for="disabledSelect">Email</label>
-                                                <input class="form-control" id="EnableInput" type="text" placeholder="Informe o email" enable>
-                                            </div>
-                                            <div class="form-group">
-                                               <label for="disabledSelect">Telefone Fixo</label>
-                                                <input class="form-control" id="EnableInput" type="password" placeholder="Senha" enable>
-                                            </div>
-                                            <div class="form-group">
-                                                    <label for="disabledSelect">Telefone Celular</label>
-                                                     <input class="form-control" id="EnableInput" type="password" placeholder="Senha" enable>
-                                                <br><p></p>
-                                                    </div>
                                                     <div class="form-group">
-                                                            <label for="disabledSelect">Email</label>
-                                                             <input class="form-control" id="EnableInput" type="password" placeholder="Senha" enable>
-                                                    </div>
-                                                    <div class="form-group">
-                                                            <label for="disabledSelect">Telefone Fixo</label>
-                                                             <input class="form-control" id="EnableInput" type="password" placeholder="Senha" enable>
-                                                    </div>
-                                                    <div class="form-group">
-                                                            <label for="disabledSelect">Telefone Celular</label>
-                                                             <input class="form-control" id="EnableInput" type="password" placeholder="Senha" enable>
+                                                            <label for="disabledSelect">Data do Evento</label>
+                                                            <input type="text" id="datepicker">
                                                     </div>
                                         </fieldset>
                                     </form> 
                                 </div>
                             </div>
-                            <p align="center">A contratada e o contratante firmam entre si o seguinte contrato regido conforme as cláusulas
-                                    a seguir:</p>
+                                         <h3 align="center">Edição de Cláusulas:</h3>
+                                         <div class="col-lg-12"><br/>
+      <button id="print">Print</button>
+      <button id="undo">Undo</button>
+      <button id="redo">Redo</button>
+      <select id="zoom">
+        <option selected disabled>Zoom</option>
+        <option>50%</option>
+        <option>75%</option>
+        <option>90%</option>
+        <option>100%</option>
+        <option>125%</option>
+        <option>150%</option>
+        <option>200%</option>
+      </select>
+      <select id="fontname">
+        <option selected disabled>Font</option>
+        <option>Arial</option>
+        <option>Comic Sans MS</option>
+        <option>Courier New</option>
+        <option>Georgia</option>
+        <option>Impact</option>
+        <option>Lucida Grande</option>
+        <option>Times New Roman</option>
+        <option>Verdana</option>
+      </select>
+      <select id="fontsize">
+        <option selected disabled>Size</option>
+        <option value="1">8px</option>
+        <option value="2">9px</option>
+        <option value="3">10px</option>
+        <option value="4">11px</option>
+        <option value="5">12px</option>
+        <option value="6">14px</option>
+        <option value="7">18px</option>
+        <option value="8">24px</option>
+        <option value="9">30px</option>
+        <option value="10">36px</option>
+      </select>
+      <select id="hilitecolor" title="Background color">
+        <option selected disabled>Highlight</option>
+        <option value="white">None</option>
+        <option value="red">Red</option>
+        <option value="yellow">Yellow</option>
+        <option value="green">Green</option>
+        <option value="blue">Blue</option>
+        <option value="grey">Grey</option>
+        <option value="purple">Purple</option>
+        <option value="orange">Orange</option>
+      </select>
+      <select id="forecolor" title="Color">
+        <option selected disabled>Color</option>
+        <option value="black">Black</option>
+        <option value="white">White</option>
+        <option value="red">Red</option>
+        <option value="yellow">Yellow</option>
+        <option value="green">Green</option>
+        <option value="blue">Blue</option>
+        <option value="#ccc">Grey</option>
+        <option value="purple">Purple</option>
+        <option value="orange">Orange</option>
+      </select>
+      <button id="bold">B</button>
+      <button id="italic">I</button>
+      <button id="underline">U</button>
+
+  </div>
+  <pre id="col-lg-6" contenteditable="true">
+                                                            1º CLÁUSULA-Objeto
+
+O presente contrato tem por objetivo a prestação de serviços fotográficos a serem desenvolvidos de acordo com as especificações nas cláu-
+sulas seguintes.
+
+                                                       2º CLÁUSULA-Prestação de serviços
+A contratada deverá,mediante o pagamento especificado na terceira cláusula,atender as solicitações de prestação de serviço fotográfico do
+contratante,compreendendo no que couber e for avançado,a prestação de serviços fotográficos
+
+Serviços Contratados:
+01 PRÉVIA externa
+01 Biombo com 08 fotos para exposição
+Cobertura fotográfica
+01 DVD personalizado com todas as fotos
+Data do evento:​ 04/08/2017 Horário:​ 20:00 hrs
+Local:​ QNO 33 CONJUNTO P LOTE 43
+                                                      3ºCLÁUSULA-Remuneração dos serviços
+Pela prestação dos serviços indicados na cláusula segunda,o contratante se compromete ao pagamento da quantia de: 450.00​ pelos serviços
+prestados. Forma de Pagamento: DINHEIRO, 50% no ato do contrato
+
+                                                 4ºCLÁUSULA-Condições Gerais- Obrigações das partes
+O contratante autoriza o uso de imagem por parte da contratada na forma que : O contratado será expressamente autorizado pelo contratante
+a utilizar as fotos do evento(ensaio fotográfico,festa)para serem veiculados em seu site, fanpage , assim como em portfólios,exposições e
+concursos.
+Fica expressamente vedado o uso de imagens produzidos para outros fins que não especificados nos item acima.
+  </pre>
+</div>
                                     <div>
-                                            <span>
-                                                <p></p>
-                                                <div class="alert alert-error">
-                                                        <button type="button" class="close" data-dismiss="alert">&times;</button>
-                                                        <h4>1º CLÁUSULA-Objeto</h4>
-                                                        O presente contrato tem por objetivo a prestação de serviços fotográficos a serem
-                                                        desenvolvidos de acordo com as especificações nas cláusulas seguintes.
-                                                </div>
-                                                <p></p>
-                                                <div class="alert alert-error">
-                                                        <button type="button" class="close" data-dismiss="alert">&times;</button>
-                                                        <h4>2º CLÁUSULA-Prestação de serviços</h4>
-                                                        A contratada deverá,mediante o pagamento especificado na terceira cláusula,atender as
-                                                        solicitações de prestação de serviço fotográfico do contratante,compreendendo no que couber
-                                                        e for avançado,a prestação de serviços fotográficos <br>
-                                                        <a href="">Serviços Contratados:</a><br>
-                                                        <button type="button" class="close" data-dismiss="alert">&times;</button>
-                                                        01 PRÉVIA externa <br>
-                                                        01 Biombo com 08 fotos para exposição <br>
-                                                        Cobertura fotográfica <br>
-                                                        01 DVD personalizado com todas as fotos <br>
-                                                        Data do evento:​ 04/08/2017 Horário:​ 20:00 hrs <br>
-                                                        Local:​ QNO 33 CONJUNTO P LOTE 43 <br>
-                                                        <div class="alert alert-error">
-                                                                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                                                                <h4>3ºCLÁUSULA-Remuneração dos serviços</h4>
-                                                                Pela prestação dos serviços indicados na cláusula segunda,o contratante se compromete ao
-                                                                pagamento da quantia de: 450.00​ pelos serviços prestados.
-                                                                Forma de Pagamento: DINHEIRO, 50% no ato do contrato.
-                                                        </div>
-                                                        <div class="alert alert-error">
-                                                                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                                                                <h4>4ºCLÁUSULA-Condições Gerais- Obrigações das partes</h4>
-                                                                O contratante autoriza o uso de imagem por parte da contratada na forma que : O contratado
-                                                                será expressamente autorizado pelo contratante a utilizar as fotos do evento(ensaio
-                                                                fotográfico,festa)para serem veiculados em seu site, fanpage , assim como em portfólios
-                                                                ,exposições e concursos. -Fica expressamente vedado o uso de imagens produzidos para
-                                                                outros fins que não especificados nos item acima.                                                                
-                                                        </div>
-                                                </div>
-                                            </span>
-                                        </div>
+                                        <br>
+                                    </div>
+                                    <button type="button" class="btn btn-primary pull-right">Gerar Contrato</button>
                                     </div>
                                     </div>
-                                </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title">
-                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Cadastro de Cláusulas</a>
-                                        </h4>
-                                    </div>
-                                    <div id="collapseTwo" class="panel-collapse collapse">
-                                        <div class="panel-body">
-                                            <table class="table">
-                                            <thead>
-                                            <tr>
-                                                <th>Nome</th>
-                                                <th>Sobrenome</th>
-                                                <th>Email</th>
-                                                <th>Telefone</th>
-                                                <th>Ações</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr class="info">
-                                              <tr class="active">
-                                                <td>Julian</td>
-                                                <td>Rodrigues Carvalho</td>
-                                                <td>julianrcarvalho@dayrep.com</td>
-                                                <td>(19) 6871-6570</td>
-                                                <td>
-                                                    <a href="Upload-Julian.html" class="btn btn-success">
-                                                        <span class="glyphicon glyphicon-open"></span>
-                                                    </a>
-                                                <!--<a href="#" name="Excluir" class="btn btn-danger">
-                                                        <span class="glyphicon glyphicon-remove"></span>
-                                                    </a>
-                                                    <a href="#" name="Visualizar" class="btn btn-warning">
-                                                        <span class="glyphicon glyphicon-eye-open"></span>
-                                                    </a>-->
-                                                </td>
-                                            </tr>
-                                            <tr class="info">
-                                                <td>Gabriela</td>
-                                                <td>Cunha Cardoso</td>
-                                                <td>gabrielacunhacardoso@teleworm.com</td>
-                                                <td>(11) 6580-2496</td>
-                                                <td>
-                                                    <a href="Upload-Gabriela.html" class="btn btn-success">
-                                                        <span class="glyphicon glyphicon-open"></span>
-                                                    </a>
-                                                  <!--<a href="#" name="Excluir" class="btn btn-danger">
-                                                        <span class="glyphicon glyphicon-remove"></span>
-                                                    </a>
-                                                    <a href="#" name="Excluir" class="btn btn-warning">
-                                                        <span class="glyphicon glyphicon-eye-open"></span>
-                                                    </a>-->
-                                                </td>
-                                            </tr>
-                                            <tr class="active">
-                                                <td>Marina</td>
-                                                <td>Dias Cavalcanti</td>
-                                                <td>marinadiascavalcanti@dayrep.com</td>
-                                                <td>(15) 9076-6890</td>
-                                                <td>
-                                                    <a href="Upload-Marina.html" class="btn btn-success">
-                                                        <span class="glyphicon glyphicon-open"></span>
-                                                    </a>
-                                                <!--<a href="#" name="Excluir" class="btn btn-danger">
-                                                        <span class="glyphicon glyphicon-remove"></span>
-                                                    </a>
-                                                    <a href="#" name="Excluir" class="btn btn-warning">
-                                                        <span class="glyphicon glyphicon-eye-open"></span>
-                                                    </a>-->
-                                                </td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                        </div>
-                                    </div>
-                                </div>
-                               <!-- <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title">
-                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Todos os clientes</a>
-                                        </h4>
-                                    </div>
-                                    <div id="collapseThree" class="panel-collapse collapse">
-                                        <div class="panel-body">
-                                            <table class="table">
-                                            <thead>
-                                            <tr>
-                                                <th>Nome</th>
-                                                <th>Sobrenome</th>
-                                                <th>Email</th>
-                                                <th>Telefone</th>
-                                                <th>Ações</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr class="info">
-                                                <td>Tomás</td>
-                                                <td>Costa Cardoso</td>
-                                                <td>tomasccardoso@jourrapide.com</td>
-                                                <td>(81) 6366-3856</td>
-                                                <td>
-                                                    <a href="" class="btn btn-primary">
-                                                        <span class="glyphicon glyphicon-pencil"></span>
-                                                    </a>
-                                                    <a href="#" name="Excluir" class="btn btn-danger">
-                                                        <span class="glyphicon glyphicon-remove"></span>
-                                                    </a>
-                                                    <a href="#" name="Excluir" class="btn btn-warning">
-                                                        <span class="glyphicon glyphicon-eye-open"></span>
-                                                    </a>
-                                                </td>
-                                            </tr>      
-                                            <tr class="active">
-                                                <td>Julia</td>
-                                                <td>Lima Almeida</td>
-                                                <td>julialalmeida@rhyta.com</td>
-                                                <td>(12) 4200-2531</td>
-                                                <td>
-                                                    <a href="#" class="btn btn-primary">
-                                                        <span class="glyphicon glyphicon-pencil"></span>
-                                                    </a>
-                                                    <a href="#" name="Excluir" class="btn btn-danger">
-                                                        <span class="glyphicon glyphicon-remove"></span>
-                                                    </a>
-                                                    <a href="#" name="Excluir" class="btn btn-warning">
-                                                        <span class="glyphicon glyphicon-eye-open"></span>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <tr class="info">
-                                                <td>Pedro</td>
-                                                <td>Azevedo Santos</td>
-                                                <td>pedroazevedosantos@dayrep.com</td>
-                                                <td>(31) 7322-4279</td>
-                                                <td>
-                                                    <a href="typography.html" class="btn btn-primary">
-                                                        <span class="glyphicon glyphicon-pencil"></span>
-                                                    </a>
-                                                    <a href="#" name="Excluir" class="btn btn-danger">
-                                                        <span class="glyphicon glyphicon-remove"></span>
-                                                    </a>
-                                                    <a href="#" name="Excluir" class="btn btn-warning">
-                                                        <span class="glyphicon glyphicon-eye-open"></span>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <tr class="active">
-                                                <td>Julian</td>
-                                                <td>Rodrigues Carvalho</td>
-                                                <td>julianrcarvalho@dayrep.com</td>
-                                                <td>(19) 6871-6570</td>
-                                                <td>
-                                                    <a href="#" class="btn btn-primary">
-                                                        <span class="glyphicon glyphicon-pencil"></span>
-                                                    </a>
-                                                    <a href="#" name="Excluir" class="btn btn-danger">
-                                                        <span class="glyphicon glyphicon-remove"></span>
-                                                    </a>
-                                                    <a href="#" name="Visualizar" class="btn btn-warning">
-                                                        <span class="glyphicon glyphicon-eye-open"></span>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <tr class="info">
-                                                <td>Gabriela</td>
-                                                <td>Cunha Cardoso</td>
-                                                <td>gabrielacunhacardoso@teleworm.com</td>
-                                                <td>(11) 6580-2496</td>
-                                                <td>
-                                                    <a href="#" class="btn btn-primary">
-                                                        <span class="glyphicon glyphicon-pencil"></span>
-                                                    </a>
-                                                    <a href="#" name="Excluir" class="btn btn-danger">
-                                                        <span class="glyphicon glyphicon-remove"></span>
-                                                    </a>
-                                                    <a href="#" name="Excluir" class="btn btn-warning">
-                                                        <span class="glyphicon glyphicon-eye-open"></span>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <tr class="active">
-                                                <td>Marina</td>
-                                                <td>Dias Cavalcanti</td>
-                                                <td>marinadiascavalcanti@dayrep.com</td>
-                                                <td>(15) 9076-6890</td>
-                                                <td>
-                                                    <a href="#" class="btn btn-primary">
-                                                        <span class="glyphicon glyphicon-pencil"></span>
-                                                    </a>
-                                                   <a href="#" name="Excluir" class="btn btn-danger">
-                                                        <span class="glyphicon glyphicon-remove"></span>
-                                                    </a>
-                                                    <a href="#" name="Excluir" class="btn btn-warning">
-                                                        <span class="glyphicon glyphicon-eye-open"></span>
-                                                    </a> 
-                                                </td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                        </div>
-                                    </div>
-                                </div><br/>-->
-                                <div class="col-lg-16">
-                                   <!--<a href="cadastrar.html" class="btn btn-success">Adicionar
-                                        <span class="glyphicon glyphicon-plus"></span>
-                                    </a> -->
                                 </div>
                              </div>
                         <!-- .panel-body -->
