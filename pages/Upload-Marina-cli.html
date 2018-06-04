@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+
+    <title>Organizza Estúdio</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+                <!--
+(A Partir daqui vem a parte de navegação do site)
+-->
+               <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="index-adm.html"> <img src="../img/Logo_peq.png"> </a>
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown">
+                 
+                </li>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> Cliente</a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Configuações</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="../login.html"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+            <!-- /fim da navegação do TOPO-->
+            
+                       <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+
+                        <li>
+                            <a href="index-cli.html"><i class="fa fa-dashboard fa-fw"></i> Área do Cliente</a>
+                        </li>
+                        <li>
+                            <a href="agenda.html"><i class="fa fa-table fa-fw"></i>Agenda</a>
+                        </li>
+                        <li>
+                            <a href="contrato-cli.html"><i class="fa fa-file-text-o"></i> Contrato</a>
+                        </li>
+                        <li>
+                            <a href="Upload-Marina-cli.html"><i class="fa fa-book"></i>Conteúdo Diponível</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+
+       <!-- <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Visão Geral</h1>
+                </div>
+                
+            </div>
+           
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-comments fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">10</div>
+                                    <div>Lembretes!</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">Ver Detalhes</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-green">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-tasks fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">5</div>
+                                    <div>Contratos!</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">Ver Detalhes</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-yellow">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-shopping-cart fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">10</div>
+                                    <div>Serviços!</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">Ver Detalhes</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-red">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-support fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">8</div>
+                                    <div>Alertas</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">Ver Detalhes</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            </div>-->
+        </nav>
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Galeria</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                           Fotos
+                        </div>
+
+                                <!-- /.col-lg-6 (nested) -->
+                               <div class="col-lg-6">
+                                   
+                                    <h3></h3>
+                                    <div class="container">
+                                    
+                                          <h1 class="my-4 text-center text-lg-left"></h1>
+                                    
+                                        <div class="col-lg-12">
+                                    
+
+                                            <div class="col-lg-3 col-md-3 col-xs-6">
+                                              <a href="#" class="d-block mb-3 h-100">
+                                                  <input type="checkbox"/>
+                                                <img class="img-fluid img-thumbnail" src="../img/img1-.jpg" alt="">
+                                              </a>
+                                            </div>
+                                            <div class="col-lg-3 col-md-3 col-xs-6">
+                                              <a href="#" class="d-block mb-3 h-100">
+                                                <input type="checkbox"/>
+                                                <img class="img-fluid img-thumbnail" src="../img/img2-.jpg" alt="">
+                                              </a>
+                                            </div>
+                                            <div class="col-lg-3 col-md-3 col-xs-6">
+                                              <a href="#" class="d-block mb-3 h-100">
+                                                  <input type="checkbox"/>
+                                                <img class="img-fluid img-thumbnail" src="../img/img3-.jpg" alt="">
+                                              </a>
+                                            </div>
+                                            <div class="col-lg-3 col-md-3 col-xs-6">
+                                              <a href="#" class="d-block mb-3 h-100">
+                                                  <input type="checkbox"/>
+                                                <img class="img-fluid img-thumbnail" src="../img/img4-.jpg" alt="">
+                                              </a>
+                                               <br><br>
+                                            </div>
+                                   
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="col-lg-3 col-md-3 col-xs-6">
+                                              <a href="#" class="d-block mb-3 h-100">
+                                                  <input type="checkbox"/>
+                                                <img class="img-fluid img-thumbnail" src="../img/img1-.jpg" alt="">
+                                              </a>
+                                            </div>
+                                            <div class="col-lg-3 col-md-3 col-xs-6">
+                                              <a href="#" class="d-block mb-3 h-100">
+                                                  <input type="checkbox"/>
+                                                <img class="img-fluid img-thumbnail" src="../img/img2-.jpg" alt="">
+                                              </a>
+                                            </div>
+                                            <div class="col-lg-3 col-md-3 col-xs-6">
+                                              <a href="#" class="d-block mb-3 h-100">
+                                                  <input type="checkbox"/>
+                                                <img class="img-fluid img-thumbnail" src="../img/img3-.jpg" alt="">
+                                              </a>
+                                            </div>
+                                            <div class="col-lg-3 col-md-3 col-xs-6">
+                                              <a href="#" class="d-block mb-3 h-100">
+                                                  <input type="checkbox"/>
+                                                <img class="img-fluid img-thumbnail" src="../img/img4-.jpg" alt="">
+                                              </a>
+                                               <br><br>
+                                            </div>
+                                        </div>
+                                        <br><br>
+                                    <form role="form">
+                                        <br><br><br><br>
+                                            <label class="btn btn-primary btn-file">
+                                                Adicionar Imagem <input type="file" style="display: none;">
+                                            </label>
+                                        </fieldset>
+                                    </form>
+                                   
+                                        </div>
+                                    </form>
+                                </div>
+                                <!-- /.col-lg-6 (nested) -->
+                            </div>
+                            <!-- /.row (nested) -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../dist/js/sb-admin-2.js"></script>
+
+</body>
+
+</html>
