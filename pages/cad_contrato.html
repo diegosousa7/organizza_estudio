@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
 
-    <title>Organiza Estúdio</title>
+    <title>Organizza Estúdio</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -30,6 +30,12 @@
     <link rel="stylesheet" href="../css/jquery-ui.css">
     <script src="../js/jquery.js"></script>
     <script src="../js/jquery-ui.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/css/bootstrap-select.min.css"
+          rel="stylesheet"/>
+
     <style>
   #zoom-button {
       width: 55px;
@@ -97,7 +103,7 @@
     $( ".toolbar" ).controlgroup();
     $( "#zoom" ).on( "selectmenuchange", function() {
       page.css({ "zoom": $( this ).val() });
-    })
+    });
     $( basicControls.concat( valueControls ).join( ", " ) ).on( "click change selectmenuchange",
       function() {
         document.execCommand(
@@ -288,7 +294,7 @@
                         <li><a href="config.html"><i class="fa fa-gear fa-fw"></i> Configuações</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
+                        <li><a href="../login.html"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -346,13 +352,13 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Contratos</h1>
+                    <h1 class="page-header">Cadastro de Contratos</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
         <!-- /#page-wrapper -->
- <div class="row">
+            <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -360,11 +366,11 @@
                         </div>
                         <!-- .panel-heading -->
                         <div class="panel-body">
-                            <div class="panel-group" id="accordion">
+                            <div class="panel-group col-lg-12" id="accordion">
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
                                         <h4 class="panel-title">
-                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Registro de Contratos</a>
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Contrato</a>
                                         </h4>
                                     </div>
                                     <div id="collapseOne" class="panel-collapse collapse in">
@@ -372,46 +378,72 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <h3 align="center">Contrato de Prestação de Serviços</h3><br/>
-                                    <p>Contratatante</p></div><br/>
+                                    <label class="panel-body">Contratatante</label>
+                                </div>
                             </div>
                                 
                                 <div class="col-lg-6">
                                     <form role="form">
                                        <div class="form-group">
-                                            <label>Nome</label>
-                                            <select class="form-control">
-                                                <option value="volvo">Tomás Costa Cardoso</option>
-                                                <option value="saab">Julia Lima Almeida</option>
-                                                <option value="mercedes">Pedro Azevedo Santos</option>
+                                           <label class="control-label">Nome:</label>
+                                           <select class="form-control" required="required" title="Cliente do Contrato">
+                                               <option value="tomas">Tomás Costa Cardoso</option>
+                                               <option value="julia">Julia Lima Almeida</option>
+                                               <option value="pedro">Pedro Azevedo Santos</option>
                                             </select>
                                         </div>
-                                        <div class="fform-group">
-                                            <label class="">Serviços</label><br/>
-                                            <select  class="form-group" name="servicos" multiple>
-                                                <option value="volvo">Ensaio Casal e Família 2hs</option>
-                                                <option value="saab">Pacote Fotografia de Casamento</option>
-                                                <option value="opel">Pacote Fotografia Festa Infantil</option>
-                                            </select>
+                                        <div class="form-group">
+                                            <label class="control-label">Evento/Descrição:</label>
+                                            <input class="form-control" title="Descrição do evento"
+                                                   placeholder="Breve descrição do evento" required="required"
+                                                   maxlength="60">
                                         </div>
-                                        <div class="col-lg-12">
-
+                                        <div class="form-group">
+                                            <label>Data/hora do Evento:</label>
+                                            <input type="datetime-local" id="datetime" name="data" class="form-control"
+                                                   required="required">
+                                        </div>
+                                        <label>Total dos Serviços:</label>
+                                        <div class="form-group input-group col-lg-3">
+                                            <span class="input-group-addon">R$</span>
+                                            <input title="Total em R$" id="txtPrice" disabled value=""
+                                                   class="form-control"/>
                                         </div>
                                     </form>
                                 </div>
-                                  <!-- /.col-lg-6 (nested) -->
-                                <div class="col-lg-6">
-                                    <p></p>
-                                    <form role="form">
-                                        <fieldset enable>
-                                                    <div class="form-group">
-                                                            <label for="disabledSelect">Data do Evento</label>
-                                                            <input type="text" id="datepicker">
-                                                    </div>
-                                        </fieldset>
-                                    </form> 
-                                </div>
-                            </div>
-                                         <h3 align="center">Edição de Cláusulas:</h3>
+                                                                    <!-- /.col-lg-6 (nested) -->
+                                                                    <div class="form-group col-lg-6">
+                                                                        <form>
+                                                                            <label class="">Serviços:</label><br/>
+                                                                            <select id="DDLSkills" multiple
+                                                                                    name="selValue"
+                                                                                    class="selectpicker form-control"
+                                                                                    data-max-options="6" size="10"
+                                                                                    required="required">
+                                                                                <option value="2370">Pacote Fotografia
+                                                                                    Formatura - R$2.370,00
+                                                                                </option>
+                                                                                <option value="900">Pacote Foto
+                                                                                    Confraternização - R$900,00
+                                                                                </option>
+                                                                                <option value="1900">Pacote Fotografia
+                                                                                    15 Anos - R$1.900,00
+                                                                                </option>
+                                                                                <option value="790">Ensaio Casal e
+                                                                                    Família 2hs - R$790,00
+                                                                                </option>
+                                                                                <option value="4500">Pacote Fotografia
+                                                                                    de Casamento - R$4.500,00
+                                                                                </option>
+                                                                                <option value="900">Pacote Fotografia
+                                                                                    Festa Infantil - R$900,00
+                                                                                </option>
+                                                                            </select>
+                                                                        </form>
+                                                                    </div>
+
+                                                                </div>
+                                        <h3 align="center">Edição de Cláusulas:</h3>
                                          <div class="col-lg-12"><br/>
       <button id="print">Print</button>
       <button id="undo">Undo</button>
@@ -509,9 +541,15 @@ Fica expressamente vedado o uso de imagens produzidos para outros fins que não 
                                     <div>
                                         <br>
                                     </div>
-                                    <button type="button" class="btn btn-primary pull-right">Gerar Contrato</button>
                                     </div>
-                                    </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <span class="col-lg-12"></span>
+                                <a type="button" class="fa fa-file-text-o btn btn-primary btn-lg pull-left"
+                                   title="Gerar Contrato" href="contrato.html"> Gerar Contrato</a>
+                                <a type="button" class="fa fa-close btn btn-primary btn-lg btn-danger pull-right"
+                                   title="Voltar" href="contrato.html"> Cancelar</a>
+                            </div>
                                 </div>
                              </div>
                         <!-- .panel-body -->
@@ -527,7 +565,37 @@ Fica expressamente vedado o uso de imagens produzidos para outros fins que não 
 
     <!-- jQuery -->
     <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="dist/inputmask/inputmask.js"></script>
+    <script src="dist/inputmask/inputmask.extensions.js"></script>
+    <script src="dist/inputmask/inputmask.numeric.extensions.js"></script>
 
+    <script>
+        $(document).ready(function () {
+            $('#DDLSkills').change(function () {
+                var value = $(this).val();
+
+                // We're initializing totalPrice here to keep a running sum
+                var totalPrice = 0;
+
+                if ($(this).val() == null) {
+                    document.getElementById('txtPrice').value = 0;
+                }
+
+                if (value != null) {
+
+                    // We sum up all the values of items currently selected
+                    for (var i = 0; i < value.length; i++) {
+                        if (jQuery.inArray(value[i], value) != -1) {
+                            totalPrice += parseInt(value[i]);
+                        }
+                    }
+
+                    // And print this sum to the screen on-the-fly!
+                    document.getElementById('txtPrice').value = totalPrice;
+                }
+            });
+        })
+    </script>
     <!-- Bootstrap Core JavaScript -->
     <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
 

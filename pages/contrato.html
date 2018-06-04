@@ -219,7 +219,7 @@
                     <li><a href="#"><i class="fa fa-gear fa-fw"></i> Configuações</a>
                     </li>
                     <li class="divider"></li>
-                    <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
+                    <li><a href="../login.html"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
                     </li>
                 </ul>
                 <!-- /.dropdown-user -->
@@ -312,68 +312,48 @@
                                             </tr>
                                             </thead>
                                             <tbody id="myTable">
-                                            <tr class="table-responsive info">
+                                            <tr class="table-responsive info" id="tomas" style="display: table-row">
                                                 <td>001</td>
                                                 <td>Tomás Costa Cardoso</td>
                                                 <td>Festa de Casamento</td>
                                                 <td>(81) 6366-3856</td>
                                                 <td>07/06/2018 20:00:00</td>
-                                                <td>
-                                                    <a href="#" target="blank" title="Editar"
-                                                       class="btn btn-primary">
-                                                        <span class="glyphicon glyphicon-pencil"></span>
-                                                    </a>
-                                                    <a href="#" target="blank" title="Excluir" name="Excluir"
-                                                       class="btn btn-danger">
-                                                        <span class="glyphicon glyphicon-remove"></span>
-                                                    </a>
-                                                    <a href="#" target="blank" title="Visualizar" name="Excluir"
-                                                       class="btn btn-warning">
-                                                        <span class="glyphicon glyphicon-eye-open"></span>
-                                                    </a>
-                                                </td>
+                                                <td><a href="cad_contrato_tomas.html" title="Editar"
+                                                       class="btn btn-primary"> <span
+                                                        class="glyphicon glyphicon-pencil"></span> </a>
+                                                    <a href="#" onClick="toggle(tomas)" title="Excluir"
+                                                       name="Excluir" class="btn btn-danger">
+                                                        <span class="glyphicon glyphicon-remove"></span> </a></td>
                                             </tr>
-                                            <tr class="table-responsive">
+                                            <tr class="table-responsive" id="julia" style="display: table-row">
                                                 <td>002</td>
                                                 <td>Julia Lima Almeida</td>
                                                 <td>Festa de 15 Anos</td>
                                                 <td>(12) 4200-2531</td>
                                                 <td>15/06/2018 19:00:00</td>
-                                                <td>
-                                                    <a href="#" target="blank" title="Editar"
-                                                       class="btn btn-primary">
-                                                        <span class="glyphicon glyphicon-pencil"></span>
-                                                    </a>
-                                                    <a href="#" target="blank" title="Excluir" name="Excluir"
-                                                       class="btn btn-danger">
-                                                        <span class="glyphicon glyphicon-remove"></span>
-                                                    </a>
-                                                    <a href="#" target="blank" title="Visualizar" name="Excluir"
-                                                       class="btn btn-warning">
-                                                        <span class="glyphicon glyphicon-eye-open"></span>
-                                                    </a>
-                                                </td>
+                                                <td><a href="cad_contrato_julia.html" title="Editar"
+                                                       class="btn btn-primary"> <span
+                                                        class="glyphicon glyphicon-pencil"></span> </a> <a href="#"
+                                                                                                           onClick="toggle(julia)"
+                                                                                                           title="Excluir"
+                                                                                                           name="Excluir"
+                                                                                                           class="btn btn-danger">
+                                                    <span class="glyphicon glyphicon-remove"></span> </a></td>
                                             </tr>
-                                            <tr class="table-responsive info">
+                                            <tr class="table-responsive info" id="pedro" style="display: table-row">
                                                 <td>003</td>
                                                 <td>Pedro Azevedo Santos</td>
                                                 <td>Prévia de Noivos</td>
                                                 <td>(31) 7322-4279</td>
                                                 <td>18/07/2018 15:00:00</td>
-                                                <td>
-                                                    <a href="#" target="blank" title="Editar"
-                                                       class="btn btn-primary">
-                                                        <span class="glyphicon glyphicon-pencil"></span>
-                                                    </a>
-                                                    <a href="#" target="blank" title="Excluir" name="Excluir"
-                                                       class="btn btn-danger">
-                                                        <span class="glyphicon glyphicon-remove"></span>
-                                                    </a>
-                                                    <a href="#" target="blank" title="Visualizar" name="Excluir"
-                                                       class="btn btn-warning">
-                                                        <span class="glyphicon glyphicon-eye-open"></span>
-                                                    </a>
-                                                </td>
+                                                <td><a href="cad_contrato_pedro.html" title="Editar"
+                                                       class="btn btn-primary"> <span
+                                                        class="glyphicon glyphicon-pencil"></span> </a> <a href="#"
+                                                                                                           onClick="toggle(pedro)"
+                                                                                                           title="Excluir"
+                                                                                                           name="Excluir"
+                                                                                                           class="btn btn-danger">
+                                                    <span class="glyphicon glyphicon-remove"></span> </a></td>
                                             </tr>
                                             </tbody>
                                         </table>
@@ -408,13 +388,8 @@
                                                 <td>(81) 6366-3856</td>
                                                 <td>15/04/2018 18:00:00</td>
                                                 <td>
-                                                    <a href="" class="btn btn-primary">
-                                                        <span class="glyphicon glyphicon-pencil"></span>
-                                                    </a>
-                                                    <a href="#" name="Excluir" class="btn btn-danger">
-                                                        <span class="glyphicon glyphicon-remove"></span>
-                                                    </a>
-                                                    <a href="#" name="Excluir" class="btn btn-warning">
+                                                    <a title="visualizar" href="cad_contrato_finalizado.html"
+                                                       name="Excluir" class="btn btn-warning">
                                                         <span class="glyphicon glyphicon-eye-open"></span>
                                                     </a>
                                                 </td>
@@ -426,13 +401,8 @@
                                                 <td>(12) 4200-2531</td>
                                                 <td>12/04/2018 17:00:00</td>
                                                 <td>
-                                                    <a href="#" class="btn btn-primary">
-                                                        <span class="glyphicon glyphicon-pencil"></span>
-                                                    </a>
-                                                    <a href="#" name="Excluir" class="btn btn-danger">
-                                                        <span class="glyphicon glyphicon-remove"></span>
-                                                    </a>
-                                                    <a href="#" name="Excluir" class="btn btn-warning">
+                                                    <a title="visualizar" href="cad_contrato_finalizado.html"
+                                                       name="Excluir" class="btn btn-warning">
                                                         <span class="glyphicon glyphicon-eye-open"></span>
                                                     </a>
                                                 </td>
@@ -444,13 +414,8 @@
                                                 <td>(31) 7322-4279</td>
                                                 <td>07/03/2018 20:00:00</td>
                                                 <td>
-                                                    <a href="typography.html" class="btn btn-primary">
-                                                        <span class="glyphicon glyphicon-pencil"></span>
-                                                    </a>
-                                                    <a href="#" name="Excluir" class="btn btn-danger">
-                                                        <span class="glyphicon glyphicon-remove"></span>
-                                                    </a>
-                                                    <a href="#" name="Excluir" class="btn btn-warning">
+                                                    <a title="visualizar" href="cad_contrato_finalizado.html"
+                                                       name="Excluir" class="btn btn-warning">
                                                         <span class="glyphicon glyphicon-eye-open"></span>
                                                     </a>
                                                 </td>
@@ -462,13 +427,8 @@
                                                 <td>(19) 6871-6570</td>
                                                 <td>07/03/2018 18:00:00</td>
                                                 <td>
-                                                    <a href="#" class="btn btn-primary">
-                                                        <span class="glyphicon glyphicon-pencil"></span>
-                                                    </a>
-                                                    <a href="#" name="Excluir" class="btn btn-danger">
-                                                        <span class="glyphicon glyphicon-remove"></span>
-                                                    </a>
-                                                    <a href="#" name="Visualizar" class="btn btn-warning">
+                                                    <a title="visualizar" href="cad_contrato_finalizado.html"
+                                                       name="Visualizar" class="btn btn-warning">
                                                         <span class="glyphicon glyphicon-eye-open"></span>
                                                     </a>
                                                 </td>
@@ -480,13 +440,8 @@
                                                 <td>(11) 6580-2496</td>
                                                 <td>31/12/2017 22:00:00</td>
                                                 <td>
-                                                    <a href="#" class="btn btn-primary">
-                                                        <span class="glyphicon glyphicon-pencil"></span>
-                                                    </a>
-                                                    <a href="#" name="Excluir" class="btn btn-danger">
-                                                        <span class="glyphicon glyphicon-remove"></span>
-                                                    </a>
-                                                    <a href="#" name="Excluir" class="btn btn-warning">
+                                                    <a title="visualizar" href="cad_contrato_finalizado.html"
+                                                       class="btn btn-warning">
                                                         <span class="glyphicon glyphicon-eye-open"></span>
                                                     </a>
                                                 </td>
@@ -498,13 +453,8 @@
                                                 <td>(15) 9076-6890</td>
                                                 <td>20/10/2017 10:30:00</td>
                                                 <td>
-                                                    <a href="#" class="btn btn-primary">
-                                                        <span class="glyphicon glyphicon-pencil"></span>
-                                                    </a>
-                                                    <a href="#" name="Excluir" class="btn btn-danger">
-                                                        <span class="glyphicon glyphicon-remove"></span>
-                                                    </a>
-                                                    <a href="#" name="Excluir" class="btn btn-warning">
+                                                    <a title="visualizar" href="cad_contrato_finalizado.html"
+                                                       class="btn btn-warning">
                                                         <span class="glyphicon glyphicon-eye-open"></span>
                                                     </a>
                                                 </td>
@@ -546,7 +496,8 @@
                                                 <td>julianrcarvalho@dayrep.com</td>
                                                 <td>(19) 6871-6570</td>
                                                 <td>
-                                                    <a href="Upload-Marina.html" class="btn btn-success">
+                                                    <a title="Galeria de envio de mídias" href="Upload-Marina.html"
+                                                       class="btn btn-success">
                                                         <span class="glyphicon glyphicon-open"></span>
                                                     </a>
                                                 </td>
@@ -561,7 +512,8 @@
                                                 <td>gabrielacunhacardoso@teleworm.com</td>
                                                 <td>(11) 6580-2496</td>
                                                 <td>
-                                                    <a href="Upload-Marina.html" class="btn btn-success">
+                                                    <a title="Galeria de envio de mídias" href="Upload-Marina.html"
+                                                       class="btn btn-success">
                                                         <span class="glyphicon glyphicon-open"></span>
                                                     </a>
                                                 </td>
@@ -576,7 +528,8 @@
                                                 <td>marinadiascavalcanti@dayrep.com</td>
                                                 <td>(15) 9076-6890</td>
                                                 <td>
-                                                    <a href="Upload-Marina.html" class="btn btn-success">
+                                                    <a title="Galeria de envio de mídias" href="Upload-Marina.html"
+                                                       class="btn btn-success">
                                                         <span class="glyphicon glyphicon-open"></span>
                                                     </a>
                                                 </td>
@@ -617,6 +570,16 @@
             });
         });
     });
+</script>
+<script>
+    function toggle(el_id) {
+        var el = document.getElementById(el_id);
+        if (el_id.style.display != "none") {
+            el_id.style.display = "none";
+        } else {
+            el_id.style.display = "";
+        }
+    }
 </script>
 
 <!-- Bootstrap Core JavaScript -->

@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+
+    <title>Organizza Estúdio</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="../vendor/morrisjs/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- Jquery UI -->
+    <link rel="stylesheet" href="../css/jquery-ui.css">
+    <script src="../js/jquery.js"></script>
+    <script src="../js/jquery-ui.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/css/bootstrap-select.min.css"
+          rel="stylesheet"/>
+
+    <style>
+        #zoom-button {
+            width: 55px;
+        }
+
+        #fontname-button,
+        #fontsize-button {
+            width: 45px;
+        }
+
+        #forecolor-button {
+            width: 50px;
+        }
+
+        #hilitecolor-button {
+            width: 70px;
+        }
+
+        #bold {
+            font-weight: bold;
+        }
+
+        #italic {
+            font-style: italic;
+        }
+
+        #underline {
+            text-decoration: underline;
+        }
+
+        .toolbar {
+            font-size: .75em;
+        }
+
+        #page {
+            width: 440px;
+            left: 50%;
+            position: relative;
+            margin-left: -226px;
+            height: 450px;
+            border: 1px solid #888;
+            box-shadow: 7px 7px 3px #ccc;
+            font-size: 11px;
+            font-family: "Lucida Grande";
+            zoom: 100%;
+            padding: 5px;
+            white-space: pre-line;
+            overflow: scroll;
+        }
+
+        .wrap {
+            width: 588px;
+        }
+    </style>
+    <script>
+        $(function () {
+            var page = $("#page");
+            var basicControls = ["#print", "#bold", "#italic", "#undo", "#redo"];
+            var valueControls = ["#fontsize", "#forecolor", "#hilitecolor", "#backcolor", "fontname"];
+
+            $("#print").button({
+                "icon": "ui-icon-print",
+                "showLabel": false
+            });
+            $("#redo").button({
+                "icon": "ui-icon-arrowreturnthick-1-e",
+                "showLabel": false
+            });
+            $("#undo").button({
+                "icon": "ui-icon-arrowreturnthick-1-w",
+                "showLabel": false
+            });
+
+            $(".toolbar").controlgroup();
+            $("#zoom").on("selectmenuchange", function () {
+                page.css({"zoom": $(this).val()});
+            });
+            $(basicControls.concat(valueControls).join(", ")).on("click change selectmenuchange",
+                function () {
+                    document.execCommand(
+                        this.id,
+                        false,
+                        $(this).val()
+                    );
+                });
+            $("form").on("submit", function (event) {
+                event.preventDefault();
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+
+<div id="wrapper">
+
+    <!-- Navigation -->
+    <!--
+(A Partir daqui vem a parte de navegação do site)
+-->
+    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="index-adm.html"><img src="../img/Logo_peq.png"></a>
+        </div>
+        <!-- /.navbar-header -->
+
+        <ul class="nav navbar-top-links navbar-right">
+            <li class="dropdown">
+
+            </li>
+            <!-- /.dropdown -->
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-tasks fa-fw"></i> <i class="fa fa-caret-down"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-tasks">
+                    <li>
+                        <a href="#">
+                            <div>
+                                <p>
+                                    <strong>Contrato Fabio</strong>
+                                    <span class="pull-right text-muted">40% Completo</span>
+                                </p>
+                                <div class="progress progress-striped active">
+                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
+                                         aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                        <span class="sr-only">40% Completo (success)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <p>
+                                    <strong>Contrato Ana</strong>
+                                    <span class="pull-right text-muted">20% Completo</span>
+                                </p>
+                                <div class="progress progress-striped active">
+                                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20"
+                                         aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                                        <span class="sr-only">20% Completo</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <p>
+                                    <strong>Contrato Paulo</strong>
+                                    <span class="pull-right text-muted">60% Completo</span>
+                                </p>
+                                <div class="progress progress-striped active">
+                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60"
+                                         aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                        <span class="sr-only">60% Completo (atenção)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <p>
+                                    <strong>Contrato Marcos</strong>
+                                    <span class="pull-right text-muted">80% Completo</span>
+                                </p>
+                                <div class="progress progress-striped active">
+                                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80"
+                                         aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                                        <span class="sr-only">80% Completo (atenção)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a class="text-center" href="#">
+                            <strong>Ver mais Contratos</strong>
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    </li>
+                </ul>
+                <!-- /.dropdown-tasks -->
+            </li>
+            <!-- /.dropdown -->
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-alerts">
+                    <li>
+                        <a href="#">
+                            <div>
+                                <i class="fa fa-comment fa-fw"></i> Novo ALerta
+                                <span class="pull-right text-muted small">5 minutos atrás</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <i class="fa fa-user fa-fw"></i> 3 Novo Usuário
+                                <span class="pull-right text-muted small">20 minutos atrás</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <i class="fa fa-shopping-cart"></i> Novo Serviço
+                                <span class="pull-right text-muted small">40 minutos atrás</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <i class="fa fa-tasks fa-fw"></i> Novo Evento
+                                <span class="pull-right text-muted small">1 dia atrás</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <i class="fa fa-upload fa-fw"></i> Upload de Arquivos
+                                <span class="pull-right text-muted small">1 dia atrás</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a class="text-center" href="#">
+                            <strong>Ver mais Alertas</strong>
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    </li>
+                </ul>
+                <!-- /.dropdown-alerts -->
+            </li>
+            <!-- /.dropdown -->
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-user">
+                    <li><a href="#"><i class="fa fa-user fa-fw"></i> Administrador</a>
+                    </li>
+                    <li><a href="config.html"><i class="fa fa-gear fa-fw"></i> Configuações</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li><a href="../login.html"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
+                    </li>
+                </ul>
+                <!-- /.dropdown-user -->
+            </li>
+            <!-- /.dropdown -->
+        </ul>
+        <!-- /.navbar-top-links -->
+
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav navbar-collapse">
+                <ul class="nav" id="side-menu">
+                    <li class="sidebar-search">
+                        <div class="input-group custom-search-form">
+                            <input type="text" class="form-control" placeholder="Pesquisar...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                        </div>
+                        <!-- /input-group -->
+                    </li>
+                    <li>
+                        <a href="index-adm.html"><i class="fa fa-dashboard fa-fw"></i> Área Administrativa</a>
+                    </li>
+                    <li>
+                        <a href="agenda.html"><i class="fa fa-table fa-fw"></i>Agenda</a>
+                    </li>
+                    <li>
+                        <a href="contrato.html"><i class="fa fa-edit fa-fw"></i> Contratos</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-wrench fa-fw"></i> Gerenciar <span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="cliente.html">Clientes</a>
+                            </li>
+                            <li>
+                                <a href="funcionarios.html">Funcionários</a>
+                            </li>
+                            <li>
+                                <a href="servicos.html">Serviços</a>
+                            </li>
+                            <li>
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
+                </ul>
+
+            </div>
+            <!-- /.sidebar-collapse -->
+        </div>
+        <!-- /.navbar-static-side -->
+    </nav>
+    <div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Cadastro de Contratos</h1>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+        <!-- /#page-wrapper -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <span class="glyphicon glyphicon-edit"></span>
+                    </div>
+                    <!-- .panel-heading -->
+                    <div class="panel-body">
+                        <div class="panel-group col-lg-12" id="accordion">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion"
+                                           href="#collapseOne">Contrato</a>
+                                    </h4>
+                                </div>
+                                <div id="collapseOne" class="panel-collapse collapse in">
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <h3 align="center">Contrato de Prestação de Serviços</h3><br/>
+                                                <label class="panel-body">Contratatante</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-6">
+                                            <form role="form">
+                                                <div class="form-group">
+                                                    <label class="control-label">Nome:</label>
+                                                    <select class="form-control" required="required"
+                                                            title="Cliente do Contrato">
+                                                        <option value="tomas">Tomás Costa Cardoso</option>
+                                                        <option value="julia">Julia Lima Almeida</option>
+                                                        <option selected value="pedro">Pedro Azevedo Santos</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label">Evento/Descrição:</label>
+                                                    <input value="Prévia de Noivos" class="form-control"
+                                                           title="Descrição do evento"
+                                                           placeholder="Breve descrição do evento" required="required"
+                                                           maxlength="60">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Data/hora do Evento:</label>
+                                                    <input value="2018-07-18T15:00:00" type="datetime-local"
+                                                           id="datetime" name="data" class="form-control"
+                                                           required="required">
+                                                </div>
+                                                <label>Total dos Serviços:</label>
+                                                <div class="form-group input-group col-lg-3">
+                                                    <span class="input-group-addon">R$</span>
+                                                    <input placeholder="1900" title="Total em R$" id="txtPrice" disabled
+                                                           value="790" class="form-control"/>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <!-- /.col-lg-6 (nested) -->
+                                        <div class="form-group col-lg-6">
+                                            <form>
+                                                <label class="">Serviços:</label><br/>
+                                                <select id="DDLSkills" multiple name="selValue"
+                                                        class="selectpicker form-control" data-max-options="6" size="10"
+                                                        required="required">
+                                                    <option value="2370">Pacote Fotografia Formatura - R$2.370,00
+                                                    </option>
+                                                    <option value="900">Pacote Foto Confraternização - R$900,00</option>
+                                                    <option value="1900">Pacote Fotografia 15 Anos - R$1.900,00</option>
+                                                    <option selected value="790">Ensaio Casal e Família 2hs - R$790,00
+                                                    </option>
+                                                    <option value="4500">Pacote Fotografia de Casamento -
+                                                        R$4.500,00
+                                                    </option>
+                                                    <option value="900">Pacote Fotografia Festa Infantil - R$900,00
+                                                    </option>
+                                                </select>
+                                            </form>
+                                        </div>
+
+                                    </div>
+                                    <h3 align="center">Edição de Cláusulas:</h3>
+                                    <div class="col-lg-12"><br/>
+                                        <button id="print">Print</button>
+                                        <button id="undo">Undo</button>
+                                        <button id="redo">Redo</button>
+                                        <select id="zoom">
+                                            <option selected disabled>Zoom</option>
+                                            <option>50%</option>
+                                            <option>75%</option>
+                                            <option>90%</option>
+                                            <option>100%</option>
+                                            <option>125%</option>
+                                            <option>150%</option>
+                                            <option>200%</option>
+                                        </select>
+                                        <select id="fontname">
+                                            <option selected disabled>Font</option>
+                                            <option>Arial</option>
+                                            <option>Comic Sans MS</option>
+                                            <option>Courier New</option>
+                                            <option>Georgia</option>
+                                            <option>Impact</option>
+                                            <option>Lucida Grande</option>
+                                            <option>Times New Roman</option>
+                                            <option>Verdana</option>
+                                        </select>
+                                        <select id="fontsize">
+                                            <option selected disabled>Size</option>
+                                            <option value="1">8px</option>
+                                            <option value="2">9px</option>
+                                            <option value="3">10px</option>
+                                            <option value="4">11px</option>
+                                            <option value="5">12px</option>
+                                            <option value="6">14px</option>
+                                            <option value="7">18px</option>
+                                            <option value="8">24px</option>
+                                            <option value="9">30px</option>
+                                            <option value="10">36px</option>
+                                        </select>
+                                        <select id="hilitecolor" title="Background color">
+                                            <option selected disabled>Highlight</option>
+                                            <option value="white">None</option>
+                                            <option value="red">Red</option>
+                                            <option value="yellow">Yellow</option>
+                                            <option value="green">Green</option>
+                                            <option value="blue">Blue</option>
+                                            <option value="grey">Grey</option>
+                                            <option value="purple">Purple</option>
+                                            <option value="orange">Orange</option>
+                                        </select>
+                                        <select id="forecolor" title="Color">
+                                            <option selected disabled>Color</option>
+                                            <option value="black">Black</option>
+                                            <option value="white">White</option>
+                                            <option value="red">Red</option>
+                                            <option value="yellow">Yellow</option>
+                                            <option value="green">Green</option>
+                                            <option value="blue">Blue</option>
+                                            <option value="#ccc">Grey</option>
+                                            <option value="purple">Purple</option>
+                                            <option value="orange">Orange</option>
+                                        </select>
+                                        <button id="bold">B</button>
+                                        <button id="italic">I</button>
+                                        <button id="underline">U</button>
+
+                                    </div>
+                                    <pre id="col-lg-6" contenteditable="true">
+                                                            1º CLÁUSULA-Objeto
+
+O presente contrato tem por objetivo a prestação de serviços fotográficos a serem desenvolvidos de acordo com as especificações nas cláu-
+sulas seguintes.
+
+                                                       2º CLÁUSULA-Prestação de serviços
+A contratada deverá,mediante o pagamento especificado na terceira cláusula,atender as solicitações de prestação de serviço fotográfico do
+contratante,compreendendo no que couber e for avançado,a prestação de serviços fotográficos
+
+Serviços Contratados:
+Ensaio Casal e Família
+- Ensaio ao ar livre e/ou locação
+- Entrega das fotos online em alta resolução
+- 1 porta-retrato de madeira 10 x 15 cm
+- 1 porta retrato magnético 10 x 15 cm
+Escolha o seu brinde no Kit Entrega:
+    Brinde A: 1 Caixinha com Pendrive 8 GB
+    Brinde B: 1 Porta-Retrato 15 x 21 cm
+- 2 horas: R$ 790,00
+Data do evento:​ 18/07/2018 Horário:​ 15:00 hrs
+Local:​ QNO 33 CONJUNTO P LOTE 43
+                                                      3ºCLÁUSULA-Remuneração dos serviços
+Pela prestação dos serviços indicados na cláusula segunda,o contratante se compromete ao pagamento da quantia de: 450.00​ pelos serviços
+prestados. Forma de Pagamento: DINHEIRO, 50% no ato do contrato
+
+                                                 4ºCLÁUSULA-Condições Gerais- Obrigações das partes
+O contratante autoriza o uso de imagem por parte da contratada na forma que : O contratado será expressamente autorizado pelo contratante
+a utilizar as fotos do evento(ensaio fotográfico,festa)para serem veiculados em seu site, fanpage , assim como em portfólios,exposições e
+concursos.
+Fica expressamente vedado o uso de imagens produzidos para outros fins que não especificados nos item acima.
+  </pre>
+                                </div>
+                                <div>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <span class="col-lg-12"></span>
+                            <a type="button" class="fa fa-file-text btn btn-primary btn-lg btn-primary pull-left"
+                               title="Gerar Contrato" href="contrato.html"> Gerar Contrato</a>
+                            <a type="button" class="fa fa-close btn btn-primary btn-lg btn-danger pull-right"
+                               title="Voltar" href="contrato.html"> Cancelar</a>
+                            <center>
+                                <button class="btn btn-info hidden-print" onclick="print()"><span
+                                        class="glyphicon glyphicon-print" aria-hidden="true"></span> Imprimir
+                                </button>
+                            </center>
+                        </div>
+                    </div>
+                </div>
+                <!-- .panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+</div>
+
+</div>
+<!-- /#wrapper -->
+
+<!-- jQuery -->
+<script src="../vendor/jquery/jquery.min.js"></script>
+<script src="dist/inputmask/inputmask.js"></script>
+<script src="dist/inputmask/inputmask.extensions.js"></script>
+<script src="dist/inputmask/inputmask.numeric.extensions.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#DDLSkills').change(function () {
+            var value = $(this).val();
+
+            // We're initializing totalPrice here to keep a running sum
+            var totalPrice = 0;
+
+            if ($(this).val() == null) {
+                document.getElementById('txtPrice').value = 0;
+            }
+
+            if (value != null) {
+
+                // We sum up all the values of items currently selected
+                for (var i = 0; i < value.length; i++) {
+                    if (jQuery.inArray(value[i], value) != -1) {
+                        totalPrice += parseInt(value[i]);
+                    }
+                }
+
+                // And print this sum to the screen on-the-fly!
+                document.getElementById('txtPrice').value = totalPrice;
+            }
+        });
+    })
+</script>
+<!-- Bootstrap Core JavaScript -->
+<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script src="../vendor/metisMenu/metisMenu.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="../dist/js/sb-admin-2.js"></script>
+
+</body>
+
+</html>
