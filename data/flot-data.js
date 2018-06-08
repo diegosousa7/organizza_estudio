@@ -53,16 +53,16 @@ $(document).ready(function() {
 $(function() {
 
     var data = [{
-        label: "Series 0",
+        label: "Festa 15 Anos",
         data: 1
     }, {
-        label: "Series 1",
+        label: "Confraternização",
         data: 3
     }, {
-        label: "Series 2",
+        label: "Festa Infantil",
         data: 9
     }, {
-        label: "Series 3",
+        label: "Foto Casamento",
         data: 20
     }];
 
