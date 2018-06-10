@@ -224,9 +224,9 @@
                                           <h1 class="my-4 text-center text-lg-left"></h1>
                                     
                                         <div class="col-lg-12">
-                                    
 
-                                            <div class="col-lg-3 col-md-3 col-xs-6">
+
+                                            <div id="fullsized_image_holder" class="col-lg-3 col-md-3 col-xs-6">
                                               <a href="#" class="d-block mb-3 h-100">
                                                   <input type="checkbox"/>
                                                 <img class="img-fluid img-thumbnail" src="../img/img1-.jpg" alt="">
@@ -283,9 +283,12 @@
                                         <br><br>
                                     <form role="form">
                                         <br><br><br><br>
-                                            <label class="btn btn-primary btn-file">
-                                                Baixar Imagens <input type="file" style="display: none;">
-                                            </label>
+                                        <a href="#" class="fa fa-download btn btn-primary btn-lg btn-primary"
+                                           onclick="this.href = $('#fullsized_image_holder img:first').attr('src');"
+                                           download> Baixar</a>
+
+                                        <a type="button" class="fa fa-reply btn btn-primary btn-lg btn-warning"
+                                           title="Voltar" href="index-cli.html"> Voltar</a>
                                         </fieldset>
                                     </form>
                                    
@@ -311,6 +314,14 @@
 
     <!-- jQuery -->
     <script src="../vendor/jquery/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        function prepHref(linkElement) {
+            var myDiv = document.getElementById('fullsized_image_holder');
+            var myImage = myDiv.children[0];
+            linkElement.href = myImage.src;
+        }
+    </script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
