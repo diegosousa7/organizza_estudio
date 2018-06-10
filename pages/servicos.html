@@ -356,8 +356,8 @@
                                                        class="btn btn-warning">
                                                         <span class="glyphicon glyphicon-minus"></span>
                                                     </a>
-                                                    <a href="#" onclick="toggle(casal)" title="Excluir" name="Excluir"
-                                                       class="btn btn-danger">
+                                                    <a href="javascript:void(0)" title="Excluir" name="Excluir"
+                                                       class="delete_product btn btn-danger">
                                                         <span class="glyphicon glyphicon-remove"></span>
                                                     </a>
                                                 </td>
@@ -388,8 +388,8 @@
                                                        class="btn btn-warning">
                                                         <span class="glyphicon glyphicon-minus"></span>
                                                     </a>
-                                                    <a href="#" onclick="toggle(casal)" title="Excluir" name="Excluir"
-                                                       class="btn btn-danger">
+                                                    <a href="javascript:void(0)" title="Excluir" name="Excluir"
+                                                       class="delete_product btn btn-danger">
                                                         <span class="glyphicon glyphicon-remove"></span>
                                                     </a>
                                                 </td>
@@ -422,8 +422,8 @@
                                                        class="btn btn-warning">
                                                         <span class="glyphicon glyphicon-minus"></span>
                                                     </a>
-                                                    <a href="#" onclick="toggle(casal)" title="Excluir" name="Excluir"
-                                                       class="btn btn-danger">
+                                                    <a href="javascript:void(0)" title="Excluir" name="Excluir"
+                                                       class="delete_product btn btn-danger">
                                                         <span class="glyphicon glyphicon-remove"></span>
                                                     </a>
                                                 </td>
@@ -453,8 +453,8 @@
                                                        class="btn btn-warning">
                                                         <span class="glyphicon glyphicon-minus"></span>
                                                     </a>
-                                                    <a href="#" onclick="toggle(casal)" title="Excluir" name="Excluir"
-                                                       class="btn btn-danger">
+                                                    <a href="javascript:void(0)" title="Excluir" name="Excluir"
+                                                       class="delete_product btn btn-danger">
                                                         <span class="glyphicon glyphicon-remove"></span>
                                                     </a>
                                                 </td>
@@ -490,9 +490,9 @@
                                                        class="btn btn-warning">
                                                         <span class="glyphicon glyphicon-minus"></span>
                                                     </a>
-                                                    <a href="#" onclick="toggle(casamento)" title="Excluir"
+                                                    <a href="javascript:void(0)" title="Excluir"
                                                        name="Excluir"
-                                                       class="btn btn-danger">
+                                                       class="delete_product btn btn-danger">
                                                         <span class="glyphicon glyphicon-remove"></span>
                                                     </a>
                                                 </td>
@@ -524,9 +524,9 @@
                                                        class="btn btn-warning">
                                                         <span class="glyphicon glyphicon-minus"></span>
                                                     </a>
-                                                    <a href="#" onclick="toggle(infantil)" title="Excluir"
+                                                    <a href="javascript:void(0)" title="Excluir"
                                                        name="Excluir"
-                                                       class="btn btn-danger">
+                                                       class="delete_product btn btn-danger">
                                                         <span class="glyphicon glyphicon-remove"></span>
                                                     </a>
                                                 </td>
@@ -554,7 +554,7 @@
                                                 <th style="text-align: center">Nome</th>
                                                 <th style="text-align: center">Descrição</th>
                                                 <th style="text-align: center">Preço (R$)</th>
-                                                <th style="text-align: center">Ações</th>
+                                                <th style="text-align: center">Reativar</th>
                                             </tr>
                                             </thead>
                                             <tbody id="myTable">
@@ -641,7 +641,49 @@
             }
         }
     </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <script src="https://github.com/makeusabrew/bootbox/releases/download/v4.4.0/bootbox.min.js"></script>
 
+    <script>
+        $(document).ready(function () {
+
+            $('.delete_product').click(function (e) {
+
+                e.preventDefault();
+
+                var pid = $(this).attr('data-id');
+                var parent = $(this).parent("td").parent("tr");
+
+                bootbox.dialog({
+                    message: "<p>Confirma a exclusão?</p><p>Esta ação não podererá ser desfeita.</p>",
+                    title: "<i class='glyphicon glyphicon-trash'></i> Excluir",
+                    buttons: {
+                        success: {
+                            label: "Cancelar",
+                            className: "btn btn-cancel",
+                            callback: function () {
+                                $('.bootbox').modal('hide');
+                            }
+                        },
+                        danger: {
+                            label: "Excluir",
+                            className: "btn btn-danger",
+                            callback: function () {
+                                bootbox.alert('Exclusão realizada com sucesso...');
+                                parent.fadeOut('slow');
+                            }
+                        }
+                    }
+                });
+
+
+            });
+
+        });
+    </script>
     <!-- Bootstrap Core JavaScript -->
     <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
 

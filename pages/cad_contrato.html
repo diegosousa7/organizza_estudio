@@ -546,7 +546,8 @@ Fica expressamente vedado o uso de imagens produzidos para outros fins que não 
                             <div class="col-lg-12">
                                 <span class="col-lg-12"></span>
                                 <a type="button" class="fa fa-file-text-o btn btn-primary btn-lg pull-left"
-                                   title="Gerar Contrato" href="../data/Contrato Ariele.pdf" target="_black"> Gerar Contrato</a>
+                                   title="Gerar Contrato" onclick="goBack()" href="../data/Contrato Ariele.pdf"
+                                   target="_black"> Gerar Contrato</a>
                                 <a type="button" class="fa fa-close btn btn-primary btn-lg btn-danger pull-right"
                                    title="Voltar" href="contrato.html"> Cancelar</a>
                             </div>
@@ -595,6 +596,11 @@ Fica expressamente vedado o uso de imagens produzidos para outros fins que não 
                 }
             });
         })
+    </script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
     </script>
     <!-- Bootstrap Core JavaScript -->
     <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
